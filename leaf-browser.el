@@ -45,29 +45,28 @@
 ;;  Serve function
 ;;
 
-(defun lbrowser-encode-html ()
+(defvar lbrowser-html-single-tags
+  '(base link meta img br area param hr col option input wbr)
+  "List of empty element tags.")
+
+(defun lbrowser-encode-html (str)
   "encode sexp to html"
-  (let ((fn (lambda (dom)
-              (let ((tag  (pop dom))
-                    (prop (pop dom))
-                    (val  (if (= 1 (length dom)) (car dom) dom)))
-                (if (memq tag html-parse-single-tags)
-                    (format "%s\n"
-                            (format "<%s%s>"
-                                    tag
-                                    (mapconcat (lambda (x)
-                                                 (format " %s=\"%s\"" (car x) (cdr x)))
-                                               prop "")))
-                  (format "%s%s%s\n"
-                          (format "<%s%s>"
-                                  tag
-                                  (mapconcat (lambda (x)
-                                               (format " %s=\"%s\"" (car x) (cdr x)))
-                                             prop ""))
-                          (if (consp val) (mapconcat fn val "") val)
-                          (format "</%s>" tag)))))))
-    (funcall fn (with-current-buffer "*html*"
-                  (libxml-parse-html-region (point-min) (point-max))))))
+  (let ((prop--fn
+         (lambda (x)
+           (format " %s=\"%s\"" (car x) (cdr x))))
+        (encode-fn
+         (lambda (dom)
+           (let ((tag  (pop dom))
+                 (prop (pop dom))
+                 (val  (if (= 1 (length dom)) (car dom) dom)))
+             (if (memq tag html-parse-single-tags)
+                 (format "%s\n"
+                         (format "<%s%s>" tag (mapconcat prop--fn prop "")))
+               (format "%s%s%s\n"
+                       (format "<%s%s>" tag (mapconcat prop--fn prop ""))
+                       (if (consp val) (mapconcat encode-fn val "") val)
+                       (format "</%s>" tag)))))))
+    (funcall encode-fn str)))
 
 (defun lbrowser-servlet-home (path query req)
   "Generate page"
