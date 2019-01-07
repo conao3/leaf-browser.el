@@ -24,6 +24,8 @@
 
 ;;; Code:
 
+(require 'leaf)
+(require 'simple-httpd)
 
 
 (provide 'leaf-browser)

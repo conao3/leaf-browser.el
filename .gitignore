@@ -2,3 +2,10 @@
 # http://dotfiles.conao3.com/gitignore
 
 *.elc
+
+# depend files
+simple-httpd.el
+leaf.el
+leaf-backend.el
+leaf-handler.el
+leaf-polyfill.el

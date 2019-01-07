@@ -4,16 +4,22 @@ include Makefunc.mk
 
 TOP         := $(dir $(lastword $(MAKEFILE_LIST)))
 EMACS_RAW   := $(filter-out emacs-undumped, $(shell compgen -c emacs- | xargs))
-ALL_EMACS   := $(strip $(sort $(EMACS_RAW)))
+AVAILABLE   := $(strip $(sort $(EMACS_RAW)))
+ALL_EMACS   := $(filter $(AVAILABLE),emacs-24.5 emacs-25.3 emacs-26.1)
 
 EMACS       ?= emacs
 
 BATCH       := $(EMACS) -Q --batch -L $(TOP)
 
+SIMPLEHTTPD := simple-httpd.el
+LEAF        := leaf.el leaf-backend.el leaf-handler.el leaf-polyfill.el
+DEPEND      := $(SIMPLEHTTPD) $(LEAF)
+
 TESTFILE    := leaf-browser-tests.el
+
 ELS         := leaf-browser.el
 
-CORTELS     := $(TESTFILE) cort.el
+CORTELS     := $(TESTFILE) $(DEPEND) cort.el
 CORT_ARGS   := -l $(TESTFILE) -f cort-run-tests
 
 LOGFILE     := .make-check.log
@@ -24,6 +30,7 @@ LOGFILE     := .make-check.log
 all: git-hook $(ELS:.el=.elc)
 
 git-hook:
+	echo $(ALL_EMACS) $(AVAILABLE)
 	cp -a git-hooks/* .git/hooks/
 
 include Makefile-check.mk
@@ -36,12 +43,12 @@ allcheck: $(ALL_EMACS:%=.make-check-%)
 	@cat $(LOGFILE) | grep =====
 	@rm $(LOGFILE)
 
-.make-check-%:
+.make-check-%: $(DEPEND)
 	mkdir -p .make-$*
 	cp -f $(ELS) $(CORTELS) .make-$*/
 	cp -f Makefile-check.mk .make-$*/Makefile
 	$(MAKE) -C .make-$* clean
-	$(call EXPORT,ELS CORT_ARGS) \
+	$(call EXPORT,ELS CORT_ARGS DEPEND) \
 	  EMACS=$* $(MAKE) -C .make-$* check 2>&1 | tee -a $(LOGFILE)
 	rm -rf .make-$*
 
@@ -53,11 +60,19 @@ test: $(ALL_EMACS:%=.make-test-%)
 	@cat $(LOGFILE) | grep =====
 	@rm $(LOGFILE)
 
-.make-test-%:
+.make-test-%: $(DEPEND)
 	mkdir -p .make-$*
 	cp -f $(ELS) $(CORTELS) .make-$*/
 	cp -f Makefile-check.mk .make-$*/Makefile
 	$(MAKE) -C .make-$* clean
-	$(call EXPORT,ELS CORT_ARGS) \
+	$(call EXPORT,ELS CORT_ARGS DEPEND) \
 	  EMACS=$* $(MAKE) -C .make-$* check 2>&1 >> $(LOGFILE)
 	rm -rf .make-$*
+
+##############################
+#  depend files
+$(SIMPLEHTTPD):
+	curl -O https://raw.githubusercontent.com/skeeto/emacs-web-server/master/simple-httpd.el
+
+$(LEAF):
+	curl -O https://raw.githubusercontent.com/conao3/leaf.el/master/$@
