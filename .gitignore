@@ -5,6 +5,9 @@
 
 # depend files
 simple-httpd.el
+
+htmlize.el
+
 leaf.el
 leaf-backend.el
 leaf-handler.el

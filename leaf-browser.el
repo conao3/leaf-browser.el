@@ -31,6 +31,7 @@
 
 (require 'leaf)
 (require 'simple-httpd)
+(require 'htmlize)
 
 (defgroup leaf-browser nil
   "Web frontend of custom-mode and generate `leaf' configuration."

@@ -13,7 +13,8 @@ BATCH       := $(EMACS) -Q --batch -L $(TOP)
 
 SIMPLEHTTPD := simple-httpd.el
 LEAF        := leaf.el leaf-backend.el leaf-handler.el leaf-polyfill.el
-DEPEND      := $(SIMPLEHTTPD) $(LEAF)
+HTMLIZE     := htmlize.el
+DEPEND      := $(SIMPLEHTTPD) $(LEAF) $(HTMLIZE)
 
 TESTFILE    := leaf-browser-tests.el
 
@@ -76,3 +77,6 @@ $(SIMPLEHTTPD):
 
 $(LEAF):
 	curl -O https://raw.githubusercontent.com/conao3/leaf.el/master/$@
+
+$(HTMLIZE):
+	curl -O https://raw.githubusercontent.com/hniksic/emacs-htmlize/master/$@
