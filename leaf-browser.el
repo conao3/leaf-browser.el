@@ -101,7 +101,8 @@
   "Open leaf-browser session."
   (interactive)
   (unless (httpd-running-p)
-    (let ((httpd-port "8088"))
+    (let ((httpd-port "8088")
+          (httpd-root lbrowser-root-dir))
       (httpd-start)))
 
   (defservlet leaf-browser/home text/html (path query req)
