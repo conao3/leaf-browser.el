@@ -102,11 +102,14 @@
   (interactive)
   (unless (httpd-running-p)
     (let ((httpd-port "8088")
-          (httpd-root lbrowser-root-dir))
+          (httpd-root ))
       (httpd-start)))
 
   (defservlet leaf-browser/home text/html (path query req)
     (lbrowser-servlet-home path query req))
+
+  (defservlet* leaf-browser/imgs/:name "image/svg+xml" ()
+    (insert-file (concat lbrowser-root-dir "imgs/" name)))
 
   (message "Open leaf-browser session."))
 
