@@ -27,6 +27,29 @@
 (require 'leaf)
 (require 'simple-httpd)
 
+(defgroup leaf-browser nil
+  "Web frontend of custom-mode and generate `leaf' configuration."
+  :group 'lisp)
+
+(defconst lbrowser-version "0.0.1"
+  "leaf-browser version")
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;  Main function
+;;
+
+(defun lbrowser-open ()
+  "Open leaf-browser session."
+  (interactive)
+  (unless (httpd-running-p)
+    (httpd-start)))
+
+(defun lbrowser-close ()
+  "Close leaf-browser session"
+  (interactive)
+  (when (httpd-running-p)
+    (httpd-stop)))
 
 (provide 'leaf-browser)
 ;;; leaf-browser.el ends here
