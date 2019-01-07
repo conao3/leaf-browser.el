@@ -49,15 +49,30 @@
 ;;  Page
 ;;
 
+(defmacro lbrowser-html () (declare (indent 1)))
+(defmacro lbrowser-head () (declare (indent 1)))
+(defmacro lbrowser-body () (declare (indent 1)))
+(defmacro lbrowser-div  () (declare (indent 1)))
+
 (defcustom lbrowser-contents-home
-  '(html nil
-         (head nil
-               (meta ((charset . "utf-8")))
-               (title nil "home"))
-         (style ((type . "text/css"))
-                "body {color: #D7DAE0; background-color: #292D34;}")
-         (body nil
-               (img ((href . "/leaf-browser/imgs/splash.svg")))))
+  '(lbrowser-html nil
+     (lbrowser-head nil
+       (link ((rel . "stylesheet") (href . "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css")))
+       (meta ((charset . "utf-8")))
+       (meta ((name . "viewport") (content . "width=device-width, initial-scale=1.0")))
+       (title nil "home"))
+     (style ((type . "text/css"))
+            "body {color: #D7DAE0; background-color: #292D34;}")
+     (lbrowser-body nil
+       (lbrowser-div ((class . "container"))
+         (lbrowser-div ((class . "center-align"))
+           (img ((class . "responsive-img") (src . "/leaf-browser/imgs/splash.svg"))))
+         (lbrowser-div ((class . "row"))
+           (lbrowser-div ((class . "col s3"))
+             (comment nil "Grey navigation panel"))
+           (lbrowser-div ((class . "col s9"))
+             (comment nil "Teal page content"))))
+       (script ((src . "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js")))))
   "leaf-browser contesnts serve <leaf-browser/home>")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -78,19 +93,20 @@
   (setq encode-fn
         (lambda (dom)
           (if (listp dom)
-              (let ((tag  (pop dom))
-                    (prop (pop dom))
-                    (rest dom))
+              (let* ((tag  (pop dom))
+                     (prop (pop dom))
+                     (rest dom)
+                     (tagname (replace-regexp-in-string
+                               "^lbrowser-" "" (symbol-name tag))))
                 (if (memq tag html-parse-single-tags)
                     (format "%s\n"
-                            (format "<%s%s>" tag (mapconcat prop--fn prop "")))
-                  (format "%s%s%s\n"
-                          (format "<%s%s>" tag (mapconcat prop--fn prop ""))
+                            (format "<%s%s>" tagname (mapconcat prop--fn prop "")))
+                  (format "\n%s%s%s\n"
+                          (format "<%s%s>" tagname (mapconcat prop--fn prop ""))
                           (mapconcat encode-fn rest "")
-                          (format "</%s>" tag))))
+                          (format "</%s>" tagname))))
             dom)))
-  (funcall encode-fn (with-current-buffer "*html*"
-                       (libxml-parse-html-region (point-min) (point-max))))))
+  (funcall encode-fn lbrowser-contents-home)))
 
 (defun lbrowser-servlet-home (path query req)
   "Generate page"
