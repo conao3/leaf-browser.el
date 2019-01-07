@@ -43,13 +43,15 @@
   "Open leaf-browser session."
   (interactive)
   (unless (httpd-running-p)
-    (httpd-start)))
+    (httpd-start))
+  (message "Open leaf-browser session."))
 
 (defun lbrowser-close ()
   "Close leaf-browser session"
   (interactive)
   (when (httpd-running-p)
-    (httpd-stop)))
+    (httpd-stop))
+  (message "Close leaf-browser session."))
 
 (provide 'leaf-browser)
 ;;; leaf-browser.el ends here
