@@ -10,8 +10,8 @@ EMACS       ?= emacs
 
 BATCH       := $(EMACS) -Q --batch -L $(TOP)
 
-TESTFILE    := ctmbrowser-tests.el
-ELS         := ctmbrowser.el
+TESTFILE    := leaf-browser-tests.el
+ELS         := leaf-browser.el
 
 CORTELS     := $(TESTFILE) cort.el
 CORT_ARGS   := -l $(TESTFILE) -f cort-run-tests
