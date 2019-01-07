@@ -40,6 +40,10 @@
 (defconst lbrowser-version "0.0.1"
   "leaf-browser version")
 
+(defcustom lbrowser-root-dir (file-name-directory
+                              (or load-file-name (buffer-file-name)))
+  "lbrowser-root-dir")
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;  Page
