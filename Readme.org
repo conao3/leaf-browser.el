@@ -1,12 +1,12 @@
 #+author: conao
 #+date: <2019-01-04 Fri>
 
-* ctmbrowser.el
-[[https://github.com/conao3/ctmbrowser.el][https://img.shields.io/github/tag/conao3/ctmbrowser.el.svg?style=flat-square]]
-[[https://travis-ci.org/conao3/ctmbrowser.el][https://img.shields.io/travis/conao3/ctmbrowser.el/master.svg?style=flat-square]]
-[[https://github.com/conao3/ctmbrowser.el][https://img.shields.io/github/license/conao3/ctmbrowser.el.svg?style=flat-square]]
+* leaf-browser.el
+[[https://github.com/conao3/leaf-browser.el][https://img.shields.io/github/tag/conao3/leaf-browser.el.svg?style=flat-square]]
+[[https://travis-ci.org/conao3/leaf-browser.el][https://img.shields.io/travis/conao3/leaf-browser.el/master.svg?style=flat-square]]
+[[https://github.com/conao3/leaf-browser.el][https://img.shields.io/github/license/conao3/leaf-browser.el.svg?style=flat-square]]
 
 - [[What is it?]]
 
 * What is it?
-~ctmbrowser.el~ provide Web frontend of Emacs custom-mode.
+~leaf-browser.el~ provide Web frontend of Emacs custom-mode.
