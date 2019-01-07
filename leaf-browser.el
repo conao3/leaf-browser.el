@@ -56,7 +56,8 @@
                (title nil "home"))
          (style ((type . "text/css"))
                 "body {color: #D7DAE0; background-color: #292D34;}")
-         (body nil "本文"))
+         (body nil
+               (img ((href . "/leaf-browser/imgs/splash.svg")))))
   "leaf-browser contesnts serve <leaf-browser/home>")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -71,22 +72,25 @@
 (defun lbrowser-encode-html (str)
   "encode sexp to html"
   (let* ((prop--fn) (encode-fn))
-    (setq prop--fn
-          (lambda (x)
-            (format " %s=\"%s\"" (car x) (cdr x))))
-    (setq encode-fn
-          (lambda (dom)
-            (let ((tag  (pop dom))
-                  (prop (pop dom))
-                  (val  (if (= 1 (length dom)) (car dom) dom)))
-              (if (memq tag html-parse-single-tags)
-                  (format "%s\n"
-                          (format "<%s%s>" tag (mapconcat prop--fn prop "")))
-                (format "%s%s%s\n"
-                        (format "<%s%s>" tag (mapconcat prop--fn prop ""))
-                        (if (consp val) (mapconcat encode-fn val "") val)
-                        (format "</%s>" tag))))))
-    (funcall encode-fn str)))
+  (setq prop--fn
+        (lambda (x)
+          (format " %s=\"%s\"" (car x) (cdr x))))
+  (setq encode-fn
+        (lambda (dom)
+          (if (listp dom)
+              (let ((tag  (pop dom))
+                    (prop (pop dom))
+                    (rest dom))
+                (if (memq tag html-parse-single-tags)
+                    (format "%s\n"
+                            (format "<%s%s>" tag (mapconcat prop--fn prop "")))
+                  (format "%s%s%s\n"
+                          (format "<%s%s>" tag (mapconcat prop--fn prop ""))
+                          (mapconcat encode-fn rest "")
+                          (format "</%s>" tag))))
+            dom)))
+  (funcall encode-fn (with-current-buffer "*html*"
+                       (libxml-parse-html-region (point-min) (point-max))))))
 
 (defun lbrowser-servlet-home (path query req)
   "Generate page"
