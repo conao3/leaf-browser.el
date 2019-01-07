@@ -42,6 +42,21 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
+;;  Page
+;;
+
+(defcustom lbrowser-contents-home
+  '(html nil
+         (head nil
+               (meta ((charset . "utf-8")))
+               (title nil "home"))
+         (style ((type . "text/css"))
+                "body {color: #D7DAE0; background-color: #292D34;}")
+         (body nil "本文"))
+  "leaf-browser contesnts serve <leaf-browser/home>")
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
 ;;  Serve function
 ;;
 
@@ -51,26 +66,27 @@
 
 (defun lbrowser-encode-html (str)
   "encode sexp to html"
-  (let ((prop--fn
-         (lambda (x)
-           (format " %s=\"%s\"" (car x) (cdr x))))
-        (encode-fn
-         (lambda (dom)
-           (let ((tag  (pop dom))
-                 (prop (pop dom))
-                 (val  (if (= 1 (length dom)) (car dom) dom)))
-             (if (memq tag html-parse-single-tags)
-                 (format "%s\n"
-                         (format "<%s%s>" tag (mapconcat prop--fn prop "")))
-               (format "%s%s%s\n"
-                       (format "<%s%s>" tag (mapconcat prop--fn prop ""))
-                       (if (consp val) (mapconcat encode-fn val "") val)
-                       (format "</%s>" tag)))))))
+  (let* ((prop--fn) (encode-fn))
+    (setq prop--fn
+          (lambda (x)
+            (format " %s=\"%s\"" (car x) (cdr x))))
+    (setq encode-fn
+          (lambda (dom)
+            (let ((tag  (pop dom))
+                  (prop (pop dom))
+                  (val  (if (= 1 (length dom)) (car dom) dom)))
+              (if (memq tag html-parse-single-tags)
+                  (format "%s\n"
+                          (format "<%s%s>" tag (mapconcat prop--fn prop "")))
+                (format "%s%s%s\n"
+                        (format "<%s%s>" tag (mapconcat prop--fn prop ""))
+                        (if (consp val) (mapconcat encode-fn val "") val)
+                        (format "</%s>" tag))))))
     (funcall encode-fn str)))
 
 (defun lbrowser-servlet-home (path query req)
   "Generate page"
-  (insert "home!"))
+  (insert (lbrowser-encode-html lbrowser-contents-home)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -81,9 +97,10 @@
   "Open leaf-browser session."
   (interactive)
   (unless (httpd-running-p)
-    (httpd-start))
+    (let ((httpd-port "8088"))
+      (httpd-start)))
 
-  (defservlet leaf-browser/home text/json (path query req)
+  (defservlet leaf-browser/home text/html (path query req)
     (lbrowser-servlet-home path query req))
 
   (message "Open leaf-browser session."))
