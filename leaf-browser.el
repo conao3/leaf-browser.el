@@ -41,6 +41,15 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
+;;  Serve function
+;;
+
+(defun lbrowser-servlet-home (path query req)
+  "Generate page"
+  (insert "home!"))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
 ;;  Main function
 ;;
 
@@ -49,6 +58,10 @@
   (interactive)
   (unless (httpd-running-p)
     (httpd-start))
+
+  (defservlet leaf-browser/home text/json (path query req)
+    (lbrowser-servlet-home path query req))
+
   (message "Open leaf-browser session."))
 
 (defun lbrowser-close ()
