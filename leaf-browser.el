@@ -3,7 +3,12 @@
 ;; Copyright (C) 2019  Naoya Yamashita
 
 ;; Author: Naoya Yamashita <conao@conao-air.local>
+;; Maintainer: Naoya Yamashita <conao3@gmail.com>
+;; Keywords: settings
+;; Version: 0.0.1
+;; URL: https://github.com/conao3/leaf-browser.el
 ;; Keywords: 
+;; Package-Requires: ((emacs "24.3"))
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
