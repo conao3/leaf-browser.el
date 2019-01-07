@@ -45,6 +45,30 @@
 ;;  Serve function
 ;;
 
+(defun lbrowser-encode-html ()
+  "encode sexp to html"
+  (let ((fn (lambda (dom)
+              (let ((tag  (pop dom))
+                    (prop (pop dom))
+                    (val  (if (= 1 (length dom)) (car dom) dom)))
+                (if (memq tag html-parse-single-tags)
+                    (format "%s\n"
+                            (format "<%s%s>"
+                                    tag
+                                    (mapconcat (lambda (x)
+                                                 (format " %s=\"%s\"" (car x) (cdr x)))
+                                               prop "")))
+                  (format "%s%s%s\n"
+                          (format "<%s%s>"
+                                  tag
+                                  (mapconcat (lambda (x)
+                                               (format " %s=\"%s\"" (car x) (cdr x)))
+                                             prop ""))
+                          (if (consp val) (mapconcat fn val "") val)
+                          (format "</%s>" tag)))))))
+    (funcall fn (with-current-buffer "*html*"
+                  (libxml-parse-html-region (point-min) (point-max))))))
+
 (defun lbrowser-servlet-home (path query req)
   "Generate page"
   (insert "home!"))
