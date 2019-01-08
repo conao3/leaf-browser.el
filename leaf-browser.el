@@ -49,28 +49,31 @@
 ;;  Page
 ;;
 
-(defmacro lbrowser-html () (declare (indent 1)))
-(defmacro lbrowser-head () (declare (indent 1)))
-(defmacro lbrowser-body () (declare (indent 1)))
-(defmacro lbrowser-div  () (declare (indent 1)))
+;; (mapcar (lambda (tag)
+;;         (eval `(defmacro ,(intern (format "lbrowser-%s" tag)) ()
+;;                  (declare (indent 1)))))
+;;       (cdr '(:dammy-symbol
+;;              html head body
+;;              section nav article header footer
+;;              div form input)))
 
-(defcustom lbrowser-contents-home
-  '(lbrowser-html nil
-     (lbrowser-head nil
+(defcustom contents-home
+  '(html nil
+     (head nil
        (link ((rel . "stylesheet") (href . "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css")))
        (meta ((charset . "utf-8")))
        (meta ((name . "viewport") (content . "width=device-width, initial-scale=1.0")))
        (title nil "home"))
      (style ((type . "text/css"))
             "body {color: #D7DAE0; background-color: #292D34;}")
-     (lbrowser-body nil
-       (lbrowser-div ((class . "container"))
-         (lbrowser-div ((class . "center-align"))
+     (body nil
+       (div ((class . "container"))
+         (div ((class . "center-align"))
            (img ((class . "responsive-img") (src . "/leaf-browser/imgs/splash.svg"))))
-         (lbrowser-div ((class . "row"))
-           (lbrowser-div ((class . "col s3"))
+         (div ((class . "row"))
+           (div ((class . "col s3"))
              (comment nil "Grey navigation panel"))
-           (lbrowser-div ((class . "col s9"))
+           (div ((class . "col s9"))
              (comment nil "Teal page content"))))
        (script ((src . "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js")))))
   "leaf-browser contesnts serve <leaf-browser/home>")
@@ -84,29 +87,30 @@
   '(base link meta img br area param hr col option input wbr)
   "List of empty element tags.")
 
-(defun lbrowser-encode-html (str)
+(defun lbrowser-encode-html (domsexp &optional doctype)
   "encode sexp to html"
-  (let* ((prop--fn) (encode-fn))
-  (setq prop--fn
-        (lambda (x)
-          (format " %s=\"%s\"" (car x) (cdr x))))
-  (setq encode-fn
-        (lambda (dom)
-          (if (listp dom)
-              (let* ((tag  (pop dom))
-                     (prop (pop dom))
-                     (rest dom)
-                     (tagname (replace-regexp-in-string
-                               "^lbrowser-" "" (symbol-name tag))))
-                (if (memq tag html-parse-single-tags)
-                    (format "%s\n"
-                            (format "<%s%s>" tagname (mapconcat prop--fn prop "")))
-                  (format "\n%s%s%s\n"
-                          (format "<%s%s>" tagname (mapconcat prop--fn prop ""))
-                          (mapconcat encode-fn rest "")
-                          (format "</%s>" tagname))))
-            dom)))
-  (funcall encode-fn lbrowser-contents-home)))
+  (concat
+   (if doctype doctype "")
+   (let* ((prop--fn) (encode-fn))
+     (setq prop--fn
+           (lambda (x)
+             (format " %s=\"%s\"" (car x) (cdr x))))
+     (setq encode-fn
+           (lambda (dom)
+             (if (listp dom)
+                 (let* ((tag  (pop dom))
+                        (prop (pop dom))
+                        (rest dom)
+                        (tagname (symbol-name tag)))
+                   (if (memq tag html-parse-single-tags)
+                       (format "%s\n"
+                               (format "<%s%s>" tagname (mapconcat prop--fn prop "")))
+                     (format "\n%s%s%s\n"
+                             (format "<%s%s>" tagname (mapconcat prop--fn prop ""))
+                             (mapconcat encode-fn rest "")
+                             (format "</%s>" tagname))))
+               dom)))
+     (funcall encode-fn domsexp))))
 
 (defun lbrowser-servlet-define ()
   "Serve define"
@@ -114,7 +118,13 @@
     (insert (lbrowser-encode-html lbrowser-contents-home)))
 
   (defservlet* leaf-browser/imgs/:name "image/svg+xml" ()
-    (insert-file (concat lbrowser-root-dir "imgs/" name))))
+    (insert-file (concat lbrowser-root-dir "imgs/" name)))
+
+  (defservlet* leaf-browser/debug/:path "text/html" ()
+    (insert (lbrowser-encode-html
+             (with-current-buffer "*leaf-debug-sexp*"
+               (read (buffer-string)))
+             "<!DOCTYPE html>"))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
