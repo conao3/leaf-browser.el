@@ -108,9 +108,13 @@
             dom)))
   (funcall encode-fn lbrowser-contents-home)))
 
-(defun lbrowser-servlet-home (path query req)
-  "Generate page"
-  (insert (lbrowser-encode-html lbrowser-contents-home)))
+(defun lbrowser-servlet-define ()
+  "Serve define"
+  (defservlet* leaf-browser/home "text/html" ()
+    (insert (lbrowser-encode-html lbrowser-contents-home)))
+
+  (defservlet* leaf-browser/imgs/:name "image/svg+xml" ()
+    (insert-file (concat lbrowser-root-dir "imgs/" name))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -125,11 +129,7 @@
           (httpd-root ))
       (httpd-start)))
 
-  (defservlet leaf-browser/home text/html (path query req)
-    (lbrowser-servlet-home path query req))
-
-  (defservlet* leaf-browser/imgs/:name "image/svg+xml" ()
-    (insert-file (concat lbrowser-root-dir "imgs/" name)))
+  (lbrowser-servlet-define)
 
   (message "Open leaf-browser session."))
 
