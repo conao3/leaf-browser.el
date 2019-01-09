@@ -43,7 +43,7 @@ $(document).ready(function(){
                (h4 nil (a ((href . "#") (class . "center")) "Leaf-browser.el")))
              (div ((class . "col s12"))
                (div ((class . "center"))
-                 (img ((class . "responsive-img") (src . "/leaf-browser/imgs/splash.svg")))))
+                 (img ((class . "responsive-img") (src . "/leaf-browser/sources/splash.svg")))))
              (ul ((class . "right hide-on-med-and-down"))
                (li nil (a ((href . "sass.html")) "Sass"))
                (li nil (a ((href . "badges.html")) "Components"))
@@ -100,7 +100,7 @@ $(document).ready(function(){
          "Cloud" (i ((class . "material-icons right")) "backup"))
        
        (div ((class . "center-align"))
-         (img ((class . "responsive-img") (src . "/leaf-browser/imgs/splash.svg"))))
+         (img ((class . "responsive-img") (src . "/leaf-browser/sources/splash.svg"))))
        (div ((class . "row"))
          (div ((class . "col s3"))
            (comment nil "Grey navigation panel"))

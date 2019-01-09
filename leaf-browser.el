@@ -90,8 +90,9 @@
   (defservlet* leaf-browser/home "text/html" ()
     (insert (seml-decode-html lbrowser-contents-home)))
 
-  (defservlet* leaf-browser/imgs/:name "image/svg+xml" ()
-    (insert-file-contents (concat lbrowser-root-dir "imgs/" name)))
+  (defservlet* leaf-browser/sources/:name "text/html" ()
+    (file-name-extension "name.sml")
+    (insert-file-contents (concat lbrowser-root-dir "sources/" name)))
 
   (defservlet* leaf-browser/debug/:path "text/html" ()
     (message path)
