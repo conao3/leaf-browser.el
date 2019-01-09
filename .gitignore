@@ -12,3 +12,5 @@ leaf.el
 leaf-backend.el
 leaf-handler.el
 leaf-polyfill.el
+
+seml-mode.el

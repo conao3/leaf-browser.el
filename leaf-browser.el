@@ -32,6 +32,7 @@
 (require 'leaf)
 (require 'simple-httpd)
 (require 'htmlize)
+(require 'seml-mode)
 
 (defgroup leaf-browser nil
   "Web frontend of custom-mode and generate `leaf' configuration."
