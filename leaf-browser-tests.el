@@ -26,6 +26,16 @@
 (require 'leaf-browser)
 (require 'cort)
 
+(defservlet* leaf-browser/debug-/:path "text/html" ()
+    (message path)
+    (insert (seml-decode-html
+             (with-temp-buffer
+               (insert-file-contents
+                (format "~/.emacs.d/site-lisp/leaf-browser.el/seml/%s.sml" path))
+               (eval
+                (read
+                 (buffer-substring-no-properties (point-min) (point-max)))))
+             "<!DOCTYPE html>")))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
