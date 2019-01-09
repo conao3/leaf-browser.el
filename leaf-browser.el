@@ -84,45 +84,16 @@
 ;;  Serve function
 ;;
 
-(defvar lbrowser-html-single-tags
-  '(base link meta img br area param hr col option input wbr)
-  "List of empty element tags.")
-
-(defun lbrowser-encode-html (domsexp &optional doctype)
-  "encode sexp to html"
-  (concat
-   (if doctype doctype "")
-   (let* ((prop--fn) (encode-fn))
-     (setq prop--fn
-           (lambda (x)
-             (format " %s=\"%s\"" (car x) (cdr x))))
-     (setq encode-fn
-           (lambda (dom)
-             (if (listp dom)
-                 (let* ((tag  (pop dom))
-                        (prop (pop dom))
-                        (rest dom)
-                        (tagname (symbol-name tag)))
-                   (if (memq tag html-parse-single-tags)
-                       (format "%s\n"
-                               (format "<%s%s>" tagname (mapconcat prop--fn prop "")))
-                     (format "\n%s%s%s\n"
-                             (format "<%s%s>" tagname (mapconcat prop--fn prop ""))
-                             (mapconcat encode-fn rest "")
-                             (format "</%s>" tagname))))
-               dom)))
-     (funcall encode-fn domsexp))))
-
 (defun lbrowser-servlet-define ()
   "Serve define"
   (defservlet* leaf-browser/home "text/html" ()
-    (insert (lbrowser-encode-html lbrowser-contents-home)))
+    (insert (seml-encode-html lbrowser-contents-home)))
 
   (defservlet* leaf-browser/imgs/:name "image/svg+xml" ()
     (insert-file (concat lbrowser-root-dir "imgs/" name)))
 
   (defservlet* leaf-browser/debug/:path "text/html" ()
-    (insert (lbrowser-encode-html
+    (insert (seml-encode-html
              (with-current-buffer "*leaf-debug-sexp*"
                (read (buffer-string)))
              "<!DOCTYPE html>"))))
