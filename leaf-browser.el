@@ -68,13 +68,14 @@
            (concat lbrowser-root-dir "seml/*.sml"))))
 
 (mapc (lambda (name)
-        (eval `(defvar ,(intern (format "lbrowser-contents-%s" name))
-                 ',(read
-                    (with-temp-buffer
-                      (insert-file-contents
-                       (format "%sseml/%s.sml" lbrowser-root-dir name))
-                      (buffer-substring-no-properties (point-min) (point-max)))))))
-        lbrowser-contents)
+        (eval
+         `(defvar ,(intern (format "lbrowser-contents-%s" name))
+            ',(read
+               (with-temp-buffer
+                 (insert-file-contents
+                  (format "%sseml/%s.sml" lbrowser-root-dir name))
+                 (buffer-substring-no-properties (point-min) (point-max)))))))
+      lbrowser-contents)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -105,9 +106,7 @@
   "Open leaf-browser session."
   (interactive)
   (unless (httpd-running-p)
-    (let ((httpd-port "8088")
-          (httpd-root ))
-      (httpd-start)))
+      (httpd-start))
 
   (lbrowser-servlet-define)
 
