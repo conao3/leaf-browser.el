@@ -77,6 +77,9 @@
                  (buffer-substring-no-properties (point-min) (point-max)))))))
       lbrowser-contents)
 
+;; for bytecompiler
+(defvar lbrowser-contents-home)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;  Serve function
