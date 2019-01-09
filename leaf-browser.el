@@ -96,8 +96,11 @@
   (defservlet* leaf-browser/debug/:path "text/html" ()
     (message path)
     (insert (seml-decode-html
-             (with-current-buffer "*leaf-debug-sexp*"
-               (read (buffer-substring-no-properties (point-min) (point-max))))
+             (with-temp-buffer
+               (insert-buffer-substring "home.sml" (point-min) (point-max))
+               (eval
+                (read
+                 (buffer-substring-no-properties (point-min) (point-max)))))
              "<!DOCTYPE html>"))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
