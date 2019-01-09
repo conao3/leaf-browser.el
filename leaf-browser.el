@@ -43,7 +43,9 @@
 
 (defcustom lbrowser-root-dir (file-name-directory
                               (or load-file-name (buffer-file-name)))
-  "lbrowser-root-dir")
+  "lbrowser-root-dir"
+  :type 'directory
+  :group 'leaf-browser)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -58,7 +60,7 @@
 ;;              section nav article header footer
 ;;              div form input)))
 
-(defcustom contents-home
+(defvar lbrowser-contents-home
   '(html nil
      (head nil
        (link ((rel . "stylesheet") (href . "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css")))
@@ -87,15 +89,16 @@
 (defun lbrowser-servlet-define ()
   "Serve define"
   (defservlet* leaf-browser/home "text/html" ()
-    (insert (seml-encode-html lbrowser-contents-home)))
+    (insert (seml-decode-html lbrowser-contents-home)))
 
   (defservlet* leaf-browser/imgs/:name "image/svg+xml" ()
-    (insert-file (concat lbrowser-root-dir "imgs/" name)))
+    (insert-file-contents (concat lbrowser-root-dir "imgs/" name)))
 
   (defservlet* leaf-browser/debug/:path "text/html" ()
-    (insert (seml-encode-html
+    (message path)
+    (insert (seml-decode-html
              (with-current-buffer "*leaf-debug-sexp*"
-               (read (buffer-string)))
+               (read (buffer-substring-no-properties (point-min) (point-max))))
              "<!DOCTYPE html>"))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
