@@ -60,26 +60,21 @@
 ;;              section nav article header footer
 ;;              div form input)))
 
-(defvar lbrowser-contents-home
-  '(html nil
-     (head nil
-       (link ((rel . "stylesheet") (href . "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css")))
-       (meta ((charset . "utf-8")))
-       (meta ((name . "viewport") (content . "width=device-width, initial-scale=1.0")))
-       (title nil "home"))
-     (style ((type . "text/css"))
-            "body {color: #D7DAE0; background-color: #292D34;}")
-     (body nil
-       (div ((class . "container"))
-         (div ((class . "center-align"))
-           (img ((class . "responsive-img") (src . "/leaf-browser/imgs/splash.svg"))))
-         (div ((class . "row"))
-           (div ((class . "col s3"))
-             (comment nil "Grey navigation panel"))
-           (div ((class . "col s9"))
-             (comment nil "Teal page content"))))
-       (script ((src . "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js")))))
-  "leaf-browser contesnts serve <leaf-browser/home>")
+(defvar lbrowser-contents
+  (mapcar (lambda (path)
+            (file-name-sans-extension
+             (file-name-nondirectory path)))
+          (file-expand-wildcards
+           (concat lbrowser-root-dir "seml/*.sml"))))
+
+(mapc (lambda (name)
+        (eval `(defvar ,(intern (format "lbrowser-contents-%s" name))
+                 ',(read
+                    (with-temp-buffer
+                      (insert-file-contents
+                       (format "%sseml/%s.sml" lbrowser-root-dir name))
+                      (buffer-substring-no-properties (point-min) (point-max)))))))
+        lbrowser-contents)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
