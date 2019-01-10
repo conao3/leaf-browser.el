@@ -85,7 +85,7 @@
 ;;  Serve function
 ;;
 
-(defun lbrowser-servlet-define ()
+(defun lbrowser-define-servlet ()
   "Serve define"
   (defservlet* leaf-browser/home "text/html" ()
     (insert (seml-decode-html lbrowser-contents-home)))
@@ -115,7 +115,7 @@
   (unless (httpd-running-p)
       (httpd-start))
 
-  (lbrowser-servlet-define)
+  (lbrowser-define-servlet)
 
   (message "Open leaf-browser session."))
 
