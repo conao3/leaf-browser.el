@@ -31,7 +31,7 @@
     (insert (seml-decode-html
              (with-temp-buffer
                (insert-file-contents
-                (format "~/.emacs.d/site-lisp/leaf-browser.el/seml/%s.sml" path))
+                (format "~/.emacs.d/site-lisp/leaf-browser.el/seml/%s.seml" path))
                (eval
                 (read
                  (buffer-substring-no-properties (point-min) (point-max)))))
