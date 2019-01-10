@@ -90,9 +90,13 @@
   (defservlet* leaf-browser/home "text/html" ()
     (insert (seml-decode-html lbrowser-contents-home)))
 
-  (defservlet* leaf-browser/sources/:name "text/html" ()
-    (file-name-extension "name.sml")
-    (insert-file-contents (concat lbrowser-root-dir "sources/" name))))
+  (defservlet* leaf-browser/sources/:path "text/html" ()
+    (insert-file-contents (concat lbrowser-root-dir "sources/" path))
+
+    ;; when insert file success, send header.
+    ;; (when error occur, abort this function automatically.)
+    (httpd-send-header t (httpd-get-mime
+                          (file-name-extension path) "200"))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
