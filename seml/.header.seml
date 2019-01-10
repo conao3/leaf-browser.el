@@ -1,0 +1,12 @@
+'((nav ((class . "indigo darken-4"))
+    (div ((class . "container"))
+      (div ((class . "nav-wrapper"))
+        (span ((class . "brand-logo")) "leaf-browser.el")
+        (div ((class . "nav-content"))
+          (div nil
+            (ul ((class . "right hide-on-med-and-down"))
+              (li nil (a ((href . "#test1")) "test1"))
+              (li nil (a ((href . "#test2")) "test2"))
+              (li nil (a ((href . "#test3")) "test3"))
+              (li ((href . "#") (data-target . "slide-out") (class . "sidenav-trigger"))
+                (i ((class . "material-icons")) "menu")))))))))
