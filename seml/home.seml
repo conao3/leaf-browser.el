@@ -8,17 +8,7 @@
      (meta ((charset . "utf-8")))
      (meta ((name . "viewport") (content . "width=device-width, initial-scale=1.0")))
      (title nil "home")
-     (style ((type . "text/css"))
-       ".container { font-family: 'Source Sans Pro', sans-serif; }
-  body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
-
-  main {
-    flex: 1 0 auto;
-  }")
+     (link ((rel . "styleseet") (href . "/leaf-browser/sources/main.css")))
      (script ((src . "/leaf-browser/sources/main.js"))))
    (body ((class . "grey darken-4 grey-text text-lighten-5"))
      (header nil
