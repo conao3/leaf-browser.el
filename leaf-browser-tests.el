@@ -26,6 +26,7 @@
 (require 'leaf-browser)
 (require 'cort)
 
+(setq httpd-show-backtrace-when-error t)
 (defun httpd-error (proc status &optional info)
   "Send an error page appropriate for STATUS to the client,
 optionally inserting object INFO into page. If PROC is T use the
@@ -43,6 +44,7 @@ optionally inserting object INFO into page. If PROC is T use the
       (insert (format html (concat
                             (when info erro)
                             (when httpd-show-backtrace-when-error bt)))))
+                            
     (httpd-send-header proc "text/html" status)))
 
 (defservlet* leaf-browser/debug-/:path "text/html" ()
