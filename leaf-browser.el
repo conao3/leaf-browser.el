@@ -92,17 +92,7 @@
 
   (defservlet* leaf-browser/sources/:name "text/html" ()
     (file-name-extension "name.sml")
-    (insert-file-contents (concat lbrowser-root-dir "sources/" name)))
-
-  (defservlet* leaf-browser/debug/:path "text/html" ()
-    (message path)
-    (insert (seml-decode-html
-             (with-temp-buffer
-               (insert-buffer-substring "home.sml" (point-min) (point-max))
-               (eval
-                (read
-                 (buffer-substring-no-properties (point-min) (point-max)))))
-             "<!DOCTYPE html>"))))
+    (insert-file-contents (concat lbrowser-root-dir "sources/" name))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
