@@ -95,8 +95,9 @@
 
     ;; when insert file success, send header.
     ;; (when error occur, abort this function automatically.)
-    (httpd-send-header t (httpd-get-mime
-                          (file-name-extension path) "200"))))
+    (httpd-send-header t
+                       (httpd-get-mime (file-name-extension path))
+                       200)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
