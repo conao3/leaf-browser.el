@@ -47,7 +47,7 @@ optionally inserting object INFO into page. If PROC is T use the
                             
     (httpd-send-header proc "text/html" status)))
 
-(defservlet* leaf-browser/debug-/:path "text/html" ()
+(defservlet* leaf-browser/debug/:path "text/html" ()
     (message path)
     (insert (seml-decode-html
              (with-temp-buffer
