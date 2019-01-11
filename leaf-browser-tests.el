@@ -26,27 +26,6 @@
 (require 'leaf-browser)
 (require 'cort)
 
-(setq httpd-show-backtrace-when-error t)
-(defun httpd-error (proc status &optional info)
-  "Send an error page appropriate for STATUS to the client,
-optionally inserting object INFO into page. If PROC is T use the
-`httpd-current-proc' as the process."
-  (httpd-discard-buffer)
-  (httpd-log `(error ,status ,info))
-  (with-temp-buffer
-    (let ((html (or (cdr (assq status httpd-html)) ""))
-          (erro (url-insert-entities-in-string (format "error: %s\n"  info)))
-          (bt   (format "backtrace: %s\n"
-                        (with-temp-buffer
-                          (let ((standard-output (current-buffer)))
-                            (backtrace))
-                          (buffer-string)))))
-      (insert (format html (concat
-                            (when info erro)
-                            (when httpd-show-backtrace-when-error bt)))))
-                            
-    (httpd-send-header proc "text/html" status)))
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;  test settings
