@@ -7,6 +7,6 @@
                             (buffer-string)))))))
   `(html nil
      (head nil ,@(funcall import-fn ".head.seml"))
-     (body ((class . "grey darken-4 grey-text text-lighten-5"))
+     (body ((class . "grey darken-4 grey-text text-lighten-1"))
        (header nil ,@(funcall import-fn ".header.seml"))
        (main nil ,@(funcall import-fn ".main.seml")))))
