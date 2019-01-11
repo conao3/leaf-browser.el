@@ -52,14 +52,6 @@
 ;;  Page
 ;;
 
-;; (mapcar (lambda (tag)
-;;         (eval `(defmacro ,(intern (format "lbrowser-%s" tag)) ()
-;;                  (declare (indent 1)))))
-;;       (cdr '(:dammy-symbol
-;;              html head body
-;;              section nav article header footer
-;;              div form input)))
-
 (defvar lbrowser-contents
   (mapcar (lambda (path)
             (file-name-sans-extension
