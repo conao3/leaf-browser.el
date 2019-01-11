@@ -1,41 +1,4 @@
-'((div ((class . "container"))
-    (a ((onclick . "M.toast({html: 'I am a toast'})") (class . "btn")) "Toast!")
-    (a ((class . "btn tooltipped") (data-position . "top") (data-tooltip . "I am a tooltip")) "Hover me!")
-
-    (div ((class . "switch")) (input ((type . "checkbox"))))
-
-    (ul ((id . "slide-out") (class . "sidenav grey-text"))
-      (li nil
-        (div ((class . "user-view"))
-          (div ((class . "background"))
-            (img ((src . "images/office.jpg"))))
-          (a ((href . "#user"))
-            (img ((class . "circle") (src . "images/yuna.jpg"))))
-          (a ((href . "#name"))
-            (span ((class . "white-text name")) "John Doe"))
-          (a ((href . "#email"))
-            (span ((class . "white-text email")) "jdandturk@gmail.com"))))
-      (li nil (a ((href . "#!")) (i ((class . "material-icons")) "cloud") "First Link With Icon"))
-      (li nil (a ((href . "#!")) "Second Link"))
-      (li nil (div ((class . "divider"))))
-      (li nil (a ((class . "subheader")) "Subheader"))
-      (li nil
-        (a ((class . "waves-effect") (href . "#!")) "Third Link With Waves")))
-
-    (div ((id . "modal1") (class . "modal"))
-      (div ((class . "modal-content"))
-        (h4 nil "Modal Header")
-        (p nil "A bunch of text"))
-      (div ((class . "modal-footer")) (a ((href . "#!") (class . "modal-close waves-effect waves-green btn-flat")) "Agree")))
-    (button ((data-target . "modal1") (class . "btn modal-trigger")) "Modal")
-
-    (button ((class . "btn waves-effect waves-light") (type . "submit") (name . "action"))
-      "Submit" (i ((class . "material-icons right")) "send"))
-    (button ((class . "btn waves-effect waves-light") (type . "submit") (name . "action"))
-      "Copy" (i ((class . "material-icons right")) "content_copy"))
-    (button ((class . "btn waves-effect waves-light") (type . "submit") (name . "action"))
-      "Cloud" (i ((class . "material-icons right")) "backup"))
-
+'((div ((class . "container row"))
     (div ((class . "center-align"))
       (img ((class . "responsive-img") (src . "/leaf-browser/sources/splash.svg"))))
     (div ((class . "row"))
