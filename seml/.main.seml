@@ -3,11 +3,11 @@
       (div ((class . "center-align"))
         (img ((class . "responsive-img") (src . "/leaf-browser/sources/splash.svg"))))
       (div ((class . "row"))
-        (ul nil
-          (li nil ,path)
-          ;; (li nil ,var1)
-          ;; (li nil ,var2)
-          ;; (li nil ,httpd-path)
-          ;; (li nil ,(prin1-to-string httpd-query))
-          ;; (li nil ,(prin1-to-string httpd-request))
-          )))))
+        ,(cond
+          (homep
+           `(div ((class . "collection"))
+              ,@(mapcar (lambda (path)
+                          `(a ((class . "collection-item")
+                               (href . (concat "?targetpath=" ,path)))
+                             ,path))
+                        load-path))))))))

@@ -5,6 +5,7 @@
                           (with-temp-buffer
                             (insert-file-contents (concat seml-dir path))
                             (buffer-string))))))
+      (homep     (not targetpath))
       (editorp   (not (not targetpath))))
   `(html nil
      ,@(funcall import-fn ".head.seml")
