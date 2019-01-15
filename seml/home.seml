@@ -1,12 +1,16 @@
-(let ((root-dir  lbrowser-root-dir)
-      (seml-dir  (concat lbrowser-root-dir "seml/"))
-      (import-fn (lambda (path)
-                   (eval (read
-                          (with-temp-buffer
-                            (insert-file-contents (concat seml-dir path))
-                            (buffer-string))))))
-      (homep     (not targetpath))
-      (editorp   (not (not targetpath))))
+(let ((root-dir      lbrowser-root-dir)
+      (seml-dir      (concat lbrowser-root-dir "seml/"))
+      (import-fn     (lambda (path)
+                       (eval (read
+                              (with-temp-buffer
+                                (insert-file-contents (concat seml-dir path))
+                                (buffer-string))))))
+      (url-encode-fn (lambda (str)
+                       (url-hexify-string str)))
+      (url-decode-fn (lambda (str)
+                       (url-unhex-string (decode-coding-string str 'uft-8))))
+      (homep         (not targetpath))
+      (editorp       (not (not targetpath))))
   `(html nil
      ,@(funcall import-fn ".head.seml")
      (body nil
