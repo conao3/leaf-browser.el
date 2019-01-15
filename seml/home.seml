@@ -16,4 +16,4 @@
      (body nil
        ,@(funcall import-fn ".header.seml")
        ,@(funcall import-fn ".main.seml")
-       ,@(funcall import-fn ".slide-out.seml"))))
+       ,@(funcall import-fn ".slideout.seml"))))

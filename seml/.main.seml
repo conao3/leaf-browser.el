@@ -1,13 +1,4 @@
 `((main nil
     (div ((class . "container row"))
       ,@(cond
-         (homep
-          `((div ((class . "center-align"))
-              (img ((class . "center-align responsive-img") (src . "/leaf-browser/sources/splash.svg"))))
-            (div ((class . "collection"))
-              ,@(mapcar (lambda (path)
-                          `(a ((class . "collection-item")
-                               (href . ,(concat "?targetpath="
-                                                (funcall url-encode-fn path))))
-                             ,path))
-                        load-path))))))))
+         (homep (funcall import-fn ".main-home.seml"))))))
