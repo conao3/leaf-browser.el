@@ -1,5 +1,5 @@
 `((header nil
-    (nav nil
+    (nav ((class . "pinned"))
       (div ((class . "container"))
         (div ((class . "nav-wrapper"))
           (span ((class . "brand-logo"))

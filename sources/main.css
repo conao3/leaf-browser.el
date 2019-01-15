@@ -19,7 +19,12 @@ html {
     letter-spacing: 0.3px;
 }
 
+main {
+    padding-top: 100px;
+}
+
 nav {
+    z-index: 10;
     background-color: rgb(33, 37, 43);
     text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.7);
 }
