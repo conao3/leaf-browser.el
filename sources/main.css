@@ -42,3 +42,7 @@ nav ul a {
     margin: 0;
     padding: 0 10px;
 }
+
+.header {
+    font-weight: 300;
+}

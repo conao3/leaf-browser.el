@@ -1,2 +1,3 @@
 `(,@(progn (push path callstack) nil)
-  (h5 nil ,(format "Target file: %s" targetfile)))
+  (h5 ((class . "header")) ,(format "Target file: %s"
+                   (file-name-nondirectory targetfile))))

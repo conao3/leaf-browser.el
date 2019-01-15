@@ -2,12 +2,14 @@
   (div ((class . "center-align"))
     (img ((class . "center-align responsive-img")
           (src . "/leaf-browser/sources/splash.svg"))))
-  (h5 nil ,(format "List of %s" targetpath))
+  (h5 ((class . "header")) ,(format "List of %s" targetpath))
   (div ((class . "collection"))
     ,@(mapcar (lambda (path)
                 `(a ((class . "collection-item")
                      (href . ,(concat "?targetfile="
                                       (funcall url-encode-fn path))))
                    ,path))
-              (file-expand-wildcards
-               (format "%s/*.el" targetpath)))))
+              (mapcan (lambda (x)
+                        (file-expand-wildcards
+                         (format x targetpath)))
+                      '("%s/*.c" "%s/*.el" "%s/*.el.gz")))))

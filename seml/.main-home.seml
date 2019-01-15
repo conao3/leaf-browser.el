@@ -2,6 +2,7 @@
   (div ((class . "center-align"))
     (img ((class . "center-align responsive-img")
           (src . "/leaf-browser/sources/splash.svg"))))
+  (h5 ((class . "header")) ,(format "List of loadpath"))
   (div ((class . "collection"))
     ,@(mapcar (lambda (path)
                 `(a ((class . "collection-item")
