@@ -20,5 +20,4 @@
        ,@(funcall import-fn ".main.seml")
        ,@(funcall import-fn ".slideout.seml")
 
-       (p nil ,(prin1-to-string callstack))
-       )))
+       (p nil ,(prin1-to-string callstack)))))

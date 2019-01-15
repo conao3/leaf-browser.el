@@ -1,4 +1,5 @@
-`((header nil
+`(,@(progn (push path callstack) nil)
+  (header nil
     (nav ((class . "pinned"))
       (div ((class . "container"))
         (div ((class . "nav-wrapper"))

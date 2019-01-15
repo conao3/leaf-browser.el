@@ -1,4 +1,5 @@
-`((ul ((id . "slide-out") (class . "sidenav grey-text"))
+`(,@(progn (push path callstack) nil)
+  (ul ((id . "slide-out") (class . "sidenav grey-text"))
     (li nil (a ((class . "subheader")) "Change target file"))
     ,@(mapcar (lambda (file)
                 `(li nil

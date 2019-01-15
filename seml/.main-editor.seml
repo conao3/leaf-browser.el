@@ -1,1 +1,2 @@
-`((h5 nil ,(format "Target file: %s" targetfile)))
+`(,@(progn (push path callstack) nil)
+  (h5 nil ,(format "Target file: %s" targetfile)))

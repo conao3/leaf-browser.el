@@ -1,4 +1,5 @@
-`((div ((class . "center-align"))
+`(,@(progn (push path callstack) nil)
+  (div ((class . "center-align"))
     (img ((class . "center-align responsive-img")
           (src . "/leaf-browser/sources/splash.svg"))))
   (div ((class . "collection"))

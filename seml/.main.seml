@@ -1,4 +1,5 @@
-`((main nil
+`(,@(progn (push path callstack) nil)
+  (main nil
     (div ((class . "container row"))
       ,@(cond
          (homep   (funcall import-fn ".main-home.seml"))
