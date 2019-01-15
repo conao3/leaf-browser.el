@@ -1,8 +1,29 @@
-/* depend on google web font
- * (link ((rel . "stylesheet") 
- *   (href . "https://fonts.googleapis.com/css?family=Source+Sans+Pro")))
- */
+/*
+depend on google web font
+(link ((rel . "stylesheet")
+  (href . "https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400")))
 
-.container {
+- rgb(41, 45, 52) - bg
+- rgb(33, 37, 43) - bg-disabled
+- rgb(89, 140, 239) - point1
+- rgb(215, 218, 224) - font-p
+- rgb(157, 165, 179) - font-caption
+
+*/
+
+html {
     font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+    color: rgb(215, 218, 224);
+    background-color: rgb(41, 45, 52);
+    letter-spacing: 0.3px;
+}
+
+nav {
+    background-color: rgb(33, 37, 43);
+}
+
+.sidenav li>a {
+    text-align: center;
+    font-size: 15px;
 }

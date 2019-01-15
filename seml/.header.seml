@@ -1,10 +1,11 @@
 `((header nil
-    (nav ((class . "indigo darken-4"))
+    (nav nil
       (div ((class . "container"))
         (div ((class . "nav-wrapper"))
           (span ((class . "brand-logo")) "leaf-browser.el")
           (div ((class . "nav-content"))
             (div nil
               (ul ((class . "right hide-on-med-and-down"))
+                (li nil ,path)
                 (li ((href . "#") (data-target . "slide-out") (class . "sidenav-trigger"))
                   (i ((class . "material-icons")) "menu"))))))))))
