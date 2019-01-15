@@ -9,4 +9,5 @@
      ,@(funcall import-fn ".head.seml")
      (body ((class . "grey darken-4 grey-text text-lighten-1"))
        ,@(funcall import-fn ".header.seml")
-       ,@(funcall import-fn ".main.seml")))))
+       ,@(funcall import-fn ".main.seml")
+       ,@(funcall import-fn ".slide-out.seml"))))
