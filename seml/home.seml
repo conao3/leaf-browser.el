@@ -18,6 +18,9 @@
      (body nil
        ,@(funcall import-fn ".header.seml")
        ,@(funcall import-fn ".main.seml")
-       ,@(funcall import-fn ".slideout.seml")
+       ,@(when editorp (funcall import-fn ".slideout.seml"))
 
-       (p nil ,(prin1-to-string callstack)))))
+       (ul nil
+         (li nil ,(prin1-to-string callstack))
+         (li nil ,(prin1-to-string targetpath))
+         (li nil ,(prin1-to-string targetfile))))))

@@ -1,13 +1,15 @@
 `(,@(progn (push path callstack) nil)
   (ul ((id . "slide-out") (class . "sidenav grey-text"))
-    (li nil (a ((class . "subheader")) "Change target file"))
+    (li nil (a ((class . "subheader")) "Change Target File"))
     ,@(mapcar (lambda (file)
                 `(li nil
                    (a ((class . "waves-effect")
-                       (href . "#!"))
+                       (href . ,(format "?targetfile=%s" file)))
                       ,(file-name-nondirectory file))))
-              (file-expand-wildcards
-                (format "%s/*.el" targetpath)))
+              (mapcan (lambda (x)
+                        (file-expand-wildcards
+                         (format x (file-name-directory targetfile))))
+                      '("%s/*.c" "%s/*.el" "%s/*.el.gz")))
     (li nil (div ((class . "divider"))))))
 ;; (ul nil
 ;;   (li nil ,path)
