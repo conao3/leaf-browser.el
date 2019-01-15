@@ -9,7 +9,7 @@
               (ul ((class . "right hide-on-med-and-down"))
                 ,@(when editorp
                     '((li ((data-target . "slide-out") (class . "sidenav-trigger"))
-                        (a ((href . ""))
+                        (a nil
                           (i ((class . "material-icons tooltipped")
                               (data-tooltip . "Change target file")) "menu")))
                       (li nil
@@ -30,5 +30,5 @@
                       (li nil
                         (a ((href . "#!"))
                           (i ((class . "material-icons tooltipped")
-                              (data-tooltip . "Write this leaf to specifyed file"))
+                              (data-tooltip . "Insert in the specified file"))
                             "send")))))))))))))
