@@ -4,7 +4,8 @@
                    (eval (read
                           (with-temp-buffer
                             (insert-file-contents (concat seml-dir path))
-                            (buffer-string)))))))
+                            (buffer-string))))))
+      (editorp   (not (not targetpath))))
   `(html nil
      ,@(funcall import-fn ".head.seml")
      (body nil

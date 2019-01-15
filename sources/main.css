@@ -28,3 +28,12 @@ nav {
     text-align: center;
     font-size: 15px;
 }
+
+nav .sidenav-trigger {
+    margin: 0;
+}
+
+nav ul a {
+    margin: 0;
+    padding: 0 10px;
+}
