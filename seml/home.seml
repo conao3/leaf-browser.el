@@ -4,16 +4,21 @@
                        (eval (read
                               (with-temp-buffer
                                 (insert-file-contents (concat seml-dir path))
-                                (buffer-string))))))
+                                (buffer-substring-no-properties (point-min) (point-max)))))))
       (url-encode-fn (lambda (str)
                        (url-hexify-string str)))
       (url-decode-fn (lambda (str)
                        (url-unhex-string (decode-coding-string str 'uft-8))))
-      (homep         (not targetpath))
-      (editorp       (not (not targetpath))))
+      (callstack     nil)
+      (homep         (not (or targetpath targetfile)))
+      (finderp       targetpath)
+      (editorp       targetfile))
   `(html nil
      ,@(funcall import-fn ".head.seml")
      (body nil
        ,@(funcall import-fn ".header.seml")
        ,@(funcall import-fn ".main.seml")
-       ,@(funcall import-fn ".slideout.seml"))))
+       ,@(funcall import-fn ".slideout.seml")
+
+       (p nil ,(prin1-to-string callstack))
+       )))

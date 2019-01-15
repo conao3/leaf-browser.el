@@ -1,4 +1,6 @@
 `((main nil
     (div ((class . "container row"))
       ,@(cond
-         (homep (funcall import-fn ".main-home.seml"))))))
+         (homep   (funcall import-fn ".main-home.seml"))
+         (finderp (funcall import-fn ".main-finder.seml"))
+         (editorp (funcall import-fn ".main-editor.seml"))))))
