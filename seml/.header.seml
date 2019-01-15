@@ -6,30 +6,5 @@
           (span ((class . "brand-logo"))
             (a ((href . "?")) "leaf-browser.el"))
           (div ((class . "nav-content"))
-            (div nil
-              (ul ((class . "right hide-on-med-and-down"))
-                ,@(when editorp
-                    '((li ((data-target . "slide-out") (class . "sidenav-trigger"))
-                        (a nil
-                          (i ((class . "material-icons tooltipped")
-                              (data-tooltip . "Change target file")) "menu")))
-                      (li nil
-                        (a ((href . "#!"))
-                          (i ((class . "material-icons tooltipped")
-                              (data-tooltip . "Search leaves"))
-                            "layers")))
-                      (li nil
-                        (a ((href . "#!"))
-                          (i ((class . "material-icons tooltipped")
-                              (data-tooltip . "Share this leaf (Open GitHub)"))
-                            "cloud")))
-                      (li nil
-                        (a ((href . "#!"))
-                          (i ((class . "material-icons tooltipped")
-                              (data-tooltip . "Copy this leaf"))
-                            "content_copy")))
-                      (li nil
-                        (a ((href . "#!"))
-                          (i ((class . "material-icons tooltipped")
-                              (data-tooltip . "Insert in the specified file"))
-                            "send")))))))))))))
+            ,@(cond
+               (editorp (funcall import-fn ".header-editor.seml")))))))))
