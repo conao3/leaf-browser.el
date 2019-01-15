@@ -1,4 +1,4 @@
-'((main nil
+`((main nil
     (div ((class . "container row"))
       (div ((class . "center-align"))
         (img ((class . "responsive-img") (src . "/leaf-browser/sources/splash.svg"))))
