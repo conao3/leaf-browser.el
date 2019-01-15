@@ -1,7 +1,12 @@
 `((ul ((id . "slide-out") (class . "sidenav grey-text"))
-    (li nil (a ((class . "subheader")) "Available sources"))
-    (li nil
-      (a ((class . "waves-effect") (href . "#!")) "Third Link With Waves"))
+    (li nil (a ((class . "subheader")) "Change target file"))
+    ,@(mapcar (lambda (file)
+                `(li nil
+                   (a ((class . "waves-effect")
+                       (href . "#!"))
+                      ,(file-name-nondirectory file))))
+              (file-expand-wildcards
+                (format "%s/*.el" targetpath)))
     (li nil (div ((class . "divider"))))))
 ;; (ul nil
 ;;   (li nil ,path)
