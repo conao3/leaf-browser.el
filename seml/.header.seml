@@ -6,6 +6,8 @@
           (div ((class . "nav-content"))
             (div nil
               (ul ((class . "right hide-on-med-and-down"))
-                (li nil ,path)
-                (li ((href . "#") (data-target . "slide-out") (class . "sidenav-trigger"))
-                  (i ((class . "material-icons")) "menu"))))))))))
+                ,@(when targetpath
+                    '((li nil (a ((href . "?")) "home"))
+                      (li ((data-target . "slide-out") (class . "sidenav-trigger"))
+                        (i ((class . "material-icons")) "menu")))
+                    )))))))))

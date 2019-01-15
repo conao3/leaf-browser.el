@@ -8,7 +8,6 @@
   `(html nil
      ,@(funcall import-fn ".head.seml")
      (body nil
-       ,path
        ,@(funcall import-fn ".header.seml")
        ,@(funcall import-fn ".main.seml")
        ,@(funcall import-fn ".slide-out.seml"))))
