@@ -54,8 +54,9 @@
 
 (defun lbrowser-define-servlet ()
   "Serve define"
-  (defservlet* leaf-browser/home "text/html" ()
-    (insert (seml-decode-html lbrowser-contents-home)))
+  (defservlet* leaf-browser/home "text/html" (targetpath targetfile)
+    (insert (seml-decode-seml-from-file
+             (expand-file-name "seml/home.seml" lbrowser-root-dir))))
 
   (defservlet* leaf-browser/sources/:path "text/html" ()
     (insert-file-contents (concat lbrowser-root-dir "sources/" path))
