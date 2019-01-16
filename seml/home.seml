@@ -19,5 +19,5 @@
        ,@(funcall import-fn ".header.seml")
        ,@(funcall import-fn ".sidenav.seml")
        ,@(funcall import-fn ".main.seml")
-       ,@(funcall import-fn ".head-script.seml")
+       ,@(funcall import-fn ".script.seml")
        ,@(funcall import-fn ".debug.seml"))))
