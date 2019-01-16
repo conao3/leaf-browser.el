@@ -19,6 +19,16 @@ html {
     letter-spacing: 0.3px;
 }
 
+.sidenav {
+    background-color: rgb(41, 45, 52);
+}
+
+ul.sidenav.sidenav-fixed li.logo {
+    text-align: center;
+    margin-top: 32px;
+    margin-bottom: 136px;
+}
+
 nav {
     z-index: 10;
     background-color: rgb(33, 37, 43);
