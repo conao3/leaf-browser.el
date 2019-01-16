@@ -20,5 +20,4 @@
        ,@(funcall import-fn ".main.seml")
        ,@(when editorp (funcall import-fn ".slideout.seml"))
        ,@(funcall import-fn ".head-script.seml")
-       ,@(funcall import-fn ".debug.seml")
-       )))
+       ,@(funcall import-fn ".debug.seml"))))
