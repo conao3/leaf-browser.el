@@ -1,0 +1,21 @@
+`(,@(progn (push path callstack) nil)
+  (ul ((id . "sidenav") (class . "sidenav sidenav-fixed grey-text"))
+    (li nil (a ((class . "subheader")) "Change Target File"))
+    ;; ,@(mapcar (lambda (file)
+    ;;             `(li nil
+    ;;                (a ((class . "waves-effect")
+    ;;                    (href . ,(format "?targetfile=%s" file)))
+    ;;                   ,(file-name-nondirectory file))))
+    ;;           (mapcan (lambda (x)
+    ;;                     (file-expand-wildcards
+    ;;                      (format x (file-name-directory targetfile))))
+    ;;                   '("%s/*.c" "%s/*.el" "%s/*.el.gz")))
+    (li nil (div ((class . "divider"))))))
+;; (ul nil
+;;   (li nil ,path)
+;;   ;; (li nil ,var1)
+;;   ;; (li nil ,var2)
+;;   ;; (li nil ,httpd-path)
+;;   ;; (li nil ,(prin1-to-string httpd-query))
+;;   ;; (li nil ,(prin1-to-string httpd-request))
+;;   )

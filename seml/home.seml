@@ -17,7 +17,7 @@
      ,@(funcall import-fn ".head.seml")
      (body nil
        ,@(funcall import-fn ".header.seml")
+       ,@(funcall import-fn ".sidenav.seml")
        ,@(funcall import-fn ".main.seml")
-       ,@(when editorp (funcall import-fn ".slideout.seml"))
        ,@(funcall import-fn ".head-script.seml")
        ,@(funcall import-fn ".debug.seml"))))
