@@ -1,6 +1,6 @@
 `(,@(progn (push path callstack) nil)
   (main nil
-    (div ((class . "container row"))
+    (div ((class . "container"))
       ,@(cond
          (homep   (funcall import-fn ".main-home.seml"))
          (finderp (funcall import-fn ".main-finder.seml"))

@@ -25,6 +25,16 @@ nav {
     text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.7);
 }
 
+header, main, footer {
+    padding-left: 300px;
+}
+
+@media only screen and (max-width : 992px) {
+    header, main, footer {
+        padding-left: 0;
+    }
+}
+
 .sidenav li>a {
     text-align: center;
     font-size: 15px;
