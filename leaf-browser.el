@@ -49,31 +49,6 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
-;;  Page
-;;
-
-(defvar lbrowser-contents
-  (mapcar (lambda (path)
-            (file-name-sans-extension
-             (file-name-nondirectory path)))
-          (file-expand-wildcards
-           (concat lbrowser-root-dir "seml/*.sml"))))
-
-(mapc (lambda (name)
-        (eval
-         `(defvar ,(intern (format "lbrowser-contents-%s" name))
-            ',(read
-               (with-temp-buffer
-                 (insert-file-contents
-                  (format "%sseml/%s.sml" lbrowser-root-dir name))
-                 (buffer-substring-no-properties (point-min) (point-max)))))))
-      lbrowser-contents)
-
-;; for bytecompiler
-(defvar lbrowser-contents-home)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
 ;;  Serve function
 ;;
 
