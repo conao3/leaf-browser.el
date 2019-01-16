@@ -19,10 +19,6 @@ html {
     letter-spacing: 0.3px;
 }
 
-main {
-    padding-top: 100px;
-}
-
 nav {
     z-index: 10;
     background-color: rgb(33, 37, 43);

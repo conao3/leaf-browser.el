@@ -1,10 +1,14 @@
 `(,@(progn (push path callstack) nil)
   (header nil
-    (nav ((class . "pinned"))
+    (nav ((class . "top-nav"))
       (div ((class . "container"))
         (div ((class . "nav-wrapper"))
           (span ((class . "brand-logo"))
             (a ((href . "?")) "leaf-browser.el"))
           (div ((class . "nav-content"))
             ,@(cond
-               (editorp (funcall import-fn ".header-editor.seml")))))))))
+               (editorp (funcall import-fn ".header-editor.seml")))))))
+    (div ((class . "container"))
+      (a ((class . "top-nav sidenav-trigger full hide-on-large-only")
+          (href . "#") (data-target . "nav-mobile"))
+        (i ((class . "material-icons")) "menu")))))
