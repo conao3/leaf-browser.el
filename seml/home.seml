@@ -19,9 +19,6 @@
        ,@(funcall import-fn ".header.seml")
        ,@(funcall import-fn ".main.seml")
        ,@(when editorp (funcall import-fn ".slideout.seml"))
-
-       (ul nil
-         (li nil ,(prin1-to-string callstack))
-         (li nil ,(prin1-to-string targetpath))
-         (li nil ,(prin1-to-string targetfile)))
-       ,@(funcall import-fn ".head-script.seml"))))
+       ,@(funcall import-fn ".head-script.seml")
+       ,@(funcall import-fn ".debug.seml")
+       )))
