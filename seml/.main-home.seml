@@ -8,5 +8,5 @@
                 `(a ((class . "collection-item")
                      (href . ,(concat "?targetpath="
                                       (funcall url-encode-fn path))))
-                   ,path))
+                   ,(abbreviate-file-name path)))
               load-path)))
