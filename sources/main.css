@@ -45,8 +45,18 @@ header, main, footer {
     }
 }
 
+.sidenav .logo a {
+    background-color : rgb(41, 45, 52);
+}
+
+.sidenav .collapsible-header {
+    padding: 0 20px;
+}
+
 .sidenav li>a {
-    text-align: center;
+    /* text-align: center; */
+    color: rgb(215, 218, 224);
+    background-color: rgb(33, 37, 43);
     font-size: 15px;
 }
 

@@ -1,5 +1,5 @@
 `(,@(progn (push path callstack) nil)
-  (ul ((id . "sidenav") (class . "sidenav sidenav-fixed grey-text text-lighten-2"))
+  (ul ((id . "sidenav") (class . "sidenav sidenav-fixed"))
     (li ((class . "logo"))
       (a ((href . "/leaf-browser/home/"))
         (img ((width . "250px")
