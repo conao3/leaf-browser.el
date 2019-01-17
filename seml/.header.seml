@@ -9,6 +9,6 @@
           ;;   ,@(cond
           ;;      (editorp (funcall import-fn ".header-editor.seml"))))
           (a ((class . "top-nav sidenav-trigger full hide-on-large-only")
-          (href . "#") (data-target . "nav-mobile"))
+              (href . "#") (data-target . "sidenav"))
         (i ((class . "material-icons")) "menu")))))
     ,@(funcall import-fn ".sidenav.seml")))
