@@ -29,6 +29,19 @@ nav {
     text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.7);
 }
 
+.nav-content {
+    padding-bottom: 10px;
+}
+
+.breadcrumb {
+    font-size: 16px;
+}
+
+.breadcrumb:before {
+    font-size: 20px;
+    margin: 0 3px;
+}
+
 header, main, footer {
     padding-left: 300px;
 }
