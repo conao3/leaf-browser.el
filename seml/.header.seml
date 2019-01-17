@@ -5,9 +5,9 @@
         (div ((class . "nav-wrapper"))
           (span ((class . "brand-logo"))
             (a ((href . ,(funcall rellink-fn "/"))) "leaf-browser.el"))
-          (div ((class . "nav-content"))
-            ,@(cond
-               (editorp (funcall import-fn ".header-editor.seml"))))
+          ;; (div ((class . "nav-content"))
+          ;;   ,@(cond
+          ;;      (editorp (funcall import-fn ".header-editor.seml"))))
           (a ((class . "top-nav sidenav-trigger full hide-on-large-only")
           (href . "#") (data-target . "nav-mobile"))
         (i ((class . "material-icons")) "menu")))))

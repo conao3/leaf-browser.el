@@ -13,9 +13,8 @@
                        (concat "/seml-mode/live-refresh" path)))
       (callstack     nil)
       (toc           nil)
-      (homep         (not (or targetpath targetfile)))
-      (finderp       targetpath)
-      (editorp       targetfile))
+      (homep         (not type))
+      (groupp        (string= type "group")))
   `(html nil
      ,@(funcall import-fn ".head.seml")
      (body nil
