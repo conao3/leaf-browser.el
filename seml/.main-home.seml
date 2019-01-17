@@ -1,10 +1,4 @@
 `(,@(progn (push path callstack) nil)
   ,@(progn (push '(:id introduction :disp "Introduction") toc) nil)
   (h5 ((class . "header")) ,(format "List of loadpath"))
-  (div ((class . "collection"))
-    ,@(mapcar (lambda (path)
-                `(a ((class . "collection-item")
-                     (href . ,(concat "?targetpath="
-                                      (funcall url-encode-fn path))))
-                   ,(abbreviate-file-name path)))
-              load-path)))
+  )
