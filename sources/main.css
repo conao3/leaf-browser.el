@@ -42,6 +42,10 @@ header, main, footer {
     }
 }
 
+.sidenav {
+    padding-bottom: 200px;
+}
+
 .sidenav .logo a {
     text-align: center;
     height: 175px;
