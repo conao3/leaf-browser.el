@@ -1,6 +1,7 @@
 `(,@(progn (push path callstack) nil)
   (ul nil
     (li nil ,(concat "callstack: " (prin1-to-string callstack)))
+    (li nil ,(concat "toc: " (prin1-to-string toc)))
     (li nil ,(concat "httpd-path: " (prin1-to-string httpd-path)))
     (li nil ,(concat "httpd-query: " (prin1-to-string httpd-query)))
     (li nil ,(concat "httpd-request: " (prin1-to-string httpd-request)))

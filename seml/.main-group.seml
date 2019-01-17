@@ -1,3 +1,4 @@
 `(,@(progn (push path callstack) nil)
-  ,@(progn (push '(:id introduction :disp "Introduction") toc) nil)
-  (h1 ((class . "header")) ,var1))
+  ,@(progn (push '(:id header :disp "Header") toc) nil)
+  (div ((id . "header") (class . "section scrollspy"))
+    (h1 ((class . "header")) ,var1)))
