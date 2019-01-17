@@ -23,12 +23,6 @@ html {
     background-color: rgb(41, 45, 52);
 }
 
-ul.sidenav.sidenav-fixed li.logo {
-    text-align: center;
-    margin-top: 32px;
-    margin-bottom: 136px;
-}
-
 nav {
     z-index: 10;
     background-color: rgb(33, 37, 43);
@@ -46,6 +40,9 @@ header, main, footer {
 }
 
 .sidenav .logo a {
+    text-align: center;
+    height: 175px;
+    margin: 20px 0 20px -13px;
     background-color : rgb(41, 45, 52);
 }
 
@@ -71,4 +68,8 @@ nav ul a {
 
 .header {
     font-weight: 300;
+}
+
+.divider {
+    background-color: rgb(28, 30, 38);
 }

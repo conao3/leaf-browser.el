@@ -4,6 +4,7 @@
       (a ((href . "/leaf-browser/home/"))
         (img ((width . "250px")
               (src . "/leaf-browser/sources/splash.svg")))))
+    (li nil (div ((class . "divider"))))
     (li ((class . "no-padding"))
       (ul ((class . "collapsible collapsible-accordion"))
         (li nil
