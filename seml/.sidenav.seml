@@ -5,14 +5,22 @@
         (img ((width . "250px")
               (src . "/leaf-browser/sources/splash.svg")))))
     (li ((class . "divider")))
-    ,@(mapcar
-       (lambda (x)
-         (let ((symbol (car x))
-               (type   (cadr x)))
-           (if (eq type 'custom-group)
-               `(li nil
-                  (a ((href  . ,(concat root-url "/group/" (symbol-name symbol))))
-                    ,(symbol-name symbol))))))
-       (get 'emacs 'custom-group)))
+    ,@(let ((group-elms (mapcan (lambda (elm)
+                                  (let ((sym  (car elm))
+                                        (type (cadr elm)))
+                                    (when (eq type 'custom-group)
+                                      `(,elm))))
+                                (get (intern (or var1 "emacs")) 'custom-group))))
+        (if group-elms
+            (mapcar
+             (lambda (elm)
+               (let ((sym  (car  elm))
+                     (type (cadr elm)))
+                 `(li nil
+                    (a ((href  . ,(concat root-url "/group/" (symbol-name sym))))
+                      ,(symbol-name sym)))))
+             group-elms)
+          `((li nil
+              (a ((href  . "")) "No Child groups"))))))
   (div ((class . "patreon"))
     (a ((href . "https://www.patreon.com/conao3")) "Become a Patreon")))
