@@ -51,11 +51,16 @@ header, main, footer {
 }
 
 .sidenav li>a {
-    /* text-align: center; */
     color: rgb(215, 218, 224);
     background-color: rgb(33, 37, 43);
     font-size: 15px;
 }
+
+/*
+.sidenav li>a :hover {
+    background-color: rgb(33, 37, 43);
+}
+*/
 
 nav .sidenav-trigger {
     margin: 0;

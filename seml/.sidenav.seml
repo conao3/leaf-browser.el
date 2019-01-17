@@ -16,4 +16,14 @@
               (li nil (a ((href . "#!")) "sample"))
               (li nil (a ((href . "#!")) "sample"))
               (li nil (a ((href . "#!")) "sample"))
+              (li nil (a ((href . "#!")) "sample")))))
+        (li nil
+          (a ((class . "collapsible-header waves-effect waves-teal"))
+            "CSS")
+          (div ((class . "collapsible-body"))
+            (ul nil
+              (li nil (a ((href . "#!")) "sample"))
+              (li nil (a ((href . "#!")) "sample"))
+              (li nil (a ((href . "#!")) "sample"))
+              (li nil (a ((href . "#!")) "sample"))
               (li nil (a ((href . "#!")) "sample")))))))))
