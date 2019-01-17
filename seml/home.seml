@@ -20,4 +20,4 @@
        ,@(funcall import-fn ".header.seml")
        ,@(funcall import-fn ".main.seml")
        ,@(funcall import-fn ".script.seml")
-       ,@(funcall import-fn ".debug.seml"))))
+       ,@(funcall import-fn ".footer.seml"))))
