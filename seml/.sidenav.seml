@@ -10,17 +10,23 @@
         (ul ((class . "collapsible collapsible-accordion"))
           ,@(mapcar
              (lambda (x)
-               (let ((child-fn (lambda (y)
-                                 (let ((symbol (car y))
-                                       (type   (cadr y)))
-                                   (when (eq type 'custom-group)
-                                     `(li nil (a ((href . ,(funcall rellink-fn "#!")))
-                                                ,(symbol-name symbol)))))))
+               (let ((child-fn
+                      (lambda (y)
+                        (let ((symbol (car y))
+                              (type   (cadr y)))
+                          (when (eq type 'custom-group)
+                            `(li nil
+                               (a ((href . ,(funcall
+                                             rellink-fn
+                                             (concat "/group/"
+                                                     (symbol-name symbol)))))
+                                 ,(symbol-name symbol)))))))
                      (symbol   (car x))
                      (type     (cadr x)))
                  (if (eq type 'custom-group)
                      `(li nil
-                        (a ((class . "collapsible-header waves-effect"))
+                        (a ((href  . ,(funcall rellink-fn (concat "/group/" (symbol-name symbol))))
+                            (class . "collapsible-header waves-effect"))
                           ,(symbol-name symbol))
                         (div ((class . "collapsible-body"))
                           (ul nil
