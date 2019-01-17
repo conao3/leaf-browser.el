@@ -9,6 +9,8 @@
                        (url-hexify-string str)))
       (url-decode-fn (lambda (str)
                        (url-unhex-string (decode-coding-string str 'uft-8))))
+      (rellink-fn    (lambda (path)
+                       (concat "/seml-mode/live-refresh" path)))
       (callstack     nil)
       (toc           nil)
       (homep         (not (or targetpath targetfile)))
