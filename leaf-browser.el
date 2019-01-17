@@ -62,7 +62,14 @@
 
 (defun lbrowser-define-servlet ()
   "Serve define"
-  (defservlet* leaf-browser/home "text/html" (targetpath targetfile)
+  (defservlet* leaf-browser/:type/:var1/:var2 "text/html" (targetpath targetfile)
+    (if (string= type "")
+        (setq lbrowser-breadcrumbs nil)
+      (if (member var1 lbrowser-breadcrumbs)
+          (while (not (string= var1 (car lbrowser-breadcrumbs)))
+            (pop lbrowser-breadcrumbs))
+        (push var1 lbrowser-breadcrumbs)))
+    (message (prin1-to-string var1))
     (insert (seml-decode-seml-from-file
              (expand-file-name "seml/home.seml" lbrowser-root-dir))))
 

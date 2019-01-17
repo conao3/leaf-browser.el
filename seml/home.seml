@@ -1,4 +1,4 @@
-(let* ((root-url      "/seml-mode/live-refresh")
+(let* ((root-url      "/leaf-browser") ;; "/seml-mode/live-refresh")
        (root-dir      lbrowser-root-dir)
        (seml-dir      (concat lbrowser-root-dir "seml/"))
        (import-fn     (lambda (path)
