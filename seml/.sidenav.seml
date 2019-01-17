@@ -24,4 +24,7 @@
                       (div ((class . "collapsible-body"))
                         (ul nil
                           ,@(mapcar child-fn (get symbol 'custom-group))))))))
-                  (get 'emacs 'custom-group))))))
+           (get 'emacs 'custom-group)))))
+  (div ((class . "divider")))
+  (div ((class . "patreon"))
+    (a ((href . "https://www.patreon.com/conao3")) "Become a Patreon")))

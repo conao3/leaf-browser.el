@@ -54,6 +54,23 @@ header, main, footer {
     color: rgb(215, 218, 224);
     background-color: rgb(33, 37, 43);
     font-size: 15px;
+    font-weight: 300;
+}
+
+.patreon {
+    background-color : rgb(41, 45, 52);
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 45px;
+    width: 300px;
+    z-index: 1000;
+    border-top: 1px solid rgba(0, 0, 0, 0.25)
+}
+
+.patreon>a {
+    line-height: 45px;
+    padding: 0 20px;
 }
 
 /*
