@@ -1,3 +1,4 @@
 `(,@(progn (push path callstack) nil)
+  ,@(progn (push '(:id introduction :disp "Introduction") toc) nil)
   (h5 ((class . "header")) ,(format "Target file: %s"
                    (file-name-nondirectory targetfile))))

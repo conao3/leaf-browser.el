@@ -1,4 +1,5 @@
 `(,@(progn (push path callstack) nil)
+  ,@(progn (push '(:id introduction :disp "Introduction") toc) nil)
   (h5 ((class . "header")) ,(format "List of %s" targetpath))
   (div ((class . "collection"))
     ,@(mapcar (lambda (path)
