@@ -49,6 +49,14 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
+;;  Internal variables
+;;
+
+(defvar lbrowser-breadcrumbs nil
+  "Manage breadcrubs on top nav bar.")
+  
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
 ;;  Serve function
 ;;
 
