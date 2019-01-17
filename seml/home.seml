@@ -19,5 +19,5 @@
      (body nil
        ,@(funcall import-fn ".header.seml")
        ,@(funcall import-fn ".main.seml")
-       ,@(funcall import-fn ".script.seml")
-       ,@(funcall import-fn ".footer.seml"))))
+       ,@(funcall import-fn ".footer.seml")
+       ,@(funcall import-fn ".script.seml"))))
