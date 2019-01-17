@@ -5,7 +5,8 @@
         (div ((class . "col s12 m9 l10"))
           (div ((id . "introduction") (class . "section scrollspy"))
             ,@(cond
-               (homep   (funcall import-fn ".main-home.seml"))
-               (groupp  (funcall import-fn ".main-editor.seml")))))
+               (homep     (funcall import-fn ".main-home.seml"))
+               (groupp    (funcall import-fn ".main-editor.seml"))
+               (loadpathp (funcall import-fn ".main-loadpath.seml")))))
         (div ((class . "col hide-on-small-only m3 l2"))
           ,@(funcall import-fn ".sidetoc.seml"))))))

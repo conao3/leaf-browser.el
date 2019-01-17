@@ -14,7 +14,8 @@
       (callstack     nil)
       (toc           nil)
       (homep         (not type))
-      (groupp        (string= type "group")))
+      (groupp        (string= type "group"))
+      (loadpathp     (string= type "loadpath")))
   `(html nil
      ,@(funcall import-fn ".head.seml")
      (body nil
