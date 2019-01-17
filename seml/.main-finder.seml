@@ -1,7 +1,4 @@
 `(,@(progn (push path callstack) nil)
-  (div ((class . "center-align"))
-    (img ((class . "center-align responsive-img")
-          (src . "/leaf-browser/sources/splash.svg"))))
   (h5 ((class . "header")) ,(format "List of %s" targetpath))
   (div ((class . "collection"))
     ,@(mapcar (lambda (path)

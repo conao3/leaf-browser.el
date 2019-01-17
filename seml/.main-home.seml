@@ -1,8 +1,5 @@
 `(,@(progn (push path callstack) nil)
   ,@(progn (push '(:id introduction :disp "Introduction") toc) nil)
-  (div ((class . "center-align"))
-    (img ((class . "center-align responsive-img")
-          (src . "/leaf-browser/sources/splash.svg"))))
   (h5 ((class . "header")) ,(format "List of loadpath"))
   (div ((class . "collection"))
     ,@(mapcar (lambda (path)
