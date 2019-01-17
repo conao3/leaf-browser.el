@@ -10,7 +10,9 @@
         (ul ((class . "collapsible collapsible-accordion"))
           ,@(mapcar
              (lambda (x)
-               (let ((child-fn
+               (let ((symbol (car x))
+                     (type   (cadr x))
+                     (child-fn
                       (lambda (y)
                         (let ((symbol (car y))
                               (type   (cadr y)))
@@ -20,9 +22,7 @@
                                              rellink-fn
                                              (concat "/group/"
                                                      (symbol-name symbol)))))
-                                 ,(symbol-name symbol)))))))
-                     (symbol   (car x))
-                     (type     (cadr x)))
+                                 ,(symbol-name symbol))))))))
                  (if (eq type 'custom-group)
                      `(li nil
                         (a ((href  . ,(funcall rellink-fn (concat "/group/" (symbol-name symbol))))
