@@ -7,23 +7,22 @@
     (li nil (div ((class . "divider"))))
     (li ((class . "no-padding"))
       (ul ((class . "collapsible collapsible-accordion"))
-        (li nil
-          (a ((class . "collapsible-header waves-effect waves-teal"))
-            "CSS")
-          (div ((class . "collapsible-body"))
-            (ul nil
-              (li nil (a ((href . "#!")) "sample"))
-              (li nil (a ((href . "#!")) "sample"))
-              (li nil (a ((href . "#!")) "sample"))
-              (li nil (a ((href . "#!")) "sample"))
-              (li nil (a ((href . "#!")) "sample")))))
-        (li nil
-          (a ((class . "collapsible-header waves-effect waves-teal"))
-            "CSS")
-          (div ((class . "collapsible-body"))
-            (ul nil
-              (li nil (a ((href . "#!")) "sample"))
-              (li nil (a ((href . "#!")) "sample"))
-              (li nil (a ((href . "#!")) "sample"))
-              (li nil (a ((href . "#!")) "sample"))
-              (li nil (a ((href . "#!")) "sample")))))))))
+        ,@(mapcar
+           (lambda (x)
+             (let ((symbol (car x))
+                   (type   (cadr x)))
+               (if (eq type 'custom-group)
+                   `(li nil
+                      (a ((class . "collapsible-header waves-effect"))
+                        ,(symbol-name symbol))
+                      (div ((class . "collapsible-body"))
+                        (ul nil
+                          ,@(mapcar
+                             (lambda (y)
+                               (let ((symbol (car y))
+                                     (type   (cadr y)))
+                                 (when (eq type 'custom-group)
+                                   `(li nil (a ((href . "#!"))
+                                              ,(symbol-name symbol))))))
+                             (get symbol 'custom-group))))))))
+                  (get 'emacs 'custom-group))))))
