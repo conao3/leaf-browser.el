@@ -1,9 +1,8 @@
 `(,@(progn (push path callstack) nil)
-  (div ((class . "col hide-on-small-only m3 xl2"))
-    (div ((class . "toc-wrapper pinned"))
-      (ul ((class . "section table-of-contents"))
-        ,@(mapcar (lambda (x)
-                   `(li nil
-                      (a ((href . ,(format "#%s" (symbol-name (plist-get x :id)))))
-                        ,(plist-get x :disp))))
-                 (reverse toc))))))
+  (div ((class . "toc-wrapper pinned"))
+    (ul ((class . "section table-of-contents"))
+      ,@(mapcar (lambda (x)
+                  `(li nil
+                     (a ((href . ,(format "#%s" (symbol-name (plist-get x :id)))))
+                       ,(plist-get x :disp))))
+                (reverse toc)))))
