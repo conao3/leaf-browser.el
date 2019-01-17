@@ -1,35 +1,35 @@
 `(,@(progn (push path callstack) nil)
-    (ul ((class . "sidenav sidenav-fixed") (id . "sidenav"))
-      (li ((class . "logo"))
-        (a ((href . ,(funcall rellink-fn "/")))
-          (img ((width . "250px")
-                (src . "/leaf-browser/sources/splash.svg")))))
-      (li ((class . "divider")))
-      (li ((class . "list"))
-        (ul ((class . "collapsible collapsible-accordion"))
-          ,@(mapcar
-             (lambda (x)
-               (let ((symbol (car x))
-                     (type   (cadr x))
-                     (child-fn
-                      (lambda (y)
-                        (let ((symbol (car y))
-                              (type   (cadr y)))
-                          (when (eq type 'custom-group)
-                            `(li nil
-                               (a ((href . ,(funcall
-                                             rellink-fn
-                                             (concat "/group/"
-                                                     (symbol-name symbol)))))
-                                 ,(symbol-name symbol))))))))
-                 (if (eq type 'custom-group)
-                     `(li nil
-                        (a ((href  . ,(funcall rellink-fn (concat "/group/" (symbol-name symbol))))
-                            (class . "collapsible-header waves-effect"))
-                          ,(symbol-name symbol))
-                        (div ((class . "collapsible-body"))
-                          (ul nil
-                            ,@(mapcar child-fn (get symbol 'custom-group))))))))
-             (get 'emacs 'custom-group)))))
+  (ul ((class . "sidenav sidenav-fixed") (id . "sidenav"))
+    (li ((class . "logo"))
+      (a ((href . ,(funcall rellink-fn "/")))
+        (img ((width . "250px")
+              (src . "/leaf-browser/sources/splash.svg")))))
+    (li ((class . "divider")))
+    (li ((class . "list"))
+      (ul ((class . "collapsible collapsible-accordion"))
+        ,@(mapcar
+           (lambda (x)
+             (let ((symbol (car x))
+                   (type   (cadr x))
+                   (child-fn
+                    (lambda (y)
+                      (let ((symbol (car y))
+                            (type   (cadr y)))
+                        (when (eq type 'custom-group)
+                          `(li nil
+                             (a ((href . ,(funcall
+                                           rellink-fn
+                                           (concat "/group/"
+                                                   (symbol-name symbol)))))
+                               ,(symbol-name symbol))))))))
+               (if (eq type 'custom-group)
+                   `(li nil
+                      (a ((href  . ,(funcall rellink-fn (concat "/group/" (symbol-name symbol))))
+                          (class . "collapsible-header waves-effect"))
+                        ,(symbol-name symbol))
+                      (div ((class . "collapsible-body"))
+                        (ul nil
+                          ,@(mapcar child-fn (get symbol 'custom-group))))))))
+           (get 'emacs 'custom-group)))))
   (div ((class . "patreon"))
     (a ((href . "https://www.patreon.com/conao3")) "Become a Patreon")))
