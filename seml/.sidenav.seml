@@ -1,7 +1,7 @@
 `(,@(progn (push path callstack) nil)
   (ul ((id . "sidenav") (class . "sidenav sidenav-fixed grey-text text-lighten-2"))
     (li ((class . "logo"))
-      (a ((href . "/leaf-browser/home"))
+      (a ((href . "/leaf-browser/home/"))
         (img ((width . "250px")
               (src . "/leaf-browser/sources/splash.svg")))))
     (li ((class . "no-padding"))

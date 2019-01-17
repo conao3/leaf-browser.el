@@ -4,7 +4,7 @@
       (div ((class . "container"))
         (div ((class . "nav-wrapper"))
           (span ((class . "brand-logo"))
-            (a ((href . "?")) "leaf-browser.el"))
+            (a ((href . "/leaf-browser/home/")) "leaf-browser.el"))
           (div ((class . "nav-content"))
             ,@(cond
                (editorp (funcall import-fn ".header-editor.seml")))))))
