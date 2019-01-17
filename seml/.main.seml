@@ -1,7 +1,16 @@
 `(,@(progn (push path callstack) nil)
   (main nil
     (div ((class . "container"))
-      ,@(cond
-         (homep   (funcall import-fn ".main-home.seml"))
-         (finderp (funcall import-fn ".main-finder.seml"))
-         (editorp (funcall import-fn ".main-editor.seml"))))))
+      (div ((class . "row"))
+        (div ((class . "col s12 m9 xl10"))
+          (div ((id . "introduction") (class . "section scrollspy"))
+            ,@(cond
+               (homep   (funcall import-fn ".main-home.seml"))
+               (finderp (funcall import-fn ".main-finder.seml"))
+               (editorp (funcall import-fn ".main-editor.seml")))))
+        (div ((class . "col hide-on-small-only m3 xl2"))
+          (div ((class . "toc-wrapper pinned"))
+            (ul ((class . "section table-of-contents"))
+              (li nil (a ((href . "#introduction")) "Introduction"))
+              (li nil (a ((href . "#structure")) "Structure"))
+              (li nil (a ((href . "#initialization")) "Intialization")))))))))

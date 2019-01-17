@@ -20,5 +20,6 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
-    $('.pushpin').pushpin();
+    $('.scrollspy').scrollSpy();
+    //$('.row .table-of-contents').pushpin({ top: $('.row').offset().top });
 });
