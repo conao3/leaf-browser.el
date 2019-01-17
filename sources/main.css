@@ -37,6 +37,9 @@ header, main, footer {
     header, main, footer {
         padding-left: 0;
     }
+    .patreon {
+        display: none;
+    }
 }
 
 .sidenav .logo a {
