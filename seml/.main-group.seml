@@ -24,9 +24,15 @@
                 (option ((value . "1")) "item")
                 (option ((value . "1")) "item")))))))
     (div ((class . "col s12 xl4"))
-      (ul ((class . "collection"))
-        (a ((class . "collection-item")) "item")
-        (a ((class . "collection-item")) "item")
-        (a ((class . "collection-item")) "item")
-        (a ((class . "collection-item")) "item")
-        (a ((class . "collection-item")) "item")))))
+      (pre nil
+        "\n("
+        (span ((class . "keyword")) "leaf")
+        " real-auto-save\n  "
+        (span ((class . "builtin")) ":ensure")
+        " t\n  "
+        (span ((class . "builtin")) ":custom")
+        " ((real-auto-save-interval . 0.3))\n  "
+        (span ((class . "builtin")) ":commands")
+        " real-auto-save-mode\n  "
+        (span ((class . "builtin")) ":hook")
+        " (find-file-hook . real-auto-save-mode))\n\n"))))
