@@ -1,34 +1,36 @@
 `(,@(progn (push path callstack) nil)
   ,@(progn (push '(:id header :disp "Header") toc)
+           (push '(:id current-leaf :disp "Current Leaf Configuration") toc)
            (push '(:id custom-variables :disp "Custom Variables") toc) nil)
   (div ((id . "header") (class . "section scrollspy"))
     (h2 nil ,var1)
     (p nil ,(get groupsym 'group-documentation)))
   (div ((class . "row"))
-    (div ((class . "col s12"))
-      (h5 nil "Current leaf configuration")
-      (pre nil
-        "
+    (div ((id . "current-leaf") (class . "section scrollspy"))
+      (div ((class . "col s12"))
+        (h5 nil "Current leaf configuration")
+        (pre nil
+          "
 ("
-        (span ((class . "keyword"))
-          "leaf")
-        " real-auto-save
+          (span ((class . "keyword"))
+            "leaf")
+          " real-auto-save
   "
-        (span ((class . "builtin"))
-          ":ensure")
-        " t
+          (span ((class . "builtin"))
+            ":ensure")
+          " t
   "
-        (span ((class . "builtin"))
-          ":custom")
-        " ((real-auto-save-interval . 0.3))
+          (span ((class . "builtin"))
+            ":custom")
+          " ((real-auto-save-interval . 0.3))
   "
-        (span ((class . "builtin"))
-          ":commands")
-        " real-auto-save-mode
+          (span ((class . "builtin"))
+            ":commands")
+          " real-auto-save-mode
   "
-        (span ((class . "builtin"))
-          ":hook")
-        " (find-file-hook . real-auto-save-mode))"))
+          (span ((class . "builtin"))
+            ":hook")
+          " (find-file-hook . real-auto-save-mode))")))
     (div ((class . "col s12 xl8"))
       (div ((id . "custom-variables") (class . "section scrollspy"))
         (div ((class . "row"))
