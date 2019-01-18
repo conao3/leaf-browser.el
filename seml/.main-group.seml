@@ -5,28 +5,8 @@
     (h2 nil ,var1)
     (p nil ,(get groupsym 'group-documentation)))
   (div ((class . "row"))
-    (div ((class . "col s12 xl8"))
-      (div ((id . "custom-variables") (class . "section scrollspy"))
-        (div ((class . "row"))
-          (div ((class . "col s12"))
-            (h4 nil "Bind-key-column-widths")
-            (p nil ,(get 'bind-key-column-widths 'variable-documentation)))
-          (div ((class . "col s12 xl7"))
-            (div ((class . "imput-field"))
-              (select nil
-                (option ((value . "1")) "item")
-                (option ((value . "1")) "item")
-                (option ((value . "1")) "item"))))
-          (div ((class . "col s12 xl5"))
-            (div ((class . "imput-field"))
-              (select nil
-                (option ((value . "1")) "item")
-                (option ((value . "1")) "item")
-                (option ((value . "1")) "item")))))))
-    (div ((class . "col s12 xl4"))
-      (top nil
-  (comment nil
-    " Created by htmlize-1.55 in css mode. ")
+    (div ((class . "col s12"))
+      (h5 nil "Current leaf configuration")
       (pre nil
         "
 ("
@@ -48,4 +28,22 @@
   "
         (span ((class . "builtin"))
           ":hook")
-        " (find-file-hook . real-auto-save-mode))")))))
+        " (find-file-hook . real-auto-save-mode))"))
+    (div ((class . "col s12 xl8"))
+      (div ((id . "custom-variables") (class . "section scrollspy"))
+        (div ((class . "row"))
+          (div ((class . "col s12"))
+            (h4 nil "Bind-key-column-widths")
+            (p nil ,(get 'bind-key-column-widths 'variable-documentation)))
+          (div ((class . "col s12 xl7"))
+            (div ((class . "imput-field"))
+              (select nil
+                (option ((value . "1")) "item")
+                (option ((value . "1")) "item")
+                (option ((value . "1")) "item"))))
+          (div ((class . "col s12 xl5"))
+            (div ((class . "imput-field"))
+              (select nil
+                (option ((value . "1")) "item")
+                (option ((value . "1")) "item")
+                (option ((value . "1")) "item")))))))))

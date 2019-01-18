@@ -121,10 +121,11 @@ h4, h5, h6 {
 /* ***** pre styles ***** */
 pre {
     font-family: monaco;
-    font-size: 15px;
+    font-size: 13px;
     color: #f6f3e8;
     background-color: rgb(33, 37, 43);
     font-weight: 200;
+    padding: 15px;
 }
 
 .builtin {
