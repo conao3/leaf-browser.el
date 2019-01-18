@@ -19,10 +19,7 @@ html {
     letter-spacing: 0.3px;
 }
 
-.sidenav {
-    background-color: rgb(41, 45, 52);
-}
-
+/* ***** nav ***** */
 nav {
     z-index: 10;
     background-color: rgb(33, 37, 43);
@@ -33,6 +30,7 @@ nav {
     padding-bottom: 10px;
 }
 
+/* ***** breadcrumb ***** */
 .breadcrumb {
     font-size: 16px;
 }
@@ -42,6 +40,7 @@ nav {
     margin: 0 3px;
 }
 
+/* ***** sidenav ***** */
 header, main, footer {
     padding-left: 300px;
 }
@@ -56,6 +55,7 @@ header, main, footer {
 }
 
 .sidenav {
+    background-color: rgb(41, 45, 52);
     padding-bottom: 200px;
 }
 
@@ -107,14 +107,7 @@ nav ul a {
     padding: 0 10px;
 }
 
-.header {
-    font-weight: 300;
-}
-
-.divider {
-    background-color: rgb(28, 30, 38);
-}
-
+/* ***** header style ***** */
 h1, h2, h3 {
     font-weight: 300;
     margin-left: -5px;
@@ -124,3 +117,10 @@ h1, h2, h3 {
 h4, h5, h6 {
     font-weight: 200;
 }
+
+/* ***** other styles ***** */
+.divider {
+    background-color: rgb(28, 30, 38);
+}
+
+
