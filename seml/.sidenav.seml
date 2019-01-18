@@ -21,6 +21,6 @@
                       ,(symbol-name sym)))))
              group-elms)
           `((li nil
-              (a ((href  . "")) "No Child groups"))))))
+              (a nil "No Child groups"))))))
   (div ((class . "patreon"))
     (a ((href . "https://www.patreon.com/conao3")) "Become a Patreon")))
