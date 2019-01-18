@@ -118,9 +118,44 @@ h4, h5, h6 {
     font-weight: 200;
 }
 
+/* ***** pre styles ***** */
+pre {
+    font-family: monaco;
+    font-size: 15px;
+    color: #f6f3e8;
+    background-color: rgb(33, 37, 43);
+    font-weight: 200;
+}
+
+.builtin {
+    /* font-lock-builtin-face */
+    color: #e5786d;
+}
+.constant {
+    /* font-lock-constant-face */
+    color: #e5786d;
+}
+.doc {
+    /* font-lock-doc-face */
+    color: #95e454;
+}
+.keyword {
+    /* font-lock-keyword-face */
+    color: #8ac6f2;
+    font-weight: bold;
+}
+.string {
+    /* font-lock-string-face */
+    color: #95e454;
+}
+.variable-name {
+    /* font-lock-variable-name-face */
+    color: #cae682;
+}
+
+
 /* ***** other styles ***** */
 .divider {
     background-color: rgb(28, 30, 38);
 }
-
 
