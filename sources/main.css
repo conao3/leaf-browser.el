@@ -130,9 +130,6 @@ h4, h5, h6 {
     text-align: center;
 }
 
-h3.header {
-    font-weight: 200;
-}
 /* ***** pre styles ***** */
 pre {
     font-family: monaco;

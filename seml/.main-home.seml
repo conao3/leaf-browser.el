@@ -2,4 +2,4 @@
   (div ((class . "row"))
     (div ((class . "col s12"))
       (h1 ((class . "header")) "Leaf-browser.el")
-      (h3 ((class . "header")) "Modern Emacs configuration system"))))
+      (h4 ((class . "header")) "Modern Emacs configuration system"))))
