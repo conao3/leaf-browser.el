@@ -111,7 +111,7 @@ nav ul a {
 h1, h2, h3 {
     font-weight: 300;
     margin-left: -5px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.25)
+    border-bottom: 1px solid rgba(0, 0, 0, 0.35)
 }
 
 h4, h5, h6 {
@@ -164,6 +164,7 @@ pre {
 
 /* ***** other styles ***** */
 .divider {
-    background-color: rgb(28, 30, 38);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.35);
+    background-color: rgba(0, 0, 0, 0);
 }
 
