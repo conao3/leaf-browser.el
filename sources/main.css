@@ -148,6 +148,7 @@ h4, h5, h6 {
 /* ***** footer ***** */
 
 .page-footer {
+    padding-top: 0;
     letter-spacing: 0.6px;    
     background-color: rgb(33, 37, 43);
 }

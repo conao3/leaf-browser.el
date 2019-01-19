@@ -2,10 +2,10 @@
   ,@(when (or homep debugp)
       `((footer ((class . "page-footer"))
           (div ((class . "container"))
-            (div ((class . "row"))
-              "leaf-browser.el"
-              ,@(when debugp (seml-import ".debug.seml"))
-              ))
+            ,@(when debugp
+                `((div ((class . "row"))
+                    ,@(when debugp (seml-import ".debug.seml"))
+                    ))))
           (div ((class . "footer-copyright"))
             (div ((class . "container"))
               "© 2019 Naoya Yamashita (@conao3) All rights reserved."
