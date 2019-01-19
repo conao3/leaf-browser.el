@@ -1,6 +1,6 @@
 `(,@(progn (push path callstack) nil)
   ,@(when (or homep debugp)
-      `((footer nil
+      `((footer ((class . "page-footer"))
           (div ((class . "container"))
             (div ((class . "row"))
               "leaf-browser.el"
