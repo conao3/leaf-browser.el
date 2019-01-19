@@ -8,7 +8,7 @@
                           (concat root-url path)))
        (callstack       nil)
        (toc             nil)
-       (homep           (not type))
+       (homep           (string= type ""))
        (groupp          (string= type "group"))
        (groupstr        (when groupp var1))
        (groupsym        (when groupp (intern var1)))

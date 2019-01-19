@@ -1,4 +1,4 @@
 `(,@(progn (push path callstack) nil)
-  ,@(progn (push '(:id header :disp "Header") toc) nil)
-  (div ((id . "header") (class . "section scrollspy"))
-    (h5 ((class . "header")) ,(format "List of loadpath"))))
+  (div ((class . "row"))
+    (div ((class . "col s12"))
+      (h1 ((class . "header")) "Leaf-bowser.el"))))

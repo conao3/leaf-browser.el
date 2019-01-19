@@ -4,10 +4,10 @@
       ,@(cond
          (homep (seml-import ".main-home.seml"))
          (t
-          (div ((class . "row"))
-            (div ((class . "col s12 m9"))
-              ,@(cond
-                 (groupp    (seml-import ".main-group.seml"))
-                 (loadpathp (seml-import ".main-loadpath.seml"))))
-            (div ((class . "col hide-on-small-only m3"))
-              ,@(seml-import ".sidetoc.seml"))))))))
+          `((div ((class . "row"))
+             (div ((class . "col s12 m9"))
+               ,@(cond
+                  (groupp    (seml-import ".main-group.seml"))
+                  (loadpathp (seml-import ".main-loadpath.seml"))))
+             (div ((class . "col hide-on-small-only m3"))
+               ,@(seml-import ".sidetoc.seml")))))))))
