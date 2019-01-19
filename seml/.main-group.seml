@@ -14,8 +14,29 @@
   :custom ((real-auto-save-interval . 0.3))
   :commands real-auto-save-mode
   :hook (find-file-hook . real-auto-save-mode))")))
+
     (div ((class . "col s12 xl8"))
       (div ((id . "custom-variables") (class . "section scrollspy"))
+        (h4 nil "Custom Variables")
+        (p ((class . "caption")) "Customizable variables tagged by package developer.")
+        ,@(let ((variable-elms (mapcan (lambda (elm)
+                                         (let ((sym  (car elm))
+                                               (type (cadr elm)))
+                                           (when (eq type 'custom-variable)
+                                             `(,elm))))
+                                       (get (intern var1) 'custom-group))))
+            (if variable-elms
+                (mapcar
+                 (lambda (elm)
+                   (let ((sym  (car  elm))
+                         (type (cadr elm)))
+                     `(div ((class . "row"))
+                        (div ((class . "col s12"))
+                          (h5 nil ,(symbol-name sym))))))
+                 variable-elms)
+              `((li nil
+                  (a nil "No Custom variables")))))
+        
         (div ((class . "row"))
           (div ((class . "col s12"))
             (h4 nil "Bind-key-column-widths")
