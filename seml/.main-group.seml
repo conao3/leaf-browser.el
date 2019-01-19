@@ -9,24 +9,11 @@
     (div ((id . "current-leaf") (class . "section scrollspy"))
       (div ((class . "col s12"))
         (h5 nil "Current leaf configuration")
-        ,@(let ((source-buf (generate-new-buffer "*leaf*"))
-               (htmlize-buf)
-               (result))
-           (with-current-buffer source-buf
-             (insert "(leaf real-auto-save
+        ,(seml-htmlize 'emacs-lisp-mode "(leaf real-auto-save
   :ensure t
   :custom ((real-auto-save-interval . 0.3))
   :commands real-auto-save-mode
-  :hook (find-file-hook . real-auto-save-mode))")
-             (emacs-lisp-mode)
-             (indent-region (point-min) (point-max)))
-           (setq htmlize-buf (htmlize-buffer source-buf))
-           (setq result (seml-encode-html-from-buffer htmlize-buf))
-           (print source-buf)
-           (print htmlize-buf)
-           (kill-buffer source-buf)
-           (kill-buffer htmlize-buf)
-           (seml-xpath '(pre) result))))
+  :hook (find-file-hook . real-auto-save-mode))")))
     (div ((class . "col s12 xl8"))
       (div ((id . "custom-variables") (class . "section scrollspy"))
         (div ((class . "row"))
