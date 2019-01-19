@@ -1,7 +1,7 @@
 /*
 depend on google web font
 (link ((rel . "stylesheet")
-  (href . "https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400")))
+  (href . "https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400")))
 
 - rgb(41, 45, 52) - bg
 - rgb(33, 37, 43) - bg-disabled
@@ -130,6 +130,9 @@ h4, h5, h6 {
     text-align: center;
 }
 
+h3.header {
+    font-weight: 200;
+}
 /* ***** pre styles ***** */
 pre {
     font-family: monaco;
