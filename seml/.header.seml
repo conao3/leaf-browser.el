@@ -1,6 +1,7 @@
 `(,@(progn (push path callstack) nil)
   (header nil
-    (nav ((class . "nav-extended top-nav"))
+    ,@(unless homep
+  `((nav ((class . "nav-extended top-nav"))
       (div ((class . "container"))
         (div ((class . "nav-wrapper"))
           (span ((class . "brand-logo"))
@@ -18,5 +19,5 @@
                                  (class . "breadcrumb"))
                                ,elm))
                           (reverse lbrowser-breadcrumbs))
-                )))))
+                )))))))
     ,@(seml-import ".sidenav.seml")))
