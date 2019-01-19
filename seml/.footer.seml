@@ -8,4 +8,6 @@
               ))
           (div ((class . "footer-copyright"))
             (div ((class . "container"))
-              "© 2018 Copyright Naoya Yamashita (@conao3)")))))))
+              "Leaf-browser.el is distributed under the"
+              (strong nil "AGPLv3")
+              "by Naoya Yamashita (@conao3)"))))))
