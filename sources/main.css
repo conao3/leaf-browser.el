@@ -30,7 +30,7 @@ main {
 }
 
 /* ***** nav ***** */
-nav{
+nav {
     z-index: 10;
     background-color: rgb(33, 37, 43);
     text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.7);
@@ -147,6 +147,7 @@ h4, h5, h6 {
 /* ***** footer ***** */
 
 .page-footer {
+    letter-spacing: 0.5px;    
     background-color: rgb(33, 37, 43);
 }
 

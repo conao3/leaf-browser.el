@@ -8,6 +8,4 @@
               ))
           (div ((class . "footer-copyright"))
             (div ((class . "container"))
-              "あ
-        © 2018 Copyright Yusuke Ito(@yusukeito58)
-      ")))))))
+              "© 2018 Copyright Naoya Yamashita (@conao3)")))))))
