@@ -124,6 +124,12 @@ h4, h5, h6 {
     margin-left: 15px
 }
 
+.header {
+    margin-left: 0;
+    border-bottom: 0;
+    text-align: center;
+}
+
 /* ***** pre styles ***** */
 pre {
     font-family: monaco;
