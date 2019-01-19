@@ -19,6 +19,16 @@ html {
     letter-spacing: 0.3px;
 }
 
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
 /* ***** nav ***** */
 nav{
     z-index: 10;
