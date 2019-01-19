@@ -1,12 +1,12 @@
 `(,@(progn (push path callstack) nil)
-      (footer ((class . "page-footer"))
-          (div ((class . "container"))
-            ,@(when debugp
-                `((div ((class . "row"))
-                    ,@(when debugp (seml-import ".debug.seml"))
-                    ))))
-          (div ((class . "footer-copyright"))
-            (div ((class . "container"))
-              "© 2019 Naoya Yamashita (@conao3) All rights reserved."
-              (div ((class . "right"))
-                (strong nil "AGPLv3"))))))
+  (footer ((class . "page-footer"))
+    (div ((class . "container"))
+      ,@(when debugp
+          `((div ((class . "row"))
+              ,@(when debugp (seml-import ".debug.seml"))
+              ))))
+    (div ((class . "footer-copyright"))
+      (div ((class . "container"))
+        "© 2019 Naoya Yamashita (@conao3) All rights reserved."
+        (div ((class . "right"))
+          (strong nil "AGPLv3"))))))
