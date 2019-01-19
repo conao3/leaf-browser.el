@@ -7,7 +7,7 @@
             (a ((href . ,(funcall rellink-fn "/"))) "leaf-browser.el"))
           ;; (div ((class . "nav-content"))
           ;;   ,@(cond
-          ;;      (editorp (funcall import-fn ".header-editor.seml"))))
+          ;;      (editorp (seml-import ".header-editor.seml"))))
           (a ((class . "top-nav sidenav-trigger full hide-on-large-only")
               (href . "#") (data-target . "sidenav"))
             (i ((class . "material-icons")) "menu")))
@@ -19,4 +19,4 @@
                                ,elm))
                           (reverse lbrowser-breadcrumbs))
                 )))))
-    ,@(funcall import-fn ".sidenav.seml")))
+    ,@(seml-import ".sidenav.seml")))

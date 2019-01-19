@@ -1,11 +1,6 @@
 (let* ((root-url      "/leaf-browser") ;; "/seml-mode/live-refresh")
        (root-dir      lbrowser-root-dir)
-       (seml-dir      (concat lbrowser-root-dir "seml/"))
-       (import-fn     (lambda (path)
-                        (eval (read
-                               (with-temp-buffer
-                                 (insert-file-contents (concat seml-dir path))
-                                 (buffer-substring-no-properties (point-min) (point-max)))))))
+       (seml-import-dir (concat lbrowser-root-dir "seml/"))
        (url-encode-fn (lambda (str)
                         (url-hexify-string str)))
        (url-decode-fn (lambda (str)
@@ -20,9 +15,9 @@
        (groupsym     (when groupp (intern var1)))
        (loadpathp     (string= type "loadpath")))
   `(html nil
-     ,@(funcall import-fn ".head.seml")
+     ,@(seml-import ".head.seml")
      (body nil
-       ,@(funcall import-fn ".header.seml")
-       ,@(funcall import-fn ".main.seml")
-       ,@(funcall import-fn ".footer.seml")
-       ,@(funcall import-fn ".script.seml"))))
+       ,@(seml-import ".header.seml")
+       ,@(seml-import ".main.seml")
+       ,@(seml-import ".footer.seml")
+       ,@(seml-import ".script.seml"))))
