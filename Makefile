@@ -14,7 +14,8 @@ BATCH       := $(EMACS) -Q --batch -L $(TOP)
 SIMPLEHTTPD := simple-httpd.el
 LEAF        := leaf.el leaf-backend.el leaf-handler.el leaf-polyfill.el
 SEML_MODE   := seml-mode.el
-DEPEND      := $(SIMPLEHTTPD) $(LEAF) $(HTMLIZE) $(SEML_MODE)
+HTMLIZE     := htmlize.el
+DEPEND      := $(SIMPLEHTTPD) $(LEAF) $(HTMLIZE) $(SEML_MODE) $(HTMLIZE)
 
 TESTFILE    := leaf-browser-tests.el
 
@@ -72,6 +73,7 @@ test: $(ALL_EMACS:%=.make-test-%)
 
 ##############################
 #  depend files
+
 $(SIMPLEHTTPD):
 	curl -O https://raw.githubusercontent.com/skeeto/emacs-web-server/master/simple-httpd.el
 
@@ -80,3 +82,6 @@ $(LEAF):
 
 $(SEML_MODE):
 	curl -O https://raw.githubusercontent.com/conao3/seml-mode.el/master/$@
+
+$(HTMLIZE):	
+	curl -O https://raw.githubusercontent.com/hniksic/emacs-htmlize/master/$@
