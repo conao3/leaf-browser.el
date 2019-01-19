@@ -1,4 +1,5 @@
 `((a ((href . "https://github.com/conao3/leaf-browser.el")
+      (target . "_blank")
       (class . "github-corner")
       (aria-label . "View source on GitHub"))
     (svg ((width . "125")
