@@ -4,7 +4,7 @@
            (push '(:id custom-variables :disp "Custom Variables") toc) nil)
   (div ((id . "header") (class . "section scrollspy"))
     (h2 nil ,var1)
-    (p nil ,(get groupsym 'group-documentation)))
+    (p ((class . "caption")) ,(get groupsym 'group-documentation)))
   (div ((class . "row"))
     (div ((id . "current-leaf") (class . "section scrollspy"))
       (div ((class . "col s12"))
