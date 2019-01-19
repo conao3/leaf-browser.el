@@ -1,6 +1,5 @@
 `(,@(progn (push path callstack) nil)
-  ,@(when (or homep debugp)
-      `((footer ((class . "page-footer"))
+      (footer ((class . "page-footer"))
           (div ((class . "container"))
             ,@(when debugp
                 `((div ((class . "row"))
@@ -10,4 +9,4 @@
             (div ((class . "container"))
               "© 2019 Naoya Yamashita (@conao3) All rights reserved."
               (div ((class . "right"))
-                (strong nil "AGPLv3"))))))))
+                (strong nil "AGPLv3"))))))
