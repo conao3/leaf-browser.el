@@ -1,5 +1,5 @@
 `(,@(progn (push path callstack) nil)
   (div ((class . "row"))
-    (div ((class . "col s12"))
+    (div ((class . "col s12 l10 offset-l1 xl10 offset-xl1"))
       (h1 ((class . "header title")) "leaf-browser.el")
-      (h4 ((class . "header")) "Modern Emacs configuration system"))))
+      (h4 ((class . "header")) "A moden web browser front-end of Emacs customize-mode for leaf.el"))))
