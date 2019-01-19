@@ -31,7 +31,6 @@
 
 (require 'leaf)
 (require 'simple-httpd)
-(require 'htmlize)
 (require 'seml-mode)
 
 (defgroup leaf-browser nil
