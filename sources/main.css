@@ -1,4 +1,14 @@
 /*
+This package depend on Materialize.
+Marerialize is distributed under the MIT License.
+
+The MIT License (MIT)
+Copyright (c) 2014-2018 Materialize
+https://github.com/Dogfalo/materialize/blob/v1-dev/LICENSE
+*/
+
+/*
+
 depend on google web font
 (link ((rel . "stylesheet")
   (href . "https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400")))

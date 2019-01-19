@@ -10,3 +10,34 @@
 
 * What is it?
 ~leaf-browser.el~ provide Web frontend of Emacs custom-mode.
+
+* License of dependent software
+** jquery/jquery
+This package depend on [[https://github.com/jquery/jquery][jquery/jquery]].
+It is distributed under the MIT License.
+
+#+begin_quote
+The MIT License (MIT)
+Copyright JS Foundation and other contributors, https://js.foundation/
+https://github.com/jquery/jquery/blob/master/LICENSE.txt
+#+end_quote
+
+** Dogfalo/materialize
+This package depend on [[https://github.com/Dogfalo/materialize][Dogfalo/materialize]].
+It is distributed under the MIT License.
+
+#+begin_quote
+The MIT License (MIT)
+Copyright (c) 2014-2018 Materialize
+https://github.com/Dogfalo/materialize/blob/v1-dev/LICENSE
+#+end_quote
+
+** tholman/github-corners
+This package depend on [[https://github.com/tholman/github-corners/blob/master/license.md][tholman/github-corners]].
+It is distributed under the MIT License.
+
+#+begin_quote
+The MIT License (MIT)
+Copyright (c) 2016 Tim Holman - http://tholman.com
+https://github.com/tholman/github-corners/blob/master/license.md
+#+end_quote
