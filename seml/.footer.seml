@@ -1,4 +1,5 @@
 `(,@(progn (push path callstack) nil)
   (footer nil
     (div ((class . "container"))
-      ,@(seml-import ".debug.seml"))))
+      ,@(when debugp (seml-import ".debug.seml"))
+      )))

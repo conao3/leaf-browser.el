@@ -61,7 +61,7 @@
 
 (defun lbrowser-define-servlet ()
   "Serve define"
-  (defservlet* leaf-browser/:type/:var1/:var2 "text/html" (targetpath targetfile)
+  (defservlet* leaf-browser/:type/:var1/:var2 "text/html" (targetpath targetfile debug)
     (if (string= type "")
         (setq lbrowser-breadcrumbs nil)
       (if (member var1 lbrowser-breadcrumbs)
