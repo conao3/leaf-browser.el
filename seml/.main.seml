@@ -1,5 +1,6 @@
 `(,@(progn (push path callstack) nil)
   (main nil
+    ,@(seml-import ".github-corner.seml")
     (div ((class . "container"))
       ,@(cond
          (homep (seml-import ".main-home.seml"))
