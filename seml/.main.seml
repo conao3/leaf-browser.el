@@ -1,11 +1,13 @@
 `(,@(progn (push path callstack) nil)
   (main nil
     (div ((class . "container"))
-      (div ((class . "row"))
-        (div ((class . "col s12 m9"))
-          ,@(cond
-             (homep     (seml-import ".main-home.seml"))
-             (groupp    (seml-import ".main-group.seml"))
-             (loadpathp (seml-import ".main-loadpath.seml"))))
-        (div ((class . "col hide-on-small-only m3"))
-          ,@(seml-import ".sidetoc.seml"))))))
+      ,@(cond
+         (homep (seml-import ".main-home.seml"))
+         (t
+          (div ((class . "row"))
+            (div ((class . "col s12 m9"))
+              ,@(cond
+                 (groupp    (seml-import ".main-group.seml"))
+                 (loadpathp (seml-import ".main-loadpath.seml"))))
+            (div ((class . "col hide-on-small-only m3"))
+              ,@(seml-import ".sidetoc.seml"))))))))
