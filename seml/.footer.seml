@@ -2,5 +2,5 @@
   (footer nil
     (div ((class . "container"))
       (div ((class . "row"))
-      ,@(when debugp (seml-import ".debug.seml"))
-      ))))
+        ,@(when debugp (seml-import ".debug.seml"))
+        ))))
