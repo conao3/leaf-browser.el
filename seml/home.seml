@@ -1,6 +1,5 @@
 (let* ((root-url      "/leaf-browser") ;; "/seml-mode/live-refresh")
-       (root-dir      lbrowser-root-dir)
-       (seml-import-dir (concat lbrowser-root-dir "seml/"))
+       (seml-import-dir (expand-file-name "seml/" lbrowser-root-dir))
        (url-encode-fn (lambda (str)
                         (url-hexify-string str)))
        (url-decode-fn (lambda (str)
