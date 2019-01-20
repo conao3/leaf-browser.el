@@ -3,26 +3,26 @@
            (push '(:id current-leaf :disp "Current Leaf Configuration") toc)
            (push '(:id custom-variables :disp "Custom Variables") toc) nil)
   (form nil
-  (div ((id . "header") (class . "section scrollspy"))
-    (h2 nil ,var1)
-    (p ((class . "caption")) ,(get groupsym 'group-documentation)))
-  (div ((class . "row"))
-    (div ((id . "current-leaf") (class . "section scrollspy"))
-      (div ((class . "col s12"))
-        (h4 nil "Current leaf configuration")
-        (div ((class . "contents"))
-          ,(seml-htmlize 'emacs-lisp-mode "(leaf real-auto-save
+    (div ((id . "header") (class . "section scrollspy"))
+      (h2 nil ,var1)
+      (p ((class . "caption")) ,(get groupsym 'group-documentation)))
+    (div ((class . "row"))
+      (div ((id . "current-leaf") (class . "section scrollspy"))
+        (div ((class . "col s12"))
+          (h4 nil "Current leaf configuration")
+          (div ((class . "contents"))
+            ,(seml-htmlize 'emacs-lisp-mode "(leaf real-auto-save
   :ensure t
   :custom ((real-auto-save-interval . 0.3))
   :commands real-auto-save-mode
   :hook (find-file-hook . real-auto-save-mode))"))))
 
-    (div ((class . "col s12"))
-      (div ((id . "custom-variables") (class . "section scrollspy"))
-        (h4 nil "Custom Variables")
-        (p ((class . "caption")) "Customizable variables tagged by package developer.")
-        (div ((class . "contents"))
-          ,@(seml-import ".custom-variables.seml")))))))
+      (div ((class . "col s12"))
+        (div ((id . "custom-variables") (class . "section scrollspy"))
+          (h4 nil "Custom Variables")
+          (p ((class . "caption")) "Customizable variables tagged by package developer.")
+          (div ((class . "contents"))
+            ,@(seml-import ".custom-variables.seml")))))))
 
 ;; (div ((class . "row"))
 ;;   (div ((class . "col s12"))
