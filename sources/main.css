@@ -172,6 +172,11 @@ pre {
     line-height: 1.45;
 }
 
+pre > pre {
+    margin: 0 15px;
+    padding: 0;
+}
+
 .doc pre {
     white-space: pre-wrap;
 }
