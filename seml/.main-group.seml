@@ -15,7 +15,7 @@
   :commands real-auto-save-mode
   :hook (find-file-hook . real-auto-save-mode))")))
 
-    (div ((class . "col s12 xl8"))
+    (div ((class . "col s12"))
       (div ((id . "custom-variables") (class . "section scrollspy"))
         (h4 nil "Custom Variables")
         (p ((class . "caption")) "Customizable variables tagged by package developer.")
@@ -40,8 +40,7 @@
                           ))))
                  variable-elms)
               `((li nil
-                  (a nil "No Custom variables")))))
-        ))))
+                  (a nil "No Custom variables")))))))))
 
 ;; (div ((class . "row"))
 ;;   (div ((class . "col s12"))
