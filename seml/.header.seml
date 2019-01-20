@@ -18,6 +18,5 @@
                                   `(a ((href . ,(concat root-url "/group/" elm))
                                        (class . "breadcrumb"))
                                      ,elm))
-                                (reverse lbrowser-breadcrumbs))
-                      )))))))
+                                (reverse lbrowser-breadcrumbs)))))))))
     ,@(seml-import ".sidenav.seml")))
