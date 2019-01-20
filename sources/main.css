@@ -206,7 +206,14 @@ pre > pre {
     /* font-lock-variable-name-face */
     color: #cae682;
 }
-
+.comment {
+    /* font-lock-comment-face */
+    color: #99968b;
+}
+.comment-delimiter {
+    /* font-lock-comment-delimiter-face */
+    color: #99968b;
+}
 
 /* ***** other styles ***** */
 .divider {
