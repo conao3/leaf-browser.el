@@ -159,13 +159,13 @@ h4, h5, h6 {
 
 /* ***** pre styles ***** */
 pre {
-    font-family: monaco;
+    font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
     font-size: 12px;
     color: rgb(215, 218, 224);
     background-color: rgb(33, 37, 43);
     overflow: scroll;
-    font-weight: 200;
     padding: 15px;
+    line-height: 1.45;
 }
 
 .doc pre {
