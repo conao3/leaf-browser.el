@@ -34,9 +34,10 @@
                         (div ((class . "col s12"))
                           (h5 nil ,(symbol-name sym))
                           (p ((class . "caption"))
-                            ,(seml-htmlize 'emacs-lisp-mode
-                                           (when (stringp (get sym 'variable-documentation))
-                                             (get sym 'variable-documentation))))
+                            (div ((class . "doc"))
+                              ,(seml-htmlize 'emacs-lisp-mode
+                                             (when (stringp (get sym 'variable-documentation))
+                                               (get sym 'variable-documentation)))))
                           ))))
                  variable-elms)
               `((li nil

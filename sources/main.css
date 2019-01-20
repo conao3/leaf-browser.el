@@ -168,6 +168,10 @@ pre {
     padding: 15px;
 }
 
+.doc pre {
+    white-space: pre-wrap;
+}
+
 .builtin {
     /* font-lock-builtin-face */
     color: #e5786d;
