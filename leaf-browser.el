@@ -61,6 +61,9 @@
 
 (defun lbrowser-define-servlet ()
   "Serve define"
+  ;; declare lexical-binding variables
+  (defvar path "")
+  
   (defservlet* leaf-browser/:type/:var1/:var2 "text/html" (targetpath targetfile debug)
     (if (string= type "")
         (setq lbrowser-breadcrumbs nil)

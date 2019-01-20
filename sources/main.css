@@ -161,7 +161,7 @@ h4, h5, h6 {
 pre {
     font-family: monaco;
     font-size: 13px;
-    color: #f6f3e8;
+    color: rgb(215, 218, 224);
     background-color: rgb(33, 37, 43);
     overflow: scroll;
     font-weight: 200;
