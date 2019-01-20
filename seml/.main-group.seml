@@ -2,7 +2,8 @@
   ,@(progn (push '(:id header :disp "Header") toc)
            (push '(:id current-leaf :disp "Current Leaf Configuration") toc)
            (push '(:id custom-variables :disp "Custom Variables") toc) nil)
-  (form nil
+  (form ((id . "main") (action . "main") (method . "post"))
+    (input ((type . "submit")))
     (div ((id . "header") (class . "section scrollspy"))
       (h2 nil ,var1)
       (p ((class . "caption")) ,(get groupsym 'group-documentation)))

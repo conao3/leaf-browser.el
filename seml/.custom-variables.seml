@@ -13,11 +13,10 @@
                `(div ((class . "row"))
                   (div ((class . "col s12"))
                     (label nil
-                      (input ((type . "checkbox")))
-                      ;; (input ((type . "submit")))
+                      (input ((name . ,(concat "input-" (symbol-name sym)))
+                              (type . "checkbox")))
                       (span nil ,(symbol-name sym)))
-                    (h5 nil ,(symbol-name sym))
-                    )
+                    (h5 nil ,(symbol-name sym)))
                   (div ((class . "col s12"))
                     ,@(when debugp
                         `(,@(seml-import ".custom-variables-debug.seml")))
