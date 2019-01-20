@@ -19,36 +19,7 @@
       (div ((id . "custom-variables") (class . "section scrollspy"))
         (h4 nil "Custom Variables")
         (p ((class . "caption")) "Customizable variables tagged by package developer.")
-        ,@(let ((variable-elms (mapcan (lambda (elm)
-                                         (let ((sym  (car elm))
-                                               (type (cadr elm)))
-                                           (when (eq type 'custom-variable)
-                                             `(,elm))))
-                                       (get (intern var1) 'custom-group))))
-            (if variable-elms
-                (mapcar
-                 (lambda (elm)
-                   (let ((sym  (car  elm))
-                         (type (cadr elm)))
-                     `(div ((class . "row"))
-                        (div ((class . "col s12"))
-                          (h5 nil ,(symbol-name sym))
-                          (p ((class . "caption"))
-                            (div ((class . "doc"))
-                              ,(seml-htmlize 'emacs-lisp-mode
-                                             (replace-regexp-in-string
-                                              ";"
-                                              ";\n"
-                                              (or (when (stringp (get sym 'variable-documentation))
-                                                   (get sym 'variable-documentation))
-                                                 "No docstring..."))
-                                             'noindent)))
-                          ))))
-                 (sort variable-elms '(lambda (a b)
-                                        (string< (symbol-name (car a))
-                                                 (symbol-name (car b))))))
-              `((li nil
-                  (a nil "No Custom variables")))))))))
+        ,@(seml-import ".custom-variables.seml")))))
 
 ;; (div ((class . "row"))
 ;;   (div ((class . "col s12"))
