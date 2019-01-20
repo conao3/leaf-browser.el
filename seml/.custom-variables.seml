@@ -14,9 +14,7 @@
                   (div ((class . "col s12"))
                     (h5 nil ,(symbol-name sym))
                     ,@(when debugp
-                        `((p ((class . "caption"))
-                            ,(prin1-to-string (get sym 'custom-type)))
-                          ,@(seml-import ".custom-variables-debug.seml")))
+                        `(,@(seml-import ".custom-variables-debug.seml")))
                     (div ((class . "doc contents"))
                       ,(seml-htmlize 'emacs-lisp-mode
                                      (replace-regexp-in-string
