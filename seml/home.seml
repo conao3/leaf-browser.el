@@ -13,7 +13,7 @@
        (groupstr        (when groupp var1))
        (groupsym        (when groupp (intern var1)))
        (loadpathp       (string= type "loadpath"))
-       (debugp          (string= debug "t")))
+       (debugp          (or lbrowser-debugp (string= debug "t"))))
   `(html nil
      ,@(seml-import ".head.seml")
      (body nil

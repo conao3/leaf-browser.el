@@ -46,6 +46,11 @@
   :type 'directory
   :group 'leaf-browser)
 
+(defcustom lbrowser-debugp nil
+  "Show additional debug information in browser."
+  :type 'boolean
+  :group 'leaf-browser)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;  Internal variables
