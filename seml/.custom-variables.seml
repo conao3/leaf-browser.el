@@ -12,7 +12,8 @@
                    (type (cadr elm)))
                `(div ((class . "row"))
                   (div ((class . "col s12"))
-                    (h5 nil ,(symbol-name sym))
+                    (h5 nil ,(symbol-name sym)))
+                  (div ((class . "col s12"))
                     ,@(when debugp
                         `(,@(seml-import ".custom-variables-debug.seml")))
                     (div ((class . "doc contents"))
