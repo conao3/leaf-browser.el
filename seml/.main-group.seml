@@ -36,8 +36,9 @@
                           (p ((class . "caption"))
                             (div ((class . "doc"))
                               ,(seml-htmlize 'emacs-lisp-mode
-                                             (when (stringp (get sym 'variable-documentation))
-                                               (get sym 'variable-documentation)))))
+                                             (or (when (stringp (get sym 'variable-documentation))
+                                                   (get sym 'variable-documentation))
+                                                 "No docstring..."))))
                           ))))
                  variable-elms)
               `((li nil
