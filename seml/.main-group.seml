@@ -2,6 +2,7 @@
   ,@(progn (push '(:id header :disp "Header") toc)
            (push '(:id current-leaf :disp "Current Leaf Configuration") toc)
            (push '(:id custom-variables :disp "Custom Variables") toc) nil)
+  (form nil
   (div ((id . "header") (class . "section scrollspy"))
     (h2 nil ,var1)
     (p ((class . "caption")) ,(get groupsym 'group-documentation)))
@@ -21,7 +22,7 @@
         (h4 nil "Custom Variables")
         (p ((class . "caption")) "Customizable variables tagged by package developer.")
         (div ((class . "contents"))
-          ,@(seml-import ".custom-variables.seml"))))))
+          ,@(seml-import ".custom-variables.seml")))))))
 
 ;; (div ((class . "row"))
 ;;   (div ((class . "col s12"))
