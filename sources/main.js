@@ -8,3 +8,7 @@ $(document).ready(function() {
     // $('.scrollspy').scrollSpy();
     M.AutoInit();
 });
+
+if (!!window.performance && window.performance.navigation.type == 2) {
+    window.location.reload();
+}
