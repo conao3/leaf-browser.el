@@ -23,6 +23,6 @@
                                  (string< (symbol-name (car a))
                                           (symbol-name (car b))))))
           `((li nil
-              (a nil "No Child Groups"))))))
+              (a nil "No Child Groups..."))))))
   (div ((class . "patreon"))
     (a ((href . "https://www.patreon.com/conao3")) "Become a Patreon")))

@@ -27,5 +27,6 @@
            (sort variable-elms '(lambda (a b)
                                   (string< (symbol-name (car a))
                                            (symbol-name (car b))))))
-        `((li nil
-            (a nil "No Custom variables"))))))
+        `((div ((class . "row"))
+            (div ((class . "col s12"))
+              (h5 nil "No Custom Variables...")))))))
