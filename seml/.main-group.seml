@@ -15,8 +15,8 @@
   :ensure t
   :custom ((real-auto-save-interval . 0.3))
   :commands real-auto-save-mode
-  :hook (find-file-hook . real-auto-save-mode))"))))
-
+  :hook (find-file-hook . real-auto-save-mode))")))))
+    (div ((class . "row"))
       (div ((class . "col s12"))
         (div ((id . "custom-variables") (class . "section scrollspy"))
           (h4 nil "Custom Variables")
