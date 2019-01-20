@@ -53,7 +53,10 @@
 
 (defvar lbrowser-breadcrumbs nil
   "Manage breadcrubs on top nav bar.")
-  
+
+(defvar lbrowser-httpd-query nil
+  "Last browser query data.  Refresh this variable every fetch seml.")
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;  Serve function
@@ -71,7 +74,7 @@
           (while (not (string= var1 (car lbrowser-breadcrumbs)))
             (pop lbrowser-breadcrumbs))
         (push var1 lbrowser-breadcrumbs)))
-    (message (prin1-to-string var1))
+    (setq lbrowser-httpd-query httpd-query)
     (insert (seml-decode-seml-from-file
              (expand-file-name "seml/home.seml" lbrowser-root-dir))))
 
