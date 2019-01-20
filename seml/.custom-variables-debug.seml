@@ -23,5 +23,4 @@
            (link            . custom-links)
            (load            . custom-loads)
            (tag             . custom-tag)
-           (set-after       . custom-dependencies)
-           )))))
+           (set-after       . custom-dependencies))))))
