@@ -35,26 +35,27 @@
                           (h5 nil ,(symbol-name sym))
                           (p ((class . "caption"))
                             ,(seml-htmlize 'emacs-lisp-mode
-                               (when (stringp (get sym 'variable-documentation))
-                                 (get sym 'variable-documentation))))
+                                           (when (stringp (get sym 'variable-documentation))
+                                             (get sym 'variable-documentation))))
                           ))))
                  variable-elms)
               `((li nil
                   (a nil "No Custom variables")))))
-        
-        (div ((class . "row"))
-          (div ((class . "col s12"))
-            (h4 nil "Bind-key-column-widths")
-            (p nil ,(get 'bind-key-column-widths 'variable-documentation)))
-          (div ((class . "col s12 xl7"))
-            (div ((class . "imput-field"))
-              (select nil
-                (option ((value . "1")) "item")
-                (option ((value . "1")) "item")
-                (option ((value . "1")) "item"))))
-          (div ((class . "col s12 xl5"))
-            (div ((class . "imput-field"))
-              (select nil
-                (option ((value . "1")) "item")
-                (option ((value . "1")) "item")
-                (option ((value . "1")) "item")))))))))
+        ))))
+
+;; (div ((class . "row"))
+;;   (div ((class . "col s12"))
+;;     (h4 nil "Bind-key-column-widths")
+;;     (p nil ,(get 'bind-key-column-widths 'variable-documentation)))
+;;   (div ((class . "col s12 xl7"))
+;;     (div ((class . "imput-field"))
+;;       (select nil
+;;         (option ((value . "1")) "item")
+;;         (option ((value . "1")) "item")
+;;         (option ((value . "1")) "item"))))
+;;   (div ((class . "col s12 xl5"))
+;;     (div ((class . "imput-field"))
+;;       (select nil
+;;         (option ((value . "1")) "item")
+;;         (option ((value . "1")) "item")
+;;         (option ((value . "1")) "item")))))
