@@ -19,7 +19,9 @@
                  `(li nil
                     (a ((href  . ,(concat root-url "/group/" (symbol-name sym))))
                       ,(symbol-name sym)))))
-             group-elms)
+             (sort group-elms '(lambda (a b)
+                                 (string< (symbol-name (car a))
+                                          (symbol-name (car b))))))
           `((li nil
               (a nil "No Child Groups"))))))
   (div ((class . "patreon"))

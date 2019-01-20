@@ -40,7 +40,9 @@
                                                    (get sym 'variable-documentation))
                                                  "No docstring..."))))
                           ))))
-                 variable-elms)
+                 (sort variable-elms '(lambda (a b)
+                                        (string< (symbol-name (car a))
+                                                 (symbol-name (car b))))))
               `((li nil
                   (a nil "No Custom variables")))))))))
 
