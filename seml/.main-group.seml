@@ -19,7 +19,8 @@
       (div ((id . "custom-variables") (class . "section scrollspy"))
         (h4 nil "Custom Variables")
         (p ((class . "caption")) "Customizable variables tagged by package developer.")
-        ,@(seml-import ".custom-variables.seml")))))
+        (div ((class . "contents"))
+          ,@(seml-import ".custom-variables.seml"))))))
 
 ;; (div ((class . "row"))
 ;;   (div ((class . "col s12"))
