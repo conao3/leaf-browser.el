@@ -36,9 +36,13 @@
                           (p ((class . "caption"))
                             (div ((class . "doc"))
                               ,(seml-htmlize 'emacs-lisp-mode
-                                             (or (when (stringp (get sym 'variable-documentation))
+                                             (replace-regexp-in-string
+                                              ";"
+                                              ";\n"
+                                              (or (when (stringp (get sym 'variable-documentation))
                                                    (get sym 'variable-documentation))
-                                                 "No docstring..."))))
+                                                 "No docstring..."))
+                                             'noindent)))
                           ))))
                  (sort variable-elms '(lambda (a b)
                                         (string< (symbol-name (car a))
