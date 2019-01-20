@@ -13,6 +13,9 @@
                `(div ((class . "row"))
                   (div ((class . "col s12"))
                     (h5 nil ,(symbol-name sym))
+                    ,@(when debugp
+                        `((p ((class . "caption"))
+                            ,(prin1-to-string (get sym 'custom-type)))))
                     (div ((class . "doc contents"))
                       ,(seml-htmlize 'emacs-lisp-mode
                                      (replace-regexp-in-string
