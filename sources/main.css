@@ -161,6 +161,21 @@ h4, h5, h6 {
     background-color: rgba(0,0,0,0.2);
 }
 
+/* ***** footer ***** */
+
+[type="checkbox"]+span:not(.lever) {
+    color: rgb(215, 218, 224);
+    line-height: 110%;
+    font-size: 1.64rem;
+    font-weight: 200;
+    vertical-align: 4px;
+}
+
+[type="checkbox"]+span:not(.lever):before,
+[type="checkbox"]:not(.filled-in)+span:not(.lever):after {
+    top: 3px;
+}
+
 /* ***** pre styles ***** */
 pre {
     font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
