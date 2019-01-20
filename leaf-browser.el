@@ -33,6 +33,19 @@
 (require 'simple-httpd)
 (require 'seml-mode)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;  Declare
+;;
+
+;; seml-mode
+(declare-function 'seml-decode-seml-from-file "seml-mode")
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;  Customizable variables
+;;
+
 (defgroup leaf-browser nil
   "Web frontend of custom-mode and generate `leaf' configuration."
   :group 'lisp)
