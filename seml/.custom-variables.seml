@@ -9,21 +9,21 @@
                               (span nil ,symstr)))))
                        (_
                         `((div ((class . "col s12"))
-                          (h5 nil ,symstr)
-                          (p ((class . "caption"))
-                            "This custom type is not supported")))))))
+                            (h5 nil ,symstr)
+                            (p ((class . "caption"))
+                              "This custom type is not supported")))))))
           (doc-fn  (lambda (sym type symstr)
                      `((div ((class . "col s12"))
-                       (div ((class . "doc contents"))
-                         ,(seml-htmlize
-                           'emacs-lisp-mode
-                           (replace-regexp-in-string
-                            ";"
-                            ";\n"
-                            (or (when (stringp (get sym 'variable-documentation))
-                                  (get sym 'variable-documentation))
-                                "No docstring...")
-                           'noindent)))))))
+                         (div ((class . "doc contents"))
+                           ,(seml-htmlize
+                             'emacs-lisp-mode
+                             (replace-regexp-in-string
+                              ";"
+                              ";\n"
+                              (or (when (stringp (get sym 'variable-documentation))
+                                    (get sym 'variable-documentation))
+                                  "No docstring...")
+                              'noindent)))))))
           (variable-elms (mapcan (lambda (elm)
                                    (let ((sym  (car elm))
                                          (type (cadr elm)))
@@ -38,9 +38,9 @@
                     (symstr (symbol-name sym)))
                `(div ((class . "row"))
                   ,@(funcall form-fn sym type symstr)
-                    ,@(when debugp
-                        `(,@(seml-import ".custom-variables-debug.seml")))
-                    ,@(funcall doc-fn sym type symstr))))
+                  ,@(when debugp
+                      `(,@(seml-import ".custom-variables-debug.seml")))
+                  ,@(funcall doc-fn sym type symstr))))
            (sort variable-elms '(lambda (a b)
                                   (string< (symbol-name (car a))
                                            (symbol-name (car b))))))
