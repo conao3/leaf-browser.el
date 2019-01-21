@@ -8,7 +8,9 @@
                           (concat root-url path)))
        (callstack       nil)
        (toc             nil)
-       (debugp          (or lbrowser-debugp (string= debug "t")))
+       (debugp          (and (not
+                              (string= (or debug "") "nil"))
+                             lbrowser-debugp))
 
        (homep           (or (not type) (string= type "")))
 
