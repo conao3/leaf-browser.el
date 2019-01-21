@@ -8,12 +8,15 @@
                           (concat root-url path)))
        (callstack       nil)
        (toc             nil)
+       (debugp          (or lbrowser-debugp (string= debug "t")))
+
        (homep           (or (not type) (string= type "")))
+
        (groupp          (string= type "group"))
        (groupstr        (when groupp var1))
        (groupsym        (when groupp (intern var1)))
-       (loadpathp       (string= type "loadpath"))
-       (debugp          (or lbrowser-debugp (string= debug "t"))))
+
+       (loadpathp       (string= type "loadpath")))
   `(html nil
      ,@(seml-import ".head.seml")
      (body nil
