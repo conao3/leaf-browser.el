@@ -6,7 +6,8 @@
                      (a ((href . ,(format "#%s" (symbol-name (plist-get x :id)))))
                        ,(plist-get x :disp))))
                 (reverse toc)))
-    (ul ((class . "section table-of-contents"))
+    ,@(when groupp
+    `((ul ((class . "section table-of-contents"))
       (li nil
         (a ((target . "_blank")
             (href . "https://github.com/conao3/leaf-defaults.el"))
@@ -20,4 +21,4 @@
           "Copy Current Leaf"))
       (li nil
         (a ((href . "#") (onclick . "formSubmit();"))
-          "Save Leaf in the Specified File")))))
+          "Save Leaf in the Specified File")))))))
