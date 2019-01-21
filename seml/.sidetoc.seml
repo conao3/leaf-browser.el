@@ -7,18 +7,18 @@
                        ,(plist-get x :disp))))
                 (reverse toc)))
     ,@(when groupp
-    `((ul ((class . "section table-of-contents"))
-      (li nil
-        (a ((target . "_blank")
-            (href . "https://github.com/conao3/leaf-defaults.el"))
-          "Search Shared Leaf"))
-      (li nil
-        (a ((target . "_blank")
-            (href . "https://github.com/conao3/leaf-defaults.el"))
-          "Share Current Leaf (Open GitHub)"))
-      (li nil
-        (a ((href . "#") (onclick . "formSubmitWithCopy();"))
-          "Copy Current Leaf"))
-      (li nil
-        (a ((href . "#") (onclick . "formSubmit();"))
-          "Save Leaf in the Specified File")))))))
+        `((ul ((class . "section table-of-contents"))
+            (li nil
+              (a ((target . "_blank")
+                  (href . "https://github.com/conao3/leaf-defaults.el"))
+                "Search Shared Leaf"))
+            (li nil
+              (a ((target . "_blank")
+                  (href . "https://github.com/conao3/leaf-defaults.el"))
+                "Share Current Leaf (Open GitHub)"))
+            (li nil
+              (a ((href . "#") (onclick . "formSubmitWithCopy();"))
+                "Copy Current Leaf"))
+            (li nil
+              (a ((href . "#") (onclick . "formSubmit();"))
+                "Save Leaf in the Specified File")))))))
