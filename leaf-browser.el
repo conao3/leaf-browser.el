@@ -78,6 +78,9 @@
 (defvar lbrowser-httpd-query nil
   "Last browser query data.  Refresh this variable every fetch seml.")
 
+(defvar lbrowser-loaded-custom-group nil
+  "Manate already loaded custom group.")
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;  Support functions
@@ -113,8 +116,11 @@
     ;; before fetch /group/:package, create customize-mode data
     (when (or (string= type "group")
               (and (string= type "") (setq var1 "emacs")))
-      (with-temp-buffer
-        (custom-buffer-create-internal `((,(intern var1) custom-group)))))
+      (let ((group (intern var1)))
+        (unless (memq group lbrowser-loaded-custom-group)
+          (push group lbrowser-loaded-custom-group)
+          (with-temp-buffer
+            (custom-buffer-create-internal `((,(intern var1) custom-group)))))))
 
     ;; serve data
     (insert (seml-decode-seml-from-file
