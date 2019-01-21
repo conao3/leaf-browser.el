@@ -1,14 +1,16 @@
 `(,@(progn (push path callstack) nil)
   (pre nil
-    ,(concat "\ncallstack: " (prin1-to-string callstack))
-    ,(concat "\ntoc: " (prin1-to-string toc))
-    ,(concat "\nhttpd-path: " (prin1-to-string httpd-path))
-    ,(concat "\nhttpd-query: " (prin1-to-string httpd-query))
-    ,(concat "\nhttpd-request: " (prin1-to-string httpd-request))
-    ,(concat "\nhttpd-split-path: " (prin1-to-string httpd-split-path))
-    ,(concat "\ntype: " (prin1-to-string type))
-    ,(concat "\nvar1: " (prin1-to-string var1))
-    ,(concat "\nvar2: " (prin1-to-string var2))
-    ,(concat "\ntargetpath: " (prin1-to-string targetpath))
-    ,(concat "\ntargetfile: " (prin1-to-string targetfile))
-    ,(concat "\ndebug: " (prin1-to-string debug))))
+    ,@(mapcan
+       (lambda (key)
+         `((span ((class . "constant")) ,(symbol-name key))
+           ": " ,(if (memq key '(toc
+                                 httpd-query httpd-request))
+                     (seml-htmlize 'emacs-lisp-mode
+                                   (pp-to-string (eval key)))
+                   (prin1-to-string (eval key))) "\n"))
+       (cdr '(:dammy-element
+              callstack toc
+              type var1 var2 targetpath targetfile debug
+              lbrowser-breadcrumbs lbrowser-loaded-custom-group
+              httpd-path httpd-query httpd-request httpd-split-path
+              )))))
