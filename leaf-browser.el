@@ -120,7 +120,8 @@
         (unless (memq group lbrowser-loaded-custom-group)
           (push group lbrowser-loaded-custom-group)
           (with-temp-buffer
-            (custom-buffer-create-internal `((,(intern var1) custom-group)))))))
+            (custom-buffer-create-internal
+             `((,(intern var1) custom-group)))))))
 
     ;; serve data
     (insert (seml-decode-seml-from-file
