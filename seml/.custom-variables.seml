@@ -14,14 +14,14 @@
                               "This custom type is not supported")))))))
           (doc-fn  (lambda (sym type symstr)
                      `((div ((class . "col s12"))
-                           (p nil
-                             ,(replace-regexp-in-string
-                              ";"
-                              ";\n"
-                              (or (when (stringp (get sym 'variable-documentation))
-                                    (get sym 'variable-documentation))
-                                  "No docstring...")
-                              ))))))
+                         (p nil
+                           ,(replace-regexp-in-string
+                             ";"
+                             ";\n"
+                             (or (when (stringp (get sym 'variable-documentation))
+                                   (get sym 'variable-documentation))
+                                 "No docstring...")
+                             ))))))
           (variable-elms (mapcan (lambda (elm)
                                    (let ((sym  (car elm))
                                          (type (cadr elm)))
