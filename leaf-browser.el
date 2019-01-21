@@ -29,6 +29,9 @@
 
 ;;; Code:
 
+(require 'custom)
+(require 'cus-edit)
+
 (require 'leaf)
 (require 'simple-httpd)
 (require 'seml-mode)
@@ -90,7 +93,11 @@
   "Serve define"
   ;; declare lexical-binding variables
   (defvar path "")
-  
+
+  (mapc (lambda (x)
+          (eval `(defvar ,x "")))
+        '(type var1 var2 targetpath targetfile debug))
+
   (defservlet* leaf-browser/:type/:var1/:var2 "text/html" (targetpath targetfile debug)
     ;; breadcrumbs
     (if (string= type "")
@@ -102,6 +109,12 @@
 
     ;; httpd-query
     (setq lbrowser-httpd-query httpd-query)
+
+    ;; before fetch /group/:package, create customize-mode data
+    (when (or (string= type "group")
+              (and (string= type "") (setq var1 "emacs")))
+      (with-temp-buffer
+        (custom-buffer-create-internal `((,(intern var1) custom-group)))))
 
     ;; serve data
     (insert (seml-decode-seml-from-file
