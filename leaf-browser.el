@@ -114,14 +114,13 @@
     (setq lbrowser-httpd-query httpd-query)
 
     ;; before fetch /group/:package, create customize-mode data
-    (when (or (string= type "group")
-              (and var1 (setq var1 "emacs")))
-      (let ((group (intern var1)))
+    (when (string= type "group")
+      (let ((group (or var1 "emacs")))
         (unless (memq group lbrowser-loaded-custom-group)
           (push group lbrowser-loaded-custom-group)
           (with-temp-buffer
             (custom-buffer-create-internal
-             `((,(intern var1) custom-group)))))))
+             `((,(intern group) custom-group)))))))
 
     ;; serve data
     (insert (seml-decode-seml-from-file
