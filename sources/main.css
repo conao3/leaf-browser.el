@@ -47,7 +47,7 @@ nav {
 
 /* ***** breadcrumb ***** */
 .breadcrumb {
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 .breadcrumb:before {
