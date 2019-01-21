@@ -1,11 +1,16 @@
 `(,@(progn (push path callstack) nil)
   ,@(let ((form-fn (lambda (sym type symstr)
-                     `((div ((class . "col s12"))
-                         (label nil
-                           (input ((name . ,(concat "input-" symstr))
-                                   (type . "checkbox")))
-                           (span nil ,symstr))
-                         (h5 nil ,symstr)))))
+                     (pcase (get sym 'custom-type)
+                       ('boolean
+                        `((div ((class . "col s12"))
+                            (label nil
+                              (input ((name . ,(concat "input-" symstr))
+                                      (type . "checkbox")))
+                              (span nil ,symstr)))))
+                       (_
+                        `((h5 nil ,symstr)
+                          (p ((class . "caption"))
+                            "This custom type is not supported"))))))
           (doc-fn  (lambda (sym type symstr)
                      `((div ((class . "doc contents"))
                          ,(seml-htmlize
