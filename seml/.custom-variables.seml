@@ -14,7 +14,7 @@
                               "This custom type is not supported")))))))
           (doc-fn  (lambda (sym type symstr)
                      `((div ((class . "col s12"))
-                         (p nil
+                         (p ((class . "caption"))
                            ,(replace-regexp-in-string
                              ";"
                              ";\n"
@@ -36,9 +36,9 @@
                     (symstr (symbol-name sym)))
                `(div ((class . "row"))
                   ,@(funcall form-fn sym type symstr)
+                  ,@(funcall doc-fn sym type symstr)
                   ,@(when debugp
-                      `(,@(seml-import ".custom-variables-debug.seml")))
-                  ,@(funcall doc-fn sym type symstr))))
+                      `(,@(seml-import ".custom-variables-debug.seml"))))))
            (sort variable-elms '(lambda (a b)
                                   (string< (symbol-name (car a))
                                            (symbol-name (car b))))))
