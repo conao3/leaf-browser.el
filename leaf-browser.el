@@ -98,7 +98,7 @@
   (defvar path "")
 
   (mapc (lambda (x)
-          (eval `(defvar ,x "")))
+          (eval `(defvar ,x nil)))
         '(type var1 var2 targetpath targetfile debug))
 
   (defservlet* leaf-browser/:type/:var1/:var2 "text/html" (targetpath targetfile debug)
@@ -115,7 +115,7 @@
 
     ;; before fetch /group/:package, create customize-mode data
     (when (or (string= type "group")
-              (and (string= type "") (setq var1 "emacs")))
+              (and var1 (setq var1 "emacs")))
       (let ((group (intern var1)))
         (unless (memq group lbrowser-loaded-custom-group)
           (push group lbrowser-loaded-custom-group)
