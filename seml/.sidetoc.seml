@@ -1,8 +1,17 @@
 `(,@(progn (push path callstack) nil)
-  (div ((class . "toc-wrapper pinned"))
+  (div ((class . "pinned"))
     (ul ((class . "section table-of-contents"))
       ,@(mapcar (lambda (x)
                   `(li nil
                      (a ((href . ,(format "#%s" (symbol-name (plist-get x :id)))))
                        ,(plist-get x :disp))))
-                (reverse toc)))))
+                (reverse toc)))
+    (ul ((class . "section table-of-contents"))
+      (li nil
+        (a ((href . "#!")) "Search Shared Leaf"))
+      (li nil
+        (a ((href . "#!")) "Share Current Leaf (Open GitHub)"))
+      (li nil
+        (a ((href . "#!")) "Copy Current Leaf"))
+      (li nil
+        (a ((href . "#!")) "Save Leaf in the Specified File")))))
