@@ -5,7 +5,7 @@
            (when debugp
              (push '(:id debug-information :disp "Debug Information") toc))
            nil)
-  (form ((id . "main") (action . ,groupstr) (method . "post"))
+  (form ((id . "form-main") (action . ,groupstr) (method . "post"))
     (input ((type . "submit")))
     (div ((id . "header") (class . "section scrollspy"))
       (h2 nil ,var1)
