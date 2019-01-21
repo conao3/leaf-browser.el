@@ -92,13 +92,18 @@
   (defvar path "")
   
   (defservlet* leaf-browser/:type/:var1/:var2 "text/html" (targetpath targetfile debug)
+    ;; breadcrumbs
     (if (string= type "")
         (setq lbrowser-breadcrumbs nil)
       (if (member var1 lbrowser-breadcrumbs)
           (while (not (string= var1 (car lbrowser-breadcrumbs)))
             (pop lbrowser-breadcrumbs))
         (push var1 lbrowser-breadcrumbs)))
+
+    ;; httpd-query
     (setq lbrowser-httpd-query httpd-query)
+
+    ;; serve data
     (insert (seml-decode-seml-from-file
              (expand-file-name "seml/home.seml" lbrowser-root-dir))))
 
