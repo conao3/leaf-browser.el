@@ -12,3 +12,11 @@ $(document).ready(function() {
 if (!!window.performance && window.performance.navigation.type == 2) {
     window.location.reload();
 }
+
+function formSubmit () {
+    document.forms['form-main'].submit()
+}
+
+function formSubmitWithCopy () {
+    document.forms['form-main'].submit()
+}

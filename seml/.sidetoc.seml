@@ -8,10 +8,16 @@
                 (reverse toc)))
     (ul ((class . "section table-of-contents"))
       (li nil
-        (a ((id . "leaf-search") (href . "")) "Search Shared Leaf"))
+        (a ((target . "_blank")
+            (href . "https://github.com/conao3/leaf-defaults.el"))
+          "Search Shared Leaf"))
       (li nil
-        (a ((id . "leaf-share") (href . "")) "Share Current Leaf (Open GitHub)"))
+        (a ((target . "_blank")
+            (href . "https://github.com/conao3/leaf-defaults.el"))
+          "Share Current Leaf (Open GitHub)"))
       (li nil
-        (a ((id . "leaf-copy") (href . "")) "Copy Current Leaf"))
+        (a ((href . "#") (onclick . "formSubmitWithCopy();"))
+          "Copy Current Leaf"))
       (li nil
-        (a ((id . "leaf-save") (href . "")) "Save Leaf in the Specified File")))))
+        (a ((href . "#") (onclick . "formSubmit();"))
+          "Save Leaf in the Specified File")))))
