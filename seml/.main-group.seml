@@ -8,7 +8,7 @@
   (form ((id . "form-main") (action . ,groupstr) (method . "post"))
     (input ((type . "submit")))
     (div ((id . "header") (class . "section scrollspy"))
-      (h2 nil ,var1)
+      (h2 nil ,groupstr)
       (p ((class . "caption")) ,(get groupsym 'group-documentation)))
     (div ((id . "current-leaf") (class . "section scrollspy"))
       (div ((class . "row"))

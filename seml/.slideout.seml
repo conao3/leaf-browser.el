@@ -11,11 +11,3 @@
                          (format x (file-name-directory targetfile))))
                       '("%s/*.c" "%s/*.el" "%s/*.el.gz")))
     (li nil (div ((class . "divider"))))))
-;; (ul nil
-;;   (li nil ,path)
-;;   ;; (li nil ,var1)
-;;   ;; (li nil ,var2)
-;;   ;; (li nil ,httpd-path)
-;;   ;; (li nil ,(prin1-to-string httpd-query))
-;;   ;; (li nil ,(prin1-to-string httpd-request))
-;;   )

@@ -4,7 +4,7 @@
                                          (type (cadr elm)))
                                      (when (eq type 'custom-variable)
                                        `(,elm))))
-                                 (get (intern var1) 'custom-group))))
+                                 (get groupsym 'custom-group))))
       (if variable-elms
           (mapcar
            (lambda (elm)
