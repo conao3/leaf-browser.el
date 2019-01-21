@@ -137,8 +137,8 @@ h4, h5, h6 {
 
 .caption {
     position: relative;
-    top: -10px;
-    margin-left: 15px
+    top: -0.8rem;
+    margin-left: 1rem;
 }
 
 .header {
