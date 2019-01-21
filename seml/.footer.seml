@@ -3,8 +3,9 @@
     (div ((class . "container"))
       ,@(when debugp
           `((div ((class . "row"))
-              ,@(when debugp (seml-import ".debug.seml"))
-              ))))
+              (div ((id . "debug-information") (class . "section scrollspy"))
+                (h4 nil "Debug Information")
+                ,@(when debugp (seml-import ".debug.seml")))))))
     (div ((class . "footer-copyright"))
       (div ((class . "container"))
         "© 2019 Naoya Yamashita (@conao3) All rights reserved."

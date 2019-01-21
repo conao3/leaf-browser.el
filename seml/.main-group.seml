@@ -1,7 +1,10 @@
 `(,@(progn (push path callstack) nil)
   ,@(progn (push '(:id header :disp "Header") toc)
            (push '(:id current-leaf :disp "Current Leaf Configuration") toc)
-           (push '(:id custom-variables :disp "Custom Variables") toc) nil)
+           (push '(:id custom-variables :disp "Custom Variables") toc)
+           (when debugp
+             (push '(:id debug-information :disp "Debug Information") toc))
+           nil)
   (form ((id . "main") (action . ,groupstr) (method . "post"))
     (input ((type . "submit")))
     (div ((id . "header") (class . "section scrollspy"))
