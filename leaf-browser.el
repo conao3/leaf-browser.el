@@ -103,7 +103,8 @@
 
   (defservlet* leaf-browser/:type/:var1/:var2 "text/html" (targetpath targetfile debug)
     ;; breadcrumbs
-    (if (string= type "")
+    (if (or (null type)
+            (string= type ""))
         (setq lbrowser-breadcrumbs nil)
       (if (member var1 lbrowser-breadcrumbs)
           (while (not (string= var1 (car lbrowser-breadcrumbs)))
@@ -114,7 +115,9 @@
     (setq lbrowser-httpd-query httpd-query)
 
     ;; before fetch /group/:package, create customize-mode data
-    (when (string= type "group")
+    (when (or (or (null type)
+                  (string= type ""))
+              (string= type "group"))
       (let ((group (or var1 "emacs")))
         (unless (memq group lbrowser-loaded-custom-group)
           (push group lbrowser-loaded-custom-group)
