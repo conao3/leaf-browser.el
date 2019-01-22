@@ -12,7 +12,8 @@
                              (seml-htmlize 'emacs-lisp-mode
                                            (pp-to-string (get sym keysym)))
                            (prin1-to-string (get sym keysym))) "\n"))))
-           '((set             . custom-set)
+           '((default         . standard-value)
+             (set             . custom-set)
              (get             . custom-get)
              (require         . custom-requests)
              (risky           . risky-local-variable)
