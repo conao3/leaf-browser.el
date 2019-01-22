@@ -8,7 +8,8 @@
                    (keysym  (cdr elm)))
                (when (get sym keysym)
                  `((span ((class . "constant")) ,(symbol-name keyname))
-                   ": " ,(if (eq keyname 'type)
+                   ": " ,(if (memq keyname
+                                   '(default type))
                              (seml-htmlize 'emacs-lisp-mode
                                            (pp-to-string (get sym keysym)))
                            (prin1-to-string (get sym keysym))) "\n"))))
