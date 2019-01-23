@@ -6,16 +6,9 @@
                           (url-unhex-string (decode-coding-string str 'uft-8))))
        (rellink-fn      (lambda (path)
                           (concat root-url path)))
-       (callstack       nil)
-       (toc             nil)
-       (debugp          (and (not (assoc "release" httpd-query))
-                             lbrowser-debugp))
 
        (split-path      httpd-split-path)
        (query           httpd-query)
-
-       (groupstr        (or (nth 2 split-path) ""))
-       (groupsym        (intern groupstr))
 
        (args            (cddr split-path))
        (lastarg-inx     1)
@@ -25,11 +18,22 @@
                           (car (last split-path lastarg-inx))))
        (lastarg-sym     (intern lastarg-str))
 
-       (homep           (or (null type)
-                            (string= type "")))
+       (debugp)
+       (callstack) (toc)
+       (homep) (groupp) (loadpathp) (undefinedp))
 
-       (groupp          (string= type "group"))
-       (loadpathp       (string= type "loadpath")))
+  (progn
+    "initialize variables"
+    (pcase type
+      ((or "" 'nil) (setq homep t))
+      ("group"      (setq groupp t))
+      ("loadpath"   (setq loadpathp t))
+      (_            (setq undefinedp t)))
+
+    (when (and (not (assoc "release" httpd-query))
+               lbrowser-debugp)
+      (setq debugp t)))
+
   (eval
    `(let* ,(if (<= 2 (- (length split-path)
                         (- lastarg-inx 1)))
