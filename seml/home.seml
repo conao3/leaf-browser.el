@@ -8,21 +8,43 @@
                           (concat root-url path)))
        (callstack       nil)
        (toc             nil)
-       (debugp          (and (not
-                              (string= (or debug "") "nil"))
+       (debugp          (and (not (assoc "release" httpd-query))
                              lbrowser-debugp))
 
-       (homep           (or (not type) (string= type "")))
+       (split-path      httpd-split-path)
+       (query           httpd-query)
+
+       (groupstr        (or (nth 2 split-path) ""))
+       (groupsym        (intern groupstr))
+
+       (args            (cddr split-path))
+       (lastarg-inx     1)
+       (lastarg-str     (progn
+                          (while (string= "" (car (last split-path lastarg-inx)))
+                            (incf lastarg-inx))
+                          (car (last split-path lastarg-inx))))
+       (lastarg-sym     (intern lastarg-str))
+
+       (homep           (or (null type)
+                            (string= type "")))
 
        (groupp          (string= type "group"))
-       (groupstr        (when groupp var1))
-       (groupsym        (when groupp (intern var1)))
-
        (loadpathp       (string= type "loadpath")))
-  `(html nil
-     ,@(seml-import ".head.seml")
-     (body nil
-       ,@(seml-import ".header.seml")
-       ,@(seml-import ".main.seml")
-       ,@(seml-import ".footer.seml")
-       ,@(seml-import ".script.seml"))))
+  (eval
+   `(let* ,(if (<= 2 (- (length split-path)
+                        (- lastarg-inx 1)))
+               (mapcar (lambda (n)
+                         `(,(intern (format "arglast%s" n))
+                           ,(car (last split-path (+ n 1)))))
+                       (number-sequence 0 (- (length split-path)
+                                             (- lastarg-inx 1)
+                                             2)))
+             nil)
+      `(html nil
+         ,@(seml-import ".head.seml")
+         (body nil
+           ,@(seml-import ".header.seml")
+           ,@(seml-import ".main.seml")
+           ,@(seml-import ".footer.seml")
+           ,@(seml-import ".script.seml"))))))
+

@@ -10,7 +10,8 @@
                                         (type (cadr elm)))
                                     (when (eq type 'custom-group)
                                       `(,elm))))
-                                (get (intern (or groupstr "emacs")) 'custom-group))))
+                                (get (intern (if homep "emacs" lastarg-str))
+                                     'custom-group))))
         (if group-elms
             (mapcar
              (lambda (elm)

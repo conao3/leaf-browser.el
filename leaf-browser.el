@@ -95,35 +95,35 @@
 (defun lbrowser-define-servlet ()
   "Serve define"
   ;; declare lexical-binding variables
-  (defvar path "")
+  (defvar type "")
 
-  (mapc (lambda (x)
-          (eval `(defvar ,x nil)))
-        '(type var1 var2 targetpath targetfile debug))
+  ;; (mapc (lambda (x)
+  ;;         (eval `(defvar ,x nil)))
+  ;;       '(type var1 var2 targetpath targetfile debug))
 
-  (defservlet* leaf-browser/:type/:var1/:var2 "text/html" (targetpath targetfile debug)
+  (defservlet* leaf-browser/:type "text/html" ()
     ;; breadcrumbs
-    (if (or (null type)
-            (string= type ""))
-        (setq lbrowser-breadcrumbs nil)
-      (if (member var1 lbrowser-breadcrumbs)
-          (while (not (string= var1 (car lbrowser-breadcrumbs)))
-            (pop lbrowser-breadcrumbs))
-        (push var1 lbrowser-breadcrumbs)))
+    ;; (if (or (null type)
+    ;;         (string= type ""))
+    ;;     (setq lbrowser-breadcrumbs nil)
+    ;;   (if (member var1 lbrowser-breadcrumbs)
+    ;;       (while (not (string= var1 (car lbrowser-breadcrumbs)))
+    ;;         (pop lbrowser-breadcrumbs))
+    ;;     (push var1 lbrowser-breadcrumbs)))
 
     ;; httpd-query
     (setq lbrowser-httpd-query httpd-query)
 
     ;; before fetch /group/:package, create customize-mode data
-    (when (or (or (null type)
-                  (string= type ""))
-              (string= type "group"))
-      (let ((group (or var1 "emacs")))
-        (unless (memq group lbrowser-loaded-custom-group)
-          (push group lbrowser-loaded-custom-group)
-          (with-temp-buffer
-            (custom-buffer-create-internal
-             `((,(intern group) custom-group)))))))
+    ;; (when (or (or (null type)
+    ;;               (string= type ""))
+    ;;           (string= type "group"))
+    ;;   (let ((group (or var1 "emacs")))
+    ;;     (unless (memq group lbrowser-loaded-custom-group)
+    ;;       (push group lbrowser-loaded-custom-group)
+    ;;       (with-temp-buffer
+    ;;         (custom-buffer-create-internal
+    ;;          `((,(intern group) custom-group)))))))
 
     ;; serve data
     (insert (seml-decode-seml-from-file

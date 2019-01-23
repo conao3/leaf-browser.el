@@ -8,9 +8,16 @@
                      (seml-htmlize 'emacs-lisp-mode
                                    (pp-to-string (eval key)))
                    (prin1-to-string (eval key))) "\n"))
-       (cdr '(:dammy-element
+       (cdr `(:dammy-element
               callstack toc
-              type var1 var2 targetpath targetfile debug
+              type
+              ,@(if (<= 2 (length split-path))
+                    (reverse
+                     (mapcar (lambda (n)
+                               (intern (format "arglast%s" n)))
+                             (number-sequence 0 (- (length split-path)
+                                                   (- lastarg-inx 1)
+                                                   2))))
+                  nil)
               lbrowser-breadcrumbs lbrowser-loaded-custom-group
-              httpd-path httpd-query httpd-request httpd-split-path
-              )))))
+              httpd-path httpd-query httpd-request httpd-split-path)))))
