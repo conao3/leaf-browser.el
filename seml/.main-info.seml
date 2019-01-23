@@ -170,6 +170,8 @@
     (p ((class . "caption"))
       "本年度は教職取得を目指し、高校普通教科情報及び工業高校の教職単位を教育学部にて履修するほか、CCNAと応用情報技術者試験の勉強、Emacsパッケージ開発に時間を使った。")
     (p ((class . "caption"))
+      "Emacs-jp、Vim-jp、Shibuya.lispのSlackチャンネルに参加し、エンジニア交友を広めようとしている。Emacs-jpの忘年会、Shibuya.lispのもくもく会などに参加。")
+    (p ((class . "caption"))
       "CCNAはまだ受験できてませんが、" (a ((href . "https://twitter.com/conao_3/status/1085856941828534272")) "応用情報技術者試験に合格")
       "し、Emacsパッケージ開発などのOSS活動は" (a ((href . "https://github.com/conao3")) "GitHub") "にて確認できます。"
       "ぜひ" (a ((href . "https://www.patreon.com/conao3")) "Patreon") "での支援をお願いします！"))
