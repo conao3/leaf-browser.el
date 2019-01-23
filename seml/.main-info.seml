@@ -1,4 +1,6 @@
 `(,@(progn (push path callstack) nil)
+  ,@(progn (push '(:id custom-types :disp "Customization Types") toc)
+           nil)
   (h2 nil "info")
   (div ((id . "custom-types") (class . "section scrollspy"))
     (h3 nil "Customization Types")
