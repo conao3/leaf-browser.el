@@ -203,7 +203,7 @@
           "当初はSEML用のインデント、ハイライトのみを提供するメジャーモードとして開発していたが、leaf-browser.elの開発に伴い、ユーティリティ関数も充実してきている。")
         (p ((class . "caption"))
           "使えば使うほどSEMLの" (strong nil "力") "に気付かされる。こいつ、本当にPHPと同じ力があるんじゃないのか。。？"
-          "leaf-broser.elにSEMLを採用しなければ、このパッケージは開発できなかった。")
+          "leaf-browser.elにSEMLを採用しなければ、leaf-browser.elは開発できなかった。")
         (p ((class . "caption"))
           "そもそもの元ネタはgauche。Lisp界では新しい発想ではないはずだが、Elisp界ではあまりそれを支援するパッケージはないみたいだった。。"))
 
