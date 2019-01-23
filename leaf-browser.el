@@ -72,9 +72,6 @@
 ;;  Internal variables
 ;;
 
-(defvar lbrowser-breadcrumbs nil
-  "Manage breadcrubs on top nav bar.")
-
 (defvar lbrowser-httpd-query nil
   "Last browser query data.  Refresh this variable every fetch seml.")
 
@@ -102,15 +99,6 @@
   ;;       '(type var1 var2 targetpath targetfile debug))
 
   (defservlet* leaf-browser/:type "text/html" ()
-    ;; breadcrumbs
-    ;; (if (or (null type)
-    ;;         (string= type ""))
-    ;;     (setq lbrowser-breadcrumbs nil)
-    ;;   (if (member var1 lbrowser-breadcrumbs)
-    ;;       (while (not (string= var1 (car lbrowser-breadcrumbs)))
-    ;;         (pop lbrowser-breadcrumbs))
-    ;;     (push var1 lbrowser-breadcrumbs)))
-
     ;; httpd-query
     (setq lbrowser-httpd-query httpd-query)
 
