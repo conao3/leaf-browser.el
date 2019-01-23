@@ -133,8 +133,8 @@
 
       (a ((href . "https://github.com/conao3/cort-test.el"))
         (h5 nil "conao3/cort-test.el"))
-      (p ((class . "caption")) "Copyright (C) 2019  Naoya Yamashita (@conao3) - https://conao3.com")
-      ))
+      (p ((class . "caption")) "Copyright (C) 2019  Naoya Yamashita (@conao3) - https://conao3.com")))
+
   (div ((id . "license") (class . "section scrollspy"))
     (h4 nil "License")
     (h5 nil "AGPLv3")
