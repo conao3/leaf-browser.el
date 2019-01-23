@@ -174,8 +174,7 @@
       "し、Emacsパッケージ開発などのOSS活動は" (a ((href . "https://github.com/conao3")) "GitHub") "にて確認できます。"
       "ぜひ" (a ((href . "https://www.patreon.com/conao3")) "Patreon") "での支援をお願いします！"))
     (div ((class . "section"))
-      (h5 nil
-        "作成したEmacsパッケージ"
+      (h5 nil "作成したEmacsパッケージ")
         (div nil
           (a ((href . "https://github.com/conao3/leaf.el"))
             (h6 nil "leaf.el"))
@@ -232,4 +231,4 @@
             (h6 nil "orglyth.el"))
           (p ((class . "caption"))
             "org-mode文書群からディレクトリ階層ごとexportするorg-publishという機能があるが、その設定が曲者だったため開発に着手した。"
-            "基本的にはorg-mode文書群から静的ブログサイトを出力する目的で使用する。私のブログもこのパッケージから出力された静的HTMLで運営されている。"))))))
+            "基本的にはorg-mode文書群から静的ブログサイトを出力する目的で使用する。私のブログもこのパッケージから出力された静的HTMLで運営されている。")))))
