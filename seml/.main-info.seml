@@ -188,7 +188,7 @@
         (a ((href . "https://github.com/conao3/leaf-browser.el"))
           (h6 nil "leaf-browser.el"))
         (p ((class . "caption"))
-          "Emacs-jpの雑談からアイデアを仕入れ、技術的な課題がないと思ったため開発に着手した。"
+          "このパッケージ。Emacs-jpの雑談からアイデアを仕入れ、技術的な課題がないと思ったため開発に着手した。"
           "Emacsのhttpdサーバーでホストするのだから、Emacsフレンドリーな後述のSEMLを利用したところ、種々の問題が噴出した。"
           "しかしleaf-browser.elとともにseml-mode.elも成長できたので、今度SEMLを使うパッケージは効率的に開発できる。。はず。。？"))
 
