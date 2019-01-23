@@ -177,7 +177,8 @@
       (h5 nil
         "作成したEmacsパッケージ"
         (div nil
-          (h6 nil "leaf.el")
+          (a ((href . "https://github.com/conao3/leaf.el"))
+            (h6 nil "leaf.el"))
           (p ((class . "caption"))
             "use-pacakgeの別実装をスクラッチから開発した。"
             "use-packageは最高だと思いつつ、キーワードの追加が（私にとって）難しく、付随する様々な問題が目立ってきたため開発に着手した。")
@@ -185,14 +186,16 @@
             "スクラッチから開発したついでにEmacs-22という化石でも問題なく動くようにした。この設計はEmacs-jpで度々議論になる（）"))
 
         (div nil
-          (h6 nil "leaf-browser.el")
+          (a ((href . "https://github.com/conao3/leaf-browser.el"))
+            (h6 nil "leaf-browser.el"))
           (p ((class . "caption"))
             "Emacs-jpの雑談からアイデアを仕入れ、技術的な課題がないと思ったため開発に着手した。"
             "Emacsのhttpdサーバーでホストするのだから、Emacsフレンドリーな後述のSEMLを利用したところ、種々の問題が噴出した。"
             "しかしleaf-browser.elとともにseml-mode.elも成長できたので、今度SEMLを使うパッケージは効率的に開発できる。。はず。。？"))
 
         (div nil
-          (h6 nil "seml-mode.el")
+          (a ((href . "https://github.com/conao3/seml-mode.el"))
+            (h6 nil "seml-mode.el"))
           (p ((class . "caption"))
             "Emacs上のhttpdを使うならその元となるデータもS式のほうがEmacsフレンドリーなのではと思い、開発に着手した。"
             "当初はSEML用のインデント、ハイライトのみを提供するメジャーモードとして開発していたが、leaf-browser.elの開発に伴い、ユーティリティ関数も充実してきている。")
@@ -200,20 +203,23 @@
             "そもそもの元ネタはgauche。Lisp界では新しい発想ではないはずだが、Elisp界ではあまりそれを支援するパッケージはないみたいだった。。"))
 
         (div nil
-          (h6 nil "cort-test.el")
+          (a ((href . "https://github.com/conao3/cort-test.el"))
+            (h6 nil "cort-test.el"))
           (p ((class . "caption"))
             "Emacs標準Elispテストフレームワークである、ert.elはEmacs-24からでのみ動作する他、（私にとって）理解不能なエラーメッセージを出力し、デバッグの助けにならなかったため開発に着手した。"
             "ert.elの柔軟なテスト記述を受け継ぎつつ、分かりやすく見やすいフィードバックを表示するように開発した。"
             "Emacs-22から動作するパッケージのテストに使うため、当然、Emacs-22でも動く。"))
 
         (div nil
-          (h6 nil "feather.el")
+          (a ((href . "https://github.com/conao3/feather.el"))
+            (h6 nil "feather.el"))
           (p ((class . "caption"))
             "標準のpackage.elは「パッケージの並列ダウンロード」と「ダウンロード中のコンパイル」を実行せず、無為に時間を使っていると思ったため開発に着手した。"
             "leaf.elの:ensureキーワードの標準のバックエンドとして利用される。つまり、Emacs-22でも動く。"))
 
         (div nil
-          (h6 nil "feather-recipes.el")
+          (a ((href . "https://github.com/conao3/feather-recipes.el"))
+            (h6 nil "feather-recipes.el"))
           (p ((class . "caption"))
             "feather.elがローカルで行う作業を少なくするために、MELPAのレシピから毎日feather.el用のS式を生成する。"
             "開発の過程でMELPAのrecipe.jsonが壊れている疑いが発生し、その修正のPRを作成して送った。")
@@ -222,7 +228,8 @@
             "featuer-recipes.elは送ったPRをマージした、このレポジトリが毎日upstreamの更新をマージするように設定し、そのjsonを利用することで問題を回避した。"))
 
         (div nil
-          (h6 nil "orglyth.el")
+          (a ((href . "https://github.com/conao3/orglyth.el"))
+            (h6 nil "orglyth.el"))
           (p ((class . "caption"))
             "org-mode文書群からディレクトリ階層ごとexportするorg-publishという機能があるが、その設定が曲者だったため開発に着手した。"
             "基本的にはorg-mode文書群から静的ブログサイトを出力する目的で使用する。私のブログもこのパッケージから出力された静的HTMLで運営されている。"))))))
