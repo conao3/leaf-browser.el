@@ -171,7 +171,7 @@
     (p ((class . "caption"))
       "本年度は教職取得を目指し、高校普通教科情報及び工業高校の教職単位を教育学部にて履修するほか、CCNAと応用情報技術者試験の勉強、Emacsパッケージ開発に時間を使った。")
     (p ((class . "caption"))
-      "Emacs-jp、Vim-jp、Shibuya.lispのSlackチャンネルに参加し、エンジニア交友を広めようとしている。Emacs-jpの忘年会、Shibuya.lispのもくもく会などに参加。"
+      "Emacs-jp、Vim-jp、Shibuya.lispのSlackチャンネルに参加し、エンジニア交友を広めようとしている。Emacs-jpのinit.el読書会や忘年会、Shibuya.lispのもくもく会などに参加。"
       "Emacs-jpのブログ、「" (a ((href . "https://emacs-jp.github.io/2019/01/01/reboot-emacs-jp")) "2019年Emacs JPを再始動します") "」でも言及して頂いた。")
     (p ((class . "caption"))
       "CCNAはまだ受験できてませんが、" (a ((href . "https://twitter.com/conao_3/status/1085856941828534272")) "応用情報技術者試験に合格")
