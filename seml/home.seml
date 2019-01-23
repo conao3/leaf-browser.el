@@ -14,7 +14,7 @@
        (lastarg-sym     (intern lastarg-str))
 
        (debugp)
-       (callstack) (toc)
+       (toc) (callstack '("home.seml"))
        (homep) (groupp) (loadpathp) (undefinedp))
 
   ;; url-encode: (url-hexify-string str)

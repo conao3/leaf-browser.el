@@ -3,11 +3,25 @@
     ,@(mapcan
        (lambda (key)
          `((span ((class . "constant")) ,(symbol-name key))
-           ": " ,(if (memq key '(toc
-                                 httpd-query httpd-request))
-                     (seml-htmlize 'emacs-lisp-mode
-                                   (pp-to-string (eval key)))
-                   (prin1-to-string (eval key))) "\n"))
+           ": " ,(cond
+                  ((memq key '(toc httpd-query httpd-request))
+                   (seml-htmlize 'emacs-lisp-mode
+                                 (pp-to-string (eval key))))
+                  ((eq key 'callstack)
+                   (seml-htmlize 'emacs-lisp-mode
+                                 (prin1-to-string (eval key))
+                                 nil
+                                 (lambda ()
+                                   (save-excursion
+                                     (goto-char (point-min))
+                                     (forward-char)
+                                     (ignore-errors
+                                       (while t
+                                         (forward-sexp)
+                                         (insert "\n")))
+                                     (delete-backward-char 1)))))
+                  (t (prin1-to-string (eval key))))
+           "\n"))
        (cdr `(:dammy-element
               callstack toc
               type
