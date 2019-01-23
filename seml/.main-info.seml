@@ -20,7 +20,9 @@
       "そのため GNU Emacs Lisp Reference Manual 14.4 "
       (a ((target . "_brank") (href . "https://ayatakesi.github.io/lispref/24.5/elisp.html#Customization-Types"))
         "Customization Types")
-      "より、custom-modeのマニュアルを引用します。")
+      "より、custom-modeのマニュアルを引用します。日本語翻訳作業を行われた、Ayanokoji Takesi("
+      (a ((href . "https://github.com/ayatakesi")) "@ayatakesi")
+      ")さんに感謝します。")
     (p ((class . "caption"))
       "ある変数にどのcustomization typeが割り当てられているのかは、タイトルバーのdebugボタンを押すことで確認できます。")
     (div ((class . "section"))
