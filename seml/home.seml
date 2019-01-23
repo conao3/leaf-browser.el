@@ -15,7 +15,7 @@
 
        (debugp)
        (toc) (callstack '("home.seml"))
-       (homep) (groupp) (loadpathp) (undefinedp))
+       (homep) (groupp) (loadpathp) (infop) (undefinedp))
 
   ;; url-encode: (url-hexify-string str)
   ;; url-decode: (httpd-unhex str)
@@ -25,6 +25,7 @@
     (pcase type
       ((or "" 'nil) (setq homep t))
       ("group"      (setq groupp t))
+      ("info"       (setq infop t))
       ("loadpath"   (setq loadpathp t))
       (_            (setq undefinedp t)))
 
