@@ -11,7 +11,7 @@
         "Customization Types")
       "より、custom-modeのマニュアルを引用します。")
     (p ((class . "caption"))
-      "ある変数にどのcustomization typeが割り当てられているかは、ヘッダのdebugボタンを押すことで確認できます。")
+      "ある変数にどのcustomization typeが割り当てられているのかは、タイトルバーのdebugボタンを押すことで確認できます。")
     (div ((class . "section"))
       (h4 nil "UIでの変更を要求するタイプ")
       (h5 nil "boolean")
