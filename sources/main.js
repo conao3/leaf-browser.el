@@ -9,10 +9,6 @@ $(document).ready(function() {
     M.AutoInit();
 });
 
-if (!!window.performance && window.performance.navigation.type == 2) {
-    window.location.reload();
-}
-
 function formSubmit () {
     document.forms['form-main'].submit()
 }
