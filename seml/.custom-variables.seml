@@ -24,6 +24,11 @@
            (sort-fn (lambda (a b)
                       (string< (symbol-name (car a))
                                (symbol-name (car b)))))
+           (custom-type (cdr '(:dummy
+                               boolean integer number float
+                               file directory
+                               function variable hook symbol coding-system face color
+                               sexp key-sequence string character regexp)))
            (boolean-elms (sort
                           (mapcan (lambda (elm)
                                     (let ((sym  (car elm))
