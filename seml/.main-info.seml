@@ -237,12 +237,19 @@
           "基本的にはorg-mode文書群から静的ブログサイトを出力する目的で使用する。私のブログもこのパッケージから出力された静的HTMLで運営されている。")))
     (div ((class . "section"))
       (h5 nil "執筆したQiita記事")
+      (div nil
       (a ((href . "https://qiita.com/conao3/items/851f6dea9e94ce73f385"))
-        (h6 nil "Makefileで.emacs.dの理想的なディレクトリ構造を生成する話 - Emacs Advent Calendar 2018 7日目"))
+        (h6 nil "Makefileで.emacs.dの理想的なディレクトリ構造を生成する話 - Emacs Advent Calendar 2018 7日目")))
+
+      (div nil
       (a ((href . "https://qiita.com/conao3/items/098242804eb34da61f49"))
-        (h6 nil "EmacsのパッケージもTravis Clしてbuild:passingしたい！ - Emacs Advent Calendar 2018 8日目"))
+        (h6 nil "EmacsのパッケージもTravis Clしてbuild:passingしたい！ - Emacs Advent Calendar 2018 8日目")))
+
+      (div nil
       (a ((href . "https://qiita.com/conao3/items/f81cf964198d4da93a05"))
-        (h6 nil "org-publishを使ってorgでブログを書く話 - Emacs Advent Calendar 2018 14日目"))
+        (h6 nil "org-publishを使ってorgでブログを書く話 - Emacs Advent Calendar 2018 14日目")))
+
+      (div nil
       (a ((href . "https://qiita.com/conao3/items/82abfea7a4c81f946e60"))
-        (h6 nil "use-packageからの移行のすゝめ - leaf.elでバージョン安全なinit.elを書く - Emacs Advent Calendar 2018 21日目")))))
+        (h6 nil "use-packageからの移行のすゝめ - leaf.elでバージョン安全なinit.elを書く - Emacs Advent Calendar 2018 21日目"))))))
           
