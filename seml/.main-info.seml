@@ -137,10 +137,27 @@
 
   (div ((id . "license") (class . "section scrollspy"))
     (h4 nil "License")
+    (div ((class . "section"))
     (h5 nil "AGPLv3")
     (p ((class . "caption")) "Copyright (C) 2019  Naoya Yamashita (@conao3) - https://conao3.com")
     (p ((class . "caption"))
       (a ((href . "https://www.gnu.org/licenses/agpl-3.0.html")) "https://www.gnu.org/licenses/agpl-3.0.html")))
+    (div ((class . "section"))
+      (h5 nil "License Description")
+      (p ((class . "caption"))
+        "このパッケージはGNU Emacsへの感謝をもって、RMSとFree Software Foundation, Inc.のフリーソフトウェアの理念に基づき、"
+        "GPL系ライセンスであるAGPLv3のもとで公開します。")
+      (p ((class . "caption"))
+        "AGPLv3は有名なライセンスではありませんが、このパッケージは通常、インターネットを介したサーバー上で実行されるソフトではないため、多くの場合、GPLv3と変わりません。")
+      (p ((class . "caption"))
+        "私はGPLの基礎になっている自由ソフトウェアの" (a ((href . "https://www.gnu.org/licenses/quick-guide-gplv3.html")) "4つの理念")
+        "に賛同し、このライセンスのもとで公開することで、このパッケージがあなたにとって最大の利益をもたらすことを願います。")
+      (p ((class . "caption"))
+        "なお、もしこのleaf-browser.elが役に立つ/面白いと感じられたなら、私の" (a ((href . "https://www.patreon.com/conao3")) "Patreon") "になってもらえないでしょうか。"
+        "あなたの支援によって、このパッケージや他の全く新しいパッケージの開発を続けることが出来ます。")
+      (p ((class . "caption"))
+        "支援者の方には寄付のお礼と証明を兼ねて、このパッケージのホームページのフッターにアイコンを表示させていただきます。"
+        "詳細は私の" (a ((href . "https://www.patreon.com/conao3")) "Patreon") "のページをご覧ください。よろしくお願いします。")))
 
   (div ((class . "section"))
     (h4 nil "Author")
