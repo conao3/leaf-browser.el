@@ -162,7 +162,7 @@
   (div ((id . "author") (class . "section scrollspy"))
     (h4 nil "Author")
     (div ((class . "section"))
-    (h5 nil "Naoya Yamashita (@conao3)")
+    (h5 nil "Naoya Yamashita (" (a ((href . "https://twitter.com/conao_3")) "@conao3") ")")
     (p ((class . "caption"))
       "広島県出身、広島新庄高校を卒業後、広島大学工学部第二類（電気・電子・システム・情報系）に入学。広島大学交響楽団に入団、バイオリンを担当。")
     (p ((class . "caption"))
