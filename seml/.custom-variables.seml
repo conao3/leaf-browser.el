@@ -1,5 +1,5 @@
 `(,@(progn (push path callstack) nil)
-  ,@(let ((form-fn (lambda (sym type symstr)
+  ,@(let* ((form-fn (lambda (sym type symstr)
                      (pcase (get sym 'custom-type)
                        ('boolean
                         `((div ((class . "col s12"))
@@ -21,13 +21,14 @@
                              (or (when (stringp (get sym 'variable-documentation))
                                    (get sym 'variable-documentation))
                                  "No docstring...")))))))
-          (variable-elms (mapcan (lambda (elm)
-                                   (let ((sym  (car elm))
-                                         (type (cadr elm)))
-                                     (when (eq type 'custom-variable)
-                                       `(,elm))))
+          (boolean-elms (mapcan (lambda (elm)
+                                  (let ((sym  (car elm))
+                                        (type (cadr elm)))
+                                    (when (and (eq type 'custom-variable)
+                                               (eq (get sym 'custom-type) 'boolean))
+                                      `(,elm))))
                                  (get lastarg-sym 'custom-group))))
-      (if variable-elms
+      (if boolean-elms
           (mapcar
            (lambda (elm)
              (let* ((sym    (car  elm))
@@ -38,7 +39,7 @@
                   ,@(funcall doc-fn sym type symstr)
                   ,@(when debugp
                       `(,@(seml-import ".custom-variables-debug.seml"))))))
-           (sort variable-elms '(lambda (a b)
+           (sort boolean-elms '(lambda (a b)
                                   (string< (symbol-name (car a))
                                            (symbol-name (car b))))))
         `((div ((class . "row"))
