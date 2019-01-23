@@ -5,7 +5,7 @@
             (div ((class . "container"))
               (div ((class . "nav-wrapper"))
                 (span ((class . "brand-logo"))
-                  (a ((href . ,(funcall rellink-fn "/"))) "leaf-browser.el"))
+                  (a ((href . ,root-url)) "leaf-browser.el"))
                 ;; (div ((class . "nav-content"))
                 ;;   ,@(cond
                 ;;      (editorp (seml-import ".header-editor.seml"))))

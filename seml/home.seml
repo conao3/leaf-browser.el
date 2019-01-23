@@ -1,8 +1,7 @@
 (let* ((root-url        "/leaf-browser") ;; "/seml-mode/live-refresh")
        (seml-import-dir (expand-file-name "seml/" lbrowser-root-dir))
-       (rellink-fn      (lambda (path)
-                          (concat root-url path)))
 
+       (url             httpd-path)
        (split-path      httpd-split-path)
        (query           httpd-query)
 
@@ -39,7 +38,7 @@
                (mapcar (lambda (n)
                          `(,(intern (format "arglast%s" n))
                            ,(httpd-unhex
-                             (car (last split-path (+ n 1))))))
+                             (car (last split-path (+ n lastarg-inx))))))
                        (number-sequence 0 (- (length split-path)
                                              (- lastarg-inx 1)
                                              2)))

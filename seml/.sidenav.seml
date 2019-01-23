@@ -1,7 +1,7 @@
 `(,@(progn (push path callstack) nil)
   (ul ((class . "sidenav sidenav-fixed") (id . "sidenav"))
     (li ((class . "logo"))
-      (a ((href . ,(funcall rellink-fn "/")))
+      (a ((href . ,root-url))
         (img ((width . "250px")
               (src . "/leaf-browser/sources/splash.svg")))))
     (li ((class . "divider")))

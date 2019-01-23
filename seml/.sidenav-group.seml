@@ -11,7 +11,8 @@
              (let ((sym  (car  elm))
                    (type (cadr elm)))
                `(li nil
-                  (a ((href  . ,(concat root-url "/group/" (symbol-name sym))))
+                  (a ((href  . ,(seml-expand-url
+                                 (concat (when homep "group/") (symbol-name sym)) url)))
                     ,(symbol-name sym)))))
            (sort group-elms '(lambda (a b)
                                (string< (symbol-name (car a))
