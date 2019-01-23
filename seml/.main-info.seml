@@ -85,15 +85,15 @@
       (p ((class . "caption"))
         (a ((href . "https://opensource.org/licenses/mit-license.php")) "https://opensource.org/licenses/mit-license.php"))
 
-      (a ((class . "collection-item") (href . "https://github.com/jquery/jquery"))
+      (a ((href . "https://github.com/jquery/jquery"))
         (h5 nil "jquery/jquery"))
       (p ((class . "caption")) "Copyright JS Foundation and other contributors, https://js.foundation/")
 
-      (a ((class . "collection-item") (href . "https://github.com/Dogfalo/materialize"))
+      (a ((href . "https://github.com/Dogfalo/materialize"))
         (h5 nil "Dogfalo/materialize"))
       (p ((class . "caption")) "Copyright (c) 2014-2018 Materialize")
 
-      (a ((class . "collection-item") (href . "https://github.com/tholman/github-corners"))
+      (a ((href . "https://github.com/tholman/github-corners"))
         (h5 nil "tholman/github-corners"))
       (p ((class . "caption")) "Copyright (c) 2016 Tim Holman - http://tholman.com"))
 
@@ -110,7 +110,7 @@
         (h5 nil "custom.el"))
       (p ((class . "caption")) "Copyright (C) 1996-1997, 1999, 2001-2019 Free Software Foundation, Inc.")
 
-      (a ((class . "collection-item") (href . "https://github.com/jrhbailey/emacs-http-server"))
+      (a ((href . "https://github.com/jrhbailey/emacs-http-server"))
         (h5 nil "jrhbailey/emacs-http-server"))
       (p ((class . "caption")) "Copyright (C) 2011 Joe Schafer <joe@jschaf.com>")
 
@@ -123,15 +123,15 @@
       (p ((class . "caption"))
         (a ((href . "https://www.gnu.org/licenses/agpl-3.0.html")) "https://www.gnu.org/licenses/agpl-3.0.html"))
 
-      (a ((class . "collection-item") (href . "https://github.com/conao3/seml-mode.el"))
+      (a ((href . "https://github.com/conao3/seml-mode.el"))
         (h5 nil "conao3/seml-mode.el"))
       (p ((class . "caption")) "Copyright (C) 2019  Naoya Yamashita (@conao3) - https://conao3.com")
 
-      (a ((class . "collection-item") (href . "https://github.com/conao3/leaf.el"))
+      (a ((href . "https://github.com/conao3/leaf.el"))
         (h5 nil "conao3/leaf.el"))
       (p ((class . "caption")) "Copyright (C) 2019  Naoya Yamashita (@conao3) - https://conao3.com")
 
-      (a ((class . "collection-item") (href . "https://github.com/conao3/cort-test.el"))
+      (a ((href . "https://github.com/conao3/cort-test.el"))
         (h5 nil "conao3/cort-test.el"))
       (p ((class . "caption")) "Copyright (C) 2019  Naoya Yamashita (@conao3) - https://conao3.com")
       ))
