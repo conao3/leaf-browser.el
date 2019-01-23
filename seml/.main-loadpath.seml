@@ -5,6 +5,6 @@
     ,@(mapcar (lambda (path)
                 `(a ((class . "collection-item")
                      (href . ,(concat "?targetpath="
-                                      (funcall url-encode-fn path))))
+                                      (url-hexify-string path))))
                    ,(abbreviate-file-name path)))
               load-path)))

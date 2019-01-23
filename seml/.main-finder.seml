@@ -5,7 +5,7 @@
     ,@(mapcar (lambda (path)
                 `(a ((class . "collection-item")
                      (href . ,(concat "?targetfile="
-                                      (funcall url-encode-fn path))))
+                                      (url-hexify-string path))))
                    ,path))
               (mapcan (lambda (x)
                         (file-expand-wildcards
