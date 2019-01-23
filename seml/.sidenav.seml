@@ -8,4 +8,5 @@
     ,@(cond
        ((or homep groupp) (seml-import ".sidenav-group.seml"))))
   (div ((class . "patreon"))
-    (a ((href . "https://www.patreon.com/conao3")) "Become a Patreon")))
+    (a ((target . "_blank")
+        (href . "https://www.patreon.com/conao3")) "Become a Patreon")))
