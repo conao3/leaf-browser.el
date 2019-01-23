@@ -197,7 +197,7 @@
             "Emacs上のhttpdを使うならその元となるデータもS式のほうがEmacsフレンドリーなのではと思い、開発に着手した。"
             "当初はSEML用のインデント、ハイライトのみを提供するメジャーモードとして開発していたが、leaf-browser.elの開発に伴い、ユーティリティ関数も充実してきている。")
           (p ((class . "caption"))
-            "そもそもの元ネタはgauche。Lisp界では新しい発想ではないはずだが、あまりそれを支援するパッケージはないみたいだった。。"))
+            "そもそもの元ネタはgauche。Lisp界では新しい発想ではないはずだが、Elisp界ではあまりそれを支援するパッケージはないみたいだった。。"))
 
         (div nil
           (h6 nil "cort-test.el")
@@ -215,7 +215,7 @@
         (div nil
           (h6 nil "feather-recipes.el")
           (p ((class . "caption"))
-            "feather.elがローカルでする作業を少なくするために、MELPAのレシピから毎日feather.el用のS式を生成する。"
+            "feather.elがローカルで行う作業を少なくするために、MELPAのレシピから毎日feather.el用のS式を生成する。"
             "開発の過程でMELPAのrecipe.jsonが壊れている疑いが発生し、その修正のPRを作成して送った。")
           (p ((class . "caption"))
             "しかしMELPAのコアファイルであり、recipe.jsonはWeb上で公開され影響範囲が把握できないとの理由で未だにマージされていない。"
