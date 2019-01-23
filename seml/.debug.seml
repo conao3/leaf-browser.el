@@ -19,5 +19,6 @@
                                                    (- lastarg-inx 1)
                                                    2))))
                   nil)
-              lbrowser-breadcrumbs lbrowser-loaded-custom-group
+              homep groupp loadpathp undefinedp
+              lbrowser-loaded-custom-group
               httpd-path httpd-query httpd-request httpd-split-path)))))
