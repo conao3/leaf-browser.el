@@ -30,7 +30,15 @@
 
     (when (and (not (assoc "release" httpd-query))
                lbrowser-debugp)
-      (setq debugp t)))
+      (setq debugp t))
+
+    (when (or homep groupp)
+      (let ((group-sym (if homep 'emacs lastarg-sym)))
+        (unless (memq group-sym lbrowser-loaded-custom-group)
+          (push group-sym lbrowser-loaded-custom-group)
+          (with-temp-buffer
+            (custom-buffer-create-internal
+             `((,group-sym custom-group))))))))
 
   (eval
    `(let* ,(if (<= 2 (- (length split-path)
