@@ -4,7 +4,7 @@
            (push '(:id about :disp "About") toc)
            (push '(:id depended-license :disp "License of Dependend software") toc)
            (push '(:id license :disp "License") toc)
-           
+           (push '(:id author :disp "Author") toc)
            nil)
   (div ((id . "introduction") (class . "section scrollspy"))
     (h2 nil "info")
@@ -159,7 +159,7 @@
         "支援者の方には寄付のお礼と証明を兼ねて、このパッケージのホームページのフッターにアイコンを表示させていただきます。"
         "詳細は私の" (a ((href . "https://www.patreon.com/conao3")) "Patreon") "のページをご覧ください。よろしくお願いします。")))
 
-  (div ((class . "section"))
+  (div ((id . "author") (class . "section scrollspy"))
     (h4 nil "Author")
     (div ((class . "section"))
     (h5 nil "Naoya Yamashita (@conao3)")
