@@ -27,6 +27,13 @@
                                      (when (and (eq type 'custom-variable)
                                                 (eq (get sym 'custom-type) 'boolean))
                                        `(,elm))))
+                                 (get lastarg-sym 'custom-group)))
+           (variable-elms (mapcan (lambda (elm)
+                                   (let ((sym  (car elm))
+                                         (type (cadr elm)))
+                                     (when (and (eq type 'custom-variable)
+                                                (not (eq (get sym 'custom-type) 'boolean)))
+                                       `(,elm))))
                                  (get lastarg-sym 'custom-group))))
       (if boolean-elms
           (mapcar
