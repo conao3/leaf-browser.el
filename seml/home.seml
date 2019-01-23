@@ -39,7 +39,8 @@
                         (- lastarg-inx 1)))
                (mapcar (lambda (n)
                          `(,(intern (format "arglast%s" n))
-                           ,(car (last split-path (+ n 1)))))
+                           ,(httpd-unhex
+                             (car (last split-path (+ n 1))))))
                        (number-sequence 0 (- (length split-path)
                                              (- lastarg-inx 1)
                                              2)))
