@@ -315,7 +315,21 @@
 
       (a ((href . "https://github.com/conao3/cort-test.el"))
         (h5 nil "conao3/cort-test.el"))
-      (p ((class . "caption")) "Copyright (C) 2019  Naoya Yamashita (@conao3) - https://conao3.com")))
+      (p ((class . "caption")) "Copyright (C) 2019  Naoya Yamashita (@conao3) - https://conao3.com"))
+
+    (div ((class . "section"))
+      (h5 nil "GFDLv1.3")
+      (p ((class . "caption"))
+        (a ((href . "https://www.gnu.org/licenses/gfdl.html")) "https://www.gnu.org/licenses/gfdl.html"))
+
+      (a ((href . "https://www.gnu.org/software/emacs/manual/html_node/elisp/index.html"))
+        (h5 nil "GNU Emacs Lisp Reference Manual"))
+      (p ((class . "caption")) "Copyright © 1990–1996, 1998–2015 Free Software Foundation, Inc.")
+
+      (a ((href . "https://ayatakesi.github.io/lispref/24.5/elisp.html"))
+        (h5 nil "GNU Emacs Lisp Reference Manual - Japanese translation"))
+      (p ((class . "caption")) "Copyright © 2016–2019 ayatakesi")
+      (p ((class . "caption")) "Copyright © 1990–1996, 1998–2015 Free Software Foundation, Inc.")))
 
   (div ((id . "license") (class . "section scrollspy"))
     (h4 nil "License")
