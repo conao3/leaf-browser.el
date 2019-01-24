@@ -48,26 +48,7 @@
                                  (when (and (eq type 'custom-variable))
                                    `(,elm))))
                              (get lastarg-sym 'custom-group))
-                     sort-fn))
-       (boolean-elms (sort
-                      (mapcan (lambda (elm)
-                                (let ((sym  (car elm))
-                                      (type (cadr elm)))
-                                  (when (and (eq type 'custom-variable)
-                                             (eq (get sym 'custom-type) 'boolean))
-                                    `(,elm))))
-                              (get lastarg-sym 'custom-group))
-                      sort-fn))
-       (variable-elms (sort
-                       (mapcan (lambda (elm)
-                                 (let ((sym  (car elm))
-                                       (type (cadr elm)))
-                                   (when (and (eq type 'custom-variable)
-                                              (not (eq (get sym 'custom-type) 'boolean)))
-                                     `(,elm))))
-                               (get lastarg-sym 'custom-group))
-                       sort-fn))
-       (all-custom-elms (append boolean-elms variable-elms)))
+                     sort-fn)))
   `(,@(progn (push path callstack) nil)
     (ul ((class . "browser-default"))
       ,@(mapcar (lambda (elm)
@@ -94,7 +75,7 @@
                                  ))
                                )))))
                 (sort custom-elms type-sort-fn)))
-    ,@(if all-custom-elms
+    ,@(if custom-elms
           (mapcar
            (lambda (elm)
              (let* ((sym    (car  elm))
@@ -105,7 +86,7 @@
                   ,@(funcall doc-fn sym type symstr)
                   ,@(when debugp
                       `(,@(seml-import ".custom-variables-debug.seml"))))))
-           all-custom-elms)
+           custom-elms)
         `((div ((class . "row"))
             (div ((class . "col s12"))
               (h5 nil "No Custom Variables...")))))))

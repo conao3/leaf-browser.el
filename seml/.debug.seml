@@ -20,7 +20,8 @@
                                          (forward-sexp)
                                          (insert "\n")))
                                      (delete-backward-char 1)))))
-                  (t (prin1-to-string (eval key))))
+                  (t
+                   (concat (prin1-to-string (eval key)) "\n")))
            "\n"))
        (cdr `(:dammy-element
               callstack toc
