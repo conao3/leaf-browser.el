@@ -148,8 +148,7 @@ h4, h5, h6 {
     text-align: center;
 }
 
-ul.browser-default {
-    list-style-type: disc;
+li > div.ul-header {
     font-size: 1.2rem;
 }
 

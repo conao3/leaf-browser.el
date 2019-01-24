@@ -72,7 +72,7 @@
     (ul ((class . "browser-default"))
       ,@(mapcar (lambda (elm)
                   `(li nil
-                     ,(pp-to-string (car elm))
+                     (div ((class . "ul-header")) ,(pp-to-string (car elm)))
                      ,(when debugp
                          `(div ((class . "row"))
                              (div ((class . "col s3"))
