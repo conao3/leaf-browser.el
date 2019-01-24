@@ -68,9 +68,13 @@
        (all-custom-elms (append boolean-elms variable-elms)))
   `(,@(progn (push path callstack) nil)
     (ul nil
-       ,@(mapcar (lambda (elm)
-                   `(li nil ,(pp-to-string (car elm))))
-                 custom-elms))
+      ,@(mapcar (lambda (elm)
+                  `(li nil
+                     ,(pp-to-string (car elm))
+                     (div ((class . "doc"))
+                       ,(seml-htmlize 'emacs-lisp-mode
+                                      (pp-to-string (get (car elm) 'custom-type))))))
+                custom-elms))
     ,@(if all-custom-elms
           (mapcar
            (lambda (elm)
