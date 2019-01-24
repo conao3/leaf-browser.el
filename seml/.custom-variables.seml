@@ -27,9 +27,9 @@
                        (string< (symbol-name (car a))
                                 (symbol-name (car b)))))
        (custom-piority-fn (lambda (x)
-                            (if (atom (get 'calc-context-sensitive-enter 'custom-type))
+                            (if (atom (get (car x) 'custom-type))
                                 (length
-                                 (memq (get 'calc-context-sensitive-enter 'custom-type)
+                                 (memq (get (car x) 'custom-type)
                                        custom-type))
                               0)))
        (type-sort-fn (lambda (a b)
@@ -80,7 +80,7 @@
                            "priority:"
                            (br nil)
                            ,(pp-to-string
-                             (funcall custom-piority-fn (car elm)))))
+                             (funcall custom-piority-fn elm))))
                        (div ((class . "col s11"))
                          (div ((class . "doc"))
                            ,(seml-htmlize 'emacs-lisp-mode
