@@ -1,54 +1,77 @@
-`(,@(progn (push path callstack) nil)
-  ,@(let* ((form-fn (lambda (sym type symstr)
-                      (pcase (get sym 'custom-type)
-                        ('boolean
-                         `((div ((class . "col s12"))
-                             (label nil
-                               (input ((name . ,(concat "input-" symstr))
-                                       (type . "checkbox")))
-                               (span nil ,symstr)))))
-                        (_
-                         `((div ((class . "col s12"))
-                             (h5 nil ,symstr)
-                             (p ((class . "caption"))
-                               "This custom type is not supported")))))))
-           (doc-fn  (lambda (sym type symstr)
-                      `((div ((class . "col s12"))
-                          (p ((class . "caption"))
-                            ,(replace-regexp-in-string
-                              ";"
-                              ";\n"
-                              (or (when (stringp (get sym 'variable-documentation))
-                                    (get sym 'variable-documentation))
-                                  "No docstring...")))))))
-           (sort-fn (lambda (a b)
-                      (string< (symbol-name (car a))
-                               (symbol-name (car b)))))
-           (custom-type (cdr '(:dummy
-                               boolean integer number float
-                               file directory
-                               function variable hook symbol coding-system face color
-                               sexp key-sequence string character regexp)))
-           (boolean-elms (sort
-                          (mapcan (lambda (elm)
-                                    (let ((sym  (car elm))
-                                          (type (cadr elm)))
-                                      (when (and (eq type 'custom-variable)
-                                                 (eq (get sym 'custom-type) 'boolean))
-                                        `(,elm))))
-                                  (get lastarg-sym 'custom-group))
-                          sort-fn))
-           (variable-elms (sort
-                           (mapcan (lambda (elm)
-                                     (let ((sym  (car elm))
-                                           (type (cadr elm)))
-                                       (when (and (eq type 'custom-variable)
-                                                  (not (eq (get sym 'custom-type) 'boolean)))
-                                         `(,elm))))
-                                   (get lastarg-sym 'custom-group))
-                           sort-fn))
-           (all-custom-elms (append boolean-elms variable-elms)))
-      (if all-custom-elms
+(let* ((form-fn (lambda (sym type symstr)
+                  (pcase (get sym 'custom-type)
+                    ('boolean
+                     `((div ((class . "col s12"))
+                         (label nil
+                           (input ((name . ,(concat "input-" symstr))
+                                   (type . "checkbox")))
+                           (span nil ,symstr)))))
+                    (_
+                     `((div ((class . "col s12"))
+                         (h5 nil ,symstr)
+                         (p ((class . "caption"))
+                           "This custom type is not supported")))))))
+       (doc-fn  (lambda (sym type symstr)
+                  `((div ((class . "col s12"))
+                      (p ((class . "caption"))
+                        ,(replace-regexp-in-string
+                          ";"
+                          ";\n"
+                          (or (when (stringp (get sym 'variable-documentation))
+                                (get sym 'variable-documentation))
+                              "No docstring...")))))))
+       (sort-fn (lambda (a b)
+                  (string< (symbol-name (car a))
+                           (symbol-name (car b)))))
+       (alfa-sort-fn (lambda (a b)
+                       (string< (symbol-name (car a))
+                                (symbol-name (car b)))))
+       (type-sort-fn (lambda (a b)
+                       (let ((fn (lambda (x)
+                                   (if (atom (get 'calc-context-sensitive-enter 'custom-type))
+                                       (length
+                                        (memq (get 'calc-context-sensitive-enter 'custom-type)
+                                              custom-type))
+                                     0))))
+                         (> (fn a) (fn b)))))
+       (custom-type (cdr '(:dummy
+                           boolean integer number float
+                           file directory
+                           function variable hook symbol coding-system face color
+                           sexp key-sequence string character regexp)))
+       (custom-elms (sort
+                     (mapcan (lambda (elm)
+                               (let ((sym  (car elm))
+                                     (type (cadr elm)))
+                                 (when (and (eq type 'custom-variable))
+                                   `(,elm))))
+                             (get lastarg-sym 'custom-group))
+                     sort-fn))
+       (boolean-elms (sort
+                      (mapcan (lambda (elm)
+                                (let ((sym  (car elm))
+                                      (type (cadr elm)))
+                                  (when (and (eq type 'custom-variable)
+                                             (eq (get sym 'custom-type) 'boolean))
+                                    `(,elm))))
+                              (get lastarg-sym 'custom-group))
+                      sort-fn))
+       (variable-elms (sort
+                       (mapcan (lambda (elm)
+                                 (let ((sym  (car elm))
+                                       (type (cadr elm)))
+                                   (when (and (eq type 'custom-variable)
+                                              (not (eq (get sym 'custom-type) 'boolean)))
+                                     `(,elm))))
+                               (get lastarg-sym 'custom-group))
+                       sort-fn))
+       (all-custom-elms (append boolean-elms variable-elms)))
+  `(,@(progn (push path callstack) nil)
+    ;; `(ul nil
+    ;;    ,@(mapcar (lambda (elm)
+    ;;                `(li nil ,(pp-to-string elm)))
+    ;;              custom-elms))
+    ,@(if all-custom-elms
           (mapcar
            (lambda (elm)
              (let* ((sym    (car  elm))
