@@ -67,10 +67,10 @@
                        sort-fn))
        (all-custom-elms (append boolean-elms variable-elms)))
   `(,@(progn (push path callstack) nil)
-    ;; `(ul nil
-    ;;    ,@(mapcar (lambda (elm)
-    ;;                `(li nil ,(pp-to-string elm)))
-    ;;              custom-elms))
+    (ul nil
+       ,@(mapcar (lambda (elm)
+                   `(li nil ,(pp-to-string (car elm))))
+                 custom-elms))
     ,@(if all-custom-elms
           (mapcar
            (lambda (elm)
