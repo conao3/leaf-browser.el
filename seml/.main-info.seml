@@ -25,10 +25,11 @@
       (a ((href . "https://github.com/ayatakesi")) "@ayatakesi")
       ")さんに感謝します。")
     (p ((class . "caption"))
-      "ある変数にどのcustomization typeが割り当てられているのかは、タイトルバーのdebugボタンを押すことで確認できます。"))
+      "ある変数にどのcustomization typeが割り当てられているのかは、タイトルバーのdebugボタンを押すことで確認できます。"
+      "Simple Typesにおいてはleaf-browser.elでの利用に有用なように、独自に並び替えとセクション分けを行いました。"))
 
   (div ((id . "simple-types") (class . "sction scrollspy"))
-    (h3 nil "Siple Types")
+    (h3 nil "Simple Types")
     (p ((class . "caption"))
       "このセクションでは、すべてのシンプルデータ型を説明します。これらのカスタマイズ型のうちのいくつかにたいして、カスタマイズウィジェットはC-M-iまたはM-TABによる、インライン補完を提供します。")
     (div ((class . "section"))
