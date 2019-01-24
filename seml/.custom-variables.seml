@@ -81,8 +81,17 @@
                                  ,(pp-to-string
                                    (funcall custom-piority-fn elm))))
                              (div ((class . "col s10"))
-                               ,(seml-htmlize 'emacs-lisp-mode
-                                              (pp-to-string (get (car elm) 'custom-type))))))))
+                               (pre nil
+                                 (span ((class . "constant")) "default") ": "
+                                 ,(seml-htmlize
+                                   'emacs-lisp-mode
+                                   (pp-to-string (get (car elm) 'standard-value)))
+                                 (span ((class . "constant")) "type") ": "
+                                 ,(seml-htmlize
+                                   'emacs-lisp-mode
+                                   (pp-to-string (get (car elm) 'custom-type)))
+                                 )
+                               )))))
                 (sort custom-elms type-sort-fn)))
     ,@(if all-custom-elms
           (mapcar
