@@ -25,6 +25,7 @@
       ")さんに感謝します。")
     (p ((class . "caption"))
       "ある変数にどのcustomization typeが割り当てられているのかは、タイトルバーのdebugボタンを押すことで確認できます。")
+
     (div ((class . "section"))
       (h4 nil "UIでの変更を要求するタイプ")
       (h5 nil "boolean")
@@ -33,6 +34,7 @@
       (p ((class . "caption")) "値は数(浮動小数点数または整数)でなければなりません。")
       (h5 nil "float")
       (p ((class . "caption")) "値は浮動小数点数でなければなりません。"))
+
     (div ((class . "section"))
       (h4 nil "パスを要求するタイプ")
       (h5 nil "file")
@@ -41,6 +43,7 @@
       (p ((class . "caption")) "値は既存のファイル名でなければなりません。ウィジェットは補完を提供します。")
       (h5 nil "directory")
       (p ((class . "caption")) "値はディレクトリー名でなければなりません。ウィジェットは補完を提供します。"))
+
     (div ((class . "section"))
       (h4 nil "補完を要求するタイプ")
       (h5 nil "function")
@@ -57,6 +60,7 @@
       (p ((class . "caption")) "値はフェイス名のシンボルでなければなりません。ウィジェットは補完を提供します。")
       (h5 nil "color")
       (p ((class . "caption")) "値は有効なカラー名でなければなりません。ウィジェットはカラー名にたいする補完と、同様に*Colors*バッファーに表示されるカラーサンプルとカラー名のリストからカラー名を選択するボタンを提供します。"))
+
     (div ((class . "section"))
       (h4 nil "自由記述フォームを要求するタイプ")
       (h5 nil "sexp")
