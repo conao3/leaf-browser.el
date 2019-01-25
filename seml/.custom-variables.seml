@@ -60,8 +60,8 @@
                `(div ((class . "row"))
                   ,@(funcall form-fn sym)
                   ,@(funcall doc-fn sym)
-                  ,@(when debugp
-                      `(,@(seml-import ".custom-variables-debug.seml")))))
+                  (div ,(unless debugp '((class . "hide")))
+                      ,@(seml-import ".custom-variables-debug.seml"))))
            custom-elms)
         `((div ((class . "row"))
             (div ((class . "col s12"))
