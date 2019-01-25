@@ -199,7 +199,7 @@ pre > pre {
     padding: 0;
 }
 
-.doc pre {
+.pre-wrap {
     white-space: pre-wrap;
 }
 
