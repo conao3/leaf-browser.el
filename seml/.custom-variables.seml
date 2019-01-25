@@ -39,13 +39,15 @@
                            function variable hook symbol coding-system face color
                            sexp key-sequence string character regexp)))
        (custom-elms (sort
+                     (sort
                      (mapcan (lambda (elm)
                                (let ((sym  (car elm))
                                      (type (cadr elm)))
                                  (when (and (eq type 'custom-variable))
                                    `(,elm))))
                              (get lastarg-sym 'custom-group))
-                     alfa-sort-fn)))
+                     alfa-sort-fn)
+                    type-sort-fn)))
   `(,@(progn (push path callstack) nil)
     (ul ((class . "browser-default"))
       ,@(mapcar (lambda (elm)
@@ -71,7 +73,7 @@
                                    (pp-to-string (get (car elm) 'custom-type)))
                                  ))
                                )))))
-                (sort custom-elms type-sort-fn)))
+                custom-elms))
     ,@(if custom-elms
           (mapcar
            (lambda (elm)
