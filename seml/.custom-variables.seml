@@ -16,12 +16,16 @@
                   (let ((symstr (symbol-name sym)))
                     `((div ((class . "col s12"))
                         (p ((class . "caption"))
-                          ,(replace-regexp-in-string
-                            ";"
-                            ";\n"
-                            (or (when (stringp (get sym 'variable-documentation))
-                                  (get sym 'variable-documentation))
-                                "No docstring..."))))))))
+                          ,@(if (stringp (get sym 'variable-documentation))
+                                (cddr (seml-htmlize
+                                       'emacs-lisp-mode
+                                       (with-temp-buffer
+                                         (insert (get sym 'variable-documentation))
+                                         (goto-char (point-min))
+                                         (move-end-of-line 1)
+                                         (delete-region (point) (point-max))
+                                         (buffer-substring-no-properties (point-min) (point-max)))))
+                              '("No docstring..."))))))))
        (custom-type (cdr '(:dummy
                            boolean integer number float
                            file directory
