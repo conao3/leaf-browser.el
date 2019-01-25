@@ -1,25 +1,27 @@
-(let* ((form-fn (lambda (sym type symstr)
-                  (pcase (get sym 'custom-type)
-                    ('boolean
-                     `((div ((class . "col s12"))
-                         (label nil
-                           (input ((name . ,(concat "input-" symstr))
-                                   (type . "checkbox")))
-                           (span nil ,symstr)))))
-                    (_
-                     `((div ((class . "col s12"))
-                         (h5 nil ,symstr)
-                         (p ((class . "caption"))
-                           "This custom type is not supported")))))))
-       (doc-fn  (lambda (sym type symstr)
-                  `((div ((class . "col s12"))
-                      (p ((class . "caption"))
-                        ,(replace-regexp-in-string
-                          ";"
-                          ";\n"
-                          (or (when (stringp (get sym 'variable-documentation))
-                                (get sym 'variable-documentation))
-                              "No docstring...")))))))
+(let* ((form-fn (lambda (sym)
+                  (let ((symstr (symbol-name sym)))
+                    (pcase (get sym 'custom-type)
+                      ('boolean
+                       `((div ((class . "col s12"))
+                           (label nil
+                             (input ((name . ,(concat "input-" symstr))
+                                     (type . "checkbox")))
+                             (span nil ,symstr)))))
+                      (_
+                       `((div ((class . "col s12"))
+                           (h5 nil ,symstr)
+                           (p ((class . "caption"))
+                             "This custom type is not supported"))))))))
+       (doc-fn  (lambda (sym)
+                  (let ((symstr (symbol-name sym)))
+                    `((div ((class . "col s12"))
+                        (p ((class . "caption"))
+                          ,(replace-regexp-in-string
+                            ";"
+                            ";\n"
+                            (or (when (stringp (get sym 'variable-documentation))
+                                  (get sym 'variable-documentation))
+                                "No docstring..."))))))))
        (custom-piority-fn (lambda (x)
                             (if (atom (get x 'custom-type))
                                 (length
@@ -77,8 +79,8 @@
           (mapcar
            (lambda (sym)
                `(div ((class . "row"))
-                  ,@(funcall form-fn sym type (symbol-name sym))
-                  ,@(funcall doc-fn sym type (symbol-name sym))
+                  ,@(funcall form-fn sym)
+                  ,@(funcall doc-fn sym)
                   ,@(when debugp
                       `(,@(seml-import ".custom-variables-debug.seml")))))
            custom-elms)
