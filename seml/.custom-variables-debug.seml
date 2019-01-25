@@ -1,29 +1,29 @@
 `(,@(progn (push path callstack) nil)
-    (div ((class . "doc"))
-      (pre nil
-        ,@(mapcan
-           (lambda (elm)
-             (let ((keyname (car elm))
-                   (keysym  (cdr elm)))
-               (when (get sym keysym)
-                 `((span ((class . "constant")) ,(symbol-name keyname))
-                   ": " ,(if (memq keyname
-                                   '(default type))
-                             (seml-htmlize 'emacs-lisp-mode
-                                           (pp-to-string (get sym keysym)))
-                           (concat
-                            (prin1-to-string (get sym keysym)) "\n"))))))
-           '((default         . standard-value)
-             (set             . custom-set)
-             (get             . custom-get)
-             (require         . custom-requests)
-             (risky           . risky-local-variable)
-             (safe            . safe-local-variable)
-             (type            . custom-type)
-             (options         . custom-options)
-             (version         . custom-version)
-             (package-version . custom-package-version)
-             (link            . custom-links)
-             (load            . custom-loads)
-             (tag             . custom-tag)
-             (set-after       . custom-dependencies))))))
+  (div ((class . "doc"))
+    (pre nil
+      ,@(mapcan
+         (lambda (elm)
+           (let ((keyname (car elm))
+                 (keysym  (cdr elm)))
+             (when (get sym keysym)
+               `((span ((class . "constant")) ,(symbol-name keyname))
+                 ": " ,(if (memq keyname
+                                 '(default type))
+                           (seml-htmlize 'emacs-lisp-mode
+                                         (pp-to-string (get sym keysym)))
+                         (concat
+                          (prin1-to-string (get sym keysym)) "\n"))))))
+         '((default         . standard-value)
+           (set             . custom-set)
+           (get             . custom-get)
+           (require         . custom-requests)
+           (risky           . risky-local-variable)
+           (safe            . safe-local-variable)
+           (type            . custom-type)
+           (options         . custom-options)
+           (version         . custom-version)
+           (package-version . custom-package-version)
+           (link            . custom-links)
+           (load            . custom-loads)
+           (tag             . custom-tag)
+           (set-after       . custom-dependencies))))))
