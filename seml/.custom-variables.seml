@@ -9,7 +9,6 @@
                              (span nil ,symstr)))))
                       (_
                        `((div ((class . "col s12"))
-                           (h5 nil ,symstr)
                            (p ((class . "caption"))
                              "This custom type is not supported"))))))))
        (doc-fn  (lambda (sym)
@@ -58,6 +57,7 @@
           (mapcar
            (lambda (sym)
              `(div ((class . "row"))
+                (h5 nil ,(symbol-name sym))
                 ,@(funcall form-fn sym)
                 ,@(funcall doc-fn sym)
                 (div ,(unless debugp '((class . "hide")))
