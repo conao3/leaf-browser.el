@@ -21,14 +21,14 @@
                                 (get sym 'variable-documentation))
                               "No docstring...")))))))
        (custom-piority-fn (lambda (x)
-                            (if (atom (get (car x) 'custom-type))
+                            (if (atom (get x 'custom-type))
                                 (length
-                                 (memq (get (car x) 'custom-type)
+                                 (memq (get x 'custom-type)
                                        custom-type))
                               0)))
        (alfa-sort-fn (lambda (a b)
-                       (string< (symbol-name (car a))
-                                (symbol-name (car b)))))
+                       (string< (symbol-name a)
+                                (symbol-name b))))
        (type-sort-fn (lambda (a b)
                        (> (funcall custom-piority-fn a)
                           (funcall custom-piority-fn b))))
@@ -43,47 +43,44 @@
                                (let ((sym  (car elm))
                                      (type (cadr elm)))
                                  (when (and (eq type 'custom-variable))
-                                   `(,elm))))
+                                   `(,sym))))
                              (get lastarg-sym 'custom-group))
                      alfa-sort-fn)
                     type-sort-fn)))
   `(,@(progn (push path callstack) nil)
     (ul ((class . "browser-default"))
-      ,@(mapcar (lambda (elm)
+      ,@(mapcar (lambda (sym)
                   `(li nil
-                     (div ((class . "ul-header")) ,(pp-to-string (car elm)))
+                     (div ((class . "ul-header")) ,(pp-to-string sym))
                      ,(when debugp
                          `(div ((class . "row"))
                              (div ((class . "col s2"))
                                (p nil
                                  "priority: "
                                  ,(pp-to-string
-                                   (funcall custom-piority-fn elm))))
+                                   (funcall custom-piority-fn sym))))
                              (div ((class . "col s10"))
                                (div ((class . "doc"))
                                (pre nil
                                  (span ((class . "constant")) "default") ": "
                                  ,(seml-htmlize
                                    'emacs-lisp-mode
-                                   (pp-to-string (get (car elm) 'standard-value)))
+                                   (pp-to-string (get sym 'standard-value)))
                                  (span ((class . "constant")) "type") ": "
                                  ,(seml-htmlize
                                    'emacs-lisp-mode
-                                   (pp-to-string (get (car elm) 'custom-type)))
+                                   (pp-to-string (get sym 'custom-type)))
                                  ))
                                )))))
                 custom-elms))
     ,@(if custom-elms
           (mapcar
-           (lambda (elm)
-             (let* ((sym    (car  elm))
-                    (type   (cadr elm))
-                    (symstr (symbol-name sym)))
+           (lambda (sym)
                `(div ((class . "row"))
-                  ,@(funcall form-fn sym type symstr)
-                  ,@(funcall doc-fn sym type symstr)
+                  ,@(funcall form-fn sym type (symbol-name sym))
+                  ,@(funcall doc-fn sym type (symbol-name sym))
                   ,@(when debugp
-                      `(,@(seml-import ".custom-variables-debug.seml"))))))
+                      `(,@(seml-import ".custom-variables-debug.seml")))))
            custom-elms)
         `((div ((class . "row"))
             (div ((class . "col s12"))
