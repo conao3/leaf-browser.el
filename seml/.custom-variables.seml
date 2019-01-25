@@ -54,13 +54,14 @@
       ,@(mapcar (lambda (sym)
                   `(li nil
                      (div ((class . "ul-header")) ,(pp-to-string sym))
-                     ,(seml-htmlize 'emacs-lisp-mode
-                                    (with-temp-buffer
-                                      (insert (get sym 'variable-documentation))
-                                      (goto-char (point-min))
-                                      (move-end-of-line 1)
-                                      (delete-region (point) (point-max))
-                                      (buffer-substring-no-properties (point-min) (point-max))))
+                     (p ((class . "caption"))
+                       ,@(cddr (seml-htmlize 'emacs-lisp-mode
+                                            (with-temp-buffer
+                                              (insert (get sym 'variable-documentation))
+                                              (goto-char (point-min))
+                                              (move-end-of-line 1)
+                                              (delete-region (point) (point-max))
+                                              (buffer-substring-no-properties (point-min) (point-max))))))
                      ,(when debugp
                          `(div ((class . "row"))
                              (div ((class . "col s2"))
