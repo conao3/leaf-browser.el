@@ -1,6 +1,6 @@
 `(,@(progn (push path callstack) nil)
-  (div ((class . "doc"))
-    (pre nil
+  (div nil
+    (pre ((class . "doc"))
       ,@(mapcan
          (lambda (elm)
            (let ((keyname (car elm))
