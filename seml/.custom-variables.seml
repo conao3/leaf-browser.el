@@ -22,6 +22,11 @@
                             (or (when (stringp (get sym 'variable-documentation))
                                   (get sym 'variable-documentation))
                                 "No docstring..."))))))))
+       (custom-type (cdr '(:dummy
+                           boolean integer number float
+                           file directory
+                           function variable hook symbol coding-system face color
+                           sexp key-sequence string character regexp)))
        (custom-piority-fn (lambda (x)
                             (if (atom (get x 'custom-type))
                                 (length
@@ -34,11 +39,6 @@
        (type-sort-fn (lambda (a b)
                        (> (funcall custom-piority-fn a)
                           (funcall custom-piority-fn b))))
-       (custom-type (cdr '(:dummy
-                           boolean integer number float
-                           file directory
-                           function variable hook symbol coding-system face color
-                           sexp key-sequence string character regexp)))
        (custom-elms (sort
                      (sort
                      (mapcan (lambda (elm)
