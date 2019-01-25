@@ -1,5 +1,4 @@
 `(,@(progn (push path callstack) nil)
-  (div nil
     (pre ((class . "doc"))
       ,@(mapcan
          (lambda (elm)
@@ -26,4 +25,4 @@
            (link            . custom-links)
            (load            . custom-loads)
            (tag             . custom-tag)
-           (set-after       . custom-dependencies))))))
+           (set-after       . custom-dependencies)))))
