@@ -30,9 +30,8 @@
                        (string< (symbol-name (car a))
                                 (symbol-name (car b)))))
        (type-sort-fn (lambda (a b)
-                       (let ()
-                         (> (funcall custom-piority-fn a)
-                            (funcall custom-piority-fn b)))))
+                       (> (funcall custom-piority-fn a)
+                          (funcall custom-piority-fn b))))
        (custom-type (cdr '(:dummy
                            boolean integer number float
                            file directory
