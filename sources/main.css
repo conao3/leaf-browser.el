@@ -183,6 +183,12 @@ li > div.ul-header {
     top: 3px;
 }
 
+/* ***** form style ***** */
+
+input[type=range] {
+    border: inherit;
+}
+
 /* ***** pre styles ***** */
 pre {
     font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
