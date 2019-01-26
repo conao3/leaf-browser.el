@@ -1,0 +1,7 @@
+`((div ((class . "col s12"))
+    (label nil
+      (input ((name . "";; ,(concat "input-" symstr)
+                    )
+              (type . "checkbox")))
+      (span nil "s";; ,symstr
+            ))))
