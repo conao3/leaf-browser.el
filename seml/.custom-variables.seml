@@ -11,8 +11,7 @@
                       (_
                        `((h5 nil ,(symbol-name sym))
                            ,@(funcall oneline-doc-fn sym)
-                           ,@(let ((custom-type (prin1-to-string
-                                                 (get sym 'custom-type))))
+                           ,@(let ((custom-type (get sym 'custom-type)))
                                (seml-import ".component.seml"))))))))
        (oneline-doc-fn  (lambda (sym)
                           (let ((symstr (symbol-name sym)))

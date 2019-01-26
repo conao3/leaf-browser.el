@@ -1,7 +1,8 @@
 ;; must let-binding
 ;; - custom-type
 
-`(,@(pcase custom-type
+`(,@(let ((custom-type-str (prin1-to-string custom-type)))
+      (pcase custom-type-str
       ;; special UI
       ("boolean" `((input ((type . "checkbox")
                            (name . ,(concat "input-" symstr))))
@@ -34,4 +35,4 @@
            (input ((class . "materialize-textarea") (type . "text"))))))
       ("regexp"
        `((div ((class . "input-field"))
-           (textarea ((class . "materialize-textarea"))))))))
+           (textarea ((class . "materialize-textarea")))))))))
