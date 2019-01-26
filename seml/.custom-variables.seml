@@ -9,12 +9,11 @@
                              (span nil ,symstr))
                            ,@(funcall oneline-doc-fn sym))))
                       (_
-                       `((div ((class . "col s12"))
-                           (h5 nil ,(symbol-name sym))
+                       `((h5 nil ,(symbol-name sym))
                            ,@(funcall oneline-doc-fn sym)
                            ,@(let ((custom-type (prin1-to-string
                                                  (get sym 'custom-type))))
-                               (seml-import ".component.seml")))))))))
+                               (seml-import ".component.seml"))))))))
        (oneline-doc-fn  (lambda (sym)
                           (let ((symstr (symbol-name sym)))
                             `((p ((class . "caption"))
