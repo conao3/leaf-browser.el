@@ -3,5 +3,5 @@
       (input ((name . "";; ,(concat "input-" symstr)
                     )
               (type . "checkbox")))
-      (span nil "s";; ,symstr
-            ))))
+      (span nil ,custom-type) ;; ,symstr
+            )))

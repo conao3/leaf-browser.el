@@ -1,1 +1,2 @@
-`(,@(seml-import ".component-boolean.seml"))
+`(,@(pcase custom-type
+      ("boolean" (seml-import ".component-boolean.seml"))))
