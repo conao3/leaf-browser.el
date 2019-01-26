@@ -15,7 +15,7 @@
 
        (debugp)
        (toc) (callstack '("home.seml"))
-       (homep) (groupp) (loadpathp) (infop) (ajaxp) (undefinedp))
+       (homep) (groupp) (loadpathp) (infop) (ajaxp) (playgroundp) (undefinedp))
 
   ;; url-encode: (url-hexify-string str)
   ;; url-decode: (httpd-unhex str)
@@ -28,6 +28,7 @@
       ("info"       (setq infop t))
       ("loadpath"   (setq loadpathp t))
       ("ajax"       (setq ajaxp t))
+      ("playground" (setq playgroundp t))
       (_            (setq undefinedp t)))
 
     (when (and (not (assoc "release" httpd-query))
