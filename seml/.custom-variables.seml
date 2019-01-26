@@ -16,18 +16,17 @@
                              "This custom type is not supported"))))))))
        (oneline-doc-fn  (lambda (sym)
                           (let ((symstr (symbol-name sym)))
-                            `(
-                                (p ((class . "caption"))
-                                  ,@(if (stringp (get sym 'variable-documentation))
-                                        (cddr (seml-htmlize
-                                               'emacs-lisp-mode
-                                               (with-temp-buffer
-                                                 (insert (get sym 'variable-documentation))
-                                                 (goto-char (point-min))
-                                                 (move-end-of-line 1)
-                                                 (delete-region (point) (point-max))
-                                                 (buffer-substring-no-properties (point-min) (point-max)))))
-                                      '("No docstring...")))))))
+                            `((p ((class . "caption"))
+                                ,@(if (stringp (get sym 'variable-documentation))
+                                      (cddr (seml-htmlize
+                                             'emacs-lisp-mode
+                                             (with-temp-buffer
+                                               (insert (get sym 'variable-documentation))
+                                               (goto-char (point-min))
+                                               (move-end-of-line 1)
+                                               (delete-region (point) (point-max))
+                                               (buffer-substring-no-properties (point-min) (point-max)))))
+                                    '("No docstring...")))))))
        (custom-type (cdr '(:dummy
                            boolean integer number float
                            file directory
