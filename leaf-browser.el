@@ -106,6 +106,10 @@
     (insert (seml-decode-seml-from-file
              (expand-file-name "seml/home.seml" lbrowser-root-dir))))
 
+  (defservlet* leaf-browser/ajax/:type "text/html" ()
+    (insert (seml-decode-seml-from-file
+             (expand-file-name "seml/ajax.seml" lbrowser-root-dir))))
+
   (defservlet* leaf-browser/sources/:path "text/html" ()
     (insert-file-contents (concat lbrowser-root-dir "sources/" path))
 

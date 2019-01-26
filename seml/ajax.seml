@@ -1,0 +1,35 @@
+(let* ((root-url        "/leaf-browser") ;; "/seml-mode/live-refresh")
+       (seml-import-dir (expand-file-name "seml/" lbrowser-root-dir))
+
+       (url             httpd-path)
+       (split-path      httpd-split-path)
+       (query           httpd-query)
+
+       (args            (cddr split-path))
+       (lastarg-inx     1)
+       (lastarg-str     (progn
+                          (while (string= "" (car (last split-path lastarg-inx)))
+                            (incf lastarg-inx))
+                          (car (last split-path lastarg-inx))))
+       (lastarg-sym     (intern lastarg-str))
+
+       (debugp)
+       (homep) (componentp) (undefinedp))
+
+  ;; url-encode: (url-hexify-string str)
+  ;; url-decode: (httpd-unhex str)
+
+  (progn
+    "initialize variables"
+    (pcase type
+      ((or "" 'nil) (setq homep t))
+      ("component"  (setq componentp t))
+      (_            (setq undefinedp t)))
+
+    (when (and (not (assoc "release" httpd-query))
+               lbrowser-debugp)
+      (setq debugp t)))
+
+  `(
+    ,@(when componentp (seml-import ".component.seml"))
+    ))
