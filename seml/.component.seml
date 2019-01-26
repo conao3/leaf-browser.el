@@ -1,1 +1,1 @@
-'(p nil "s")
+`(,@(seml-import ".component-boolean.seml")

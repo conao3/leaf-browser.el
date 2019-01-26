@@ -30,6 +30,5 @@
                lbrowser-debugp)
       (setq debugp t)))
 
-  `(
-    ,@(when componentp (seml-import ".component.seml"))
+  `(,@(when componentp (seml-import ".component.seml"))
     ))
