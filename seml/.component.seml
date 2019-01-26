@@ -1,2 +1,11 @@
+;; must let-binding
+;; - custom-type
+
 `(,@(pcase custom-type
-      ("boolean" (seml-import ".component-boolean.seml"))))
+      ("boolean" `((input ((type . "checkbox")
+                           (name . ,(concat "input-" symstr))))
+                   (span nil ,symstr)))
+      ("integer" `((p ((class . "range-field"))
+                     (input ((type . "range")
+                             (min . "0")
+                             (max . "100"))))))))
