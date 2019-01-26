@@ -34,5 +34,4 @@
            (input ((class . "materialize-textarea") (type . "text"))))))
       ("regexp"
        `((div ((class . "input-field"))
-           (textarea ((class . "materialize-textarea"))))))
-      ))
+           (textarea ((class . "materialize-textarea"))))))))
