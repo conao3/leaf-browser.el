@@ -33,11 +33,16 @@
                             function variable hook symbol coding-system face color
                             sexp key-sequence string character regexp)))
        (custom-piority-fn (lambda (x)
-                            (if (atom (get x 'custom-type))
+                            (let ((custom-type (get x 'custom-type)))
+                              (cond
+                               ((atom custom-type)
                                 (length
-                                 (memq (get x 'custom-type)
-                                       custom-types))
-                              0)))
+                                 (memq custom-type custom-types)))
+                               ((= 1 (length custom-type))
+                                (length
+                                 (memq (car custom-type) custom-types)))
+                               (t
+                                0)))))
        (alfa-sort-fn (lambda (a b)
                        (string< (symbol-name a)
                                 (symbol-name b))))
