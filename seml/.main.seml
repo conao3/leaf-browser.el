@@ -12,6 +12,7 @@
                ,@(cond
                   (groupp    (seml-import ".main-group.seml"))
                   (infop     (seml-import ".main-info.seml"))
-                  (loadpathp (seml-import ".main-loadpath.seml"))))
+                  (loadpathp (seml-import ".main-loadpath.seml"))
+                  (playgroundp (seml-import ".main-playground.seml"))))
              (div ((class . "col hide-on-small-only m3"))
                ,@(seml-import ".sidetoc.seml")))))))))

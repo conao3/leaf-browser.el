@@ -34,6 +34,6 @@
                                                    (- lastarg-inx 1)
                                                    2))))
                   nil)
-              homep groupp loadpathp infop ajaxp playgroundpundefinedp
+              homep groupp loadpathp infop ajaxp playgroundp undefinedp
               lbrowser-loaded-custom-group
               httpd-path httpd-query httpd-request httpd-split-path)))))
