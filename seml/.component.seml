@@ -35,4 +35,9 @@
              (input ((class . "materialize-textarea") (type . "text"))))))
         ("regexp"
          `((div ((class . "input-field"))
-             (textarea ((class . "materialize-textarea")))))))))
+             (textarea ((class . "materialize-textarea"))))))
+        (t
+         `((div ((class . "input-field"))
+             (textarea ((class . "materialize-textarea"))))
+           (p ((class . "caption"))
+             "cannot display a special form corresponding to this type"))))))
