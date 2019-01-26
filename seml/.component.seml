@@ -20,6 +20,19 @@
       ;; path
       ;; complement
       ;; free form
-      ("string" `((div ((class . "input-field"))
-                    (textarea ((class . "materialize-textarea"))))))
+      ("sexp"
+       `((div ((class . "input-field"))
+           (textarea ((class . "materialize-textarea"))))))
+      ("key-sequence"
+       `((div ((class . "input-field"))
+           (textarea ((class . "materialize-textarea"))))))
+      ("string"
+       `((div ((class . "input-field"))
+           (textarea ((class . "materialize-textarea"))))))
+      ("character"
+       `((div ((class . "input-field"))
+           (input ((class . "materialize-textarea") (type . "text"))))))
+      ("regexp"
+       `((div ((class . "input-field"))
+           (textarea ((class . "materialize-textarea"))))))
       ))
