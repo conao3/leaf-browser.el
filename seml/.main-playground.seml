@@ -1,3 +1,5 @@
 `((a ((id . "play-click") (class . "waves-effect waves-light btn")) "jquery-click")
   (a ((id . "play-ajax") (class . "waves-effect waves-light btn")) "jquery-ajax")
+
+  (pre ((id . "pre-play-ajax")))
   )

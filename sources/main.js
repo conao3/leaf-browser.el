@@ -8,8 +8,26 @@ $(document).ready(function() {
     // $('.scrollspy').scrollSpy();
     M.AutoInit();
 
-    $('#play-click').on('click',function(){
+    $('#play-click').on('click', function() {
         alert("play-click");
+    });
+
+    $('#play-ajax').on('click', function() {
+        $.ajax({
+            type: "POST",
+            url: "/leaf-browser/ajax",
+            data: //"name=John&location=Boston",
+                  {
+                      'userid': 's',
+                      'username': 'a'
+                  }
+        })
+         .done ((data) => {
+             // alert( "Data Saved: " + data );
+         })
+         .always ((data) => {
+             $('#pre-play-ajax').html(data);
+         });
     });
 });
 
