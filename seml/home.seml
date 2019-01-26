@@ -15,7 +15,7 @@
 
        (debugp)
        (toc) (callstack '("home.seml"))
-       (homep) (groupp) (loadpathp) (infop) (undefinedp))
+       (homep) (groupp) (loadpathp) (infop) (ajaxp) (undefinedp))
 
   ;; url-encode: (url-hexify-string str)
   ;; url-decode: (httpd-unhex str)
@@ -27,6 +27,7 @@
       ("group"      (setq groupp t))
       ("info"       (setq infop t))
       ("loadpath"   (setq loadpathp t))
+      ("ajax"       (setq ajaxp t))
       (_            (setq undefinedp t)))
 
     (when (and (not (assoc "release" httpd-query))
@@ -52,10 +53,15 @@
                                              (- lastarg-inx 1)
                                              2)))
              nil)
-      `(html nil
-         ,@(seml-import ".head.seml")
-         (body nil
-           ,@(seml-import ".header.seml")
-           ,@(seml-import ".main.seml")
-           ,@(seml-import ".footer.seml")
-           ,@(seml-import ".script.seml"))))))
+      (cond
+       (ajaxp
+        `(top nil
+           ,@(seml-import ".component.seml")))
+       (t
+        `(html nil
+           ,@(seml-import ".head.seml")
+           (body nil
+             ,@(seml-import ".header.seml")
+             ,@(seml-import ".main.seml")
+             ,@(seml-import ".footer.seml")
+             ,@(seml-import ".script.seml"))))))))

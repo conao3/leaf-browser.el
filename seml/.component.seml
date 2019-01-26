@@ -1,1 +1,1 @@
-`(,@(seml-import ".component-boolean.seml")
+`(,@(seml-import ".component-boolean.seml"))
