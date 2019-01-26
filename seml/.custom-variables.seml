@@ -27,16 +27,16 @@
                                                (delete-region (point) (point-max))
                                                (buffer-substring-no-properties (point-min) (point-max)))))
                                     '("No docstring...")))))))
-       (custom-type (cdr '(:dummy
-                           boolean integer number float
-                           file directory
-                           function variable hook symbol coding-system face color
-                           sexp key-sequence string character regexp)))
+       (custom-types (cdr '(:dummy
+                            boolean integer number float
+                            file directory
+                            function variable hook symbol coding-system face color
+                            sexp key-sequence string character regexp)))
        (custom-piority-fn (lambda (x)
                             (if (atom (get x 'custom-type))
                                 (length
                                  (memq (get x 'custom-type)
-                                       custom-type))
+                                       custom-types))
                               0)))
        (alfa-sort-fn (lambda (a b)
                        (string< (symbol-name a)
