@@ -6,14 +6,17 @@
                            (label nil
                              (input ((name . ,(concat "input-" symstr))
                                      (type . "checkbox")))
-                             (span nil ,symstr)))))
+                             (span nil ,symstr))
+                           ,@(funcall oneline-doc-fn sym))))
                       (_
                        `((div ((class . "col s12"))
+                           (h5 nil ,(symbol-name sym))
+                           ,@(funcall oneline-doc-fn sym)
                            (p ((class . "caption"))
                              "This custom type is not supported"))))))))
        (oneline-doc-fn  (lambda (sym)
                           (let ((symstr (symbol-name sym)))
-                            `((div ((class . "col s12"))
+                            `(
                                 (p ((class . "caption"))
                                   ,@(if (stringp (get sym 'variable-documentation))
                                         (cddr (seml-htmlize
@@ -24,7 +27,7 @@
                                                  (move-end-of-line 1)
                                                  (delete-region (point) (point-max))
                                                  (buffer-substring-no-properties (point-min) (point-max)))))
-                                      '("No docstring..."))))))))
+                                      '("No docstring...")))))))
        (custom-type (cdr '(:dummy
                            boolean integer number float
                            file directory
@@ -57,8 +60,6 @@
           (mapcar
            (lambda (sym)
              `(div ((class . "row"))
-                (h5 nil ,(symbol-name sym))
-                ,@(funcall oneline-doc-fn sym)
                 ,@(funcall form-fn sym)
                 (div ,(unless debugp '((class . "hide")))
                   ,@(seml-import ".custom-variables-debug.seml"))))
