@@ -2,7 +2,15 @@
   (head nil
     (meta ((charset . "utf-8")))
     (meta ((name . "viewport") (content . "width=device-width, initial-scale=1.0")))
-    (title nil "leaf-browser.el")
+    (title nil ,(concat "leaf-browser.el - "
+                        (cond
+                         (homep       "home")
+                         (groupp      lastarg-str)
+                         (loadpathp   "loadpath")
+                         (infop       "info")
+                         (ajaxp       "ajax")
+                         (playgroundp "playground")
+                         (undefinedp  "undefined"))))
     (link ((rel . "stylesheet") (href . "https://fonts.googleapis.com/icon?family=Material+Icons")))
     (link ((rel . "stylesheet") (href . "https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400")))
     (link ((rel . "stylesheet") (href . "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css")))
