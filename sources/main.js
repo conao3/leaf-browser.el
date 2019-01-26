@@ -7,6 +7,10 @@ $(document).ready(function() {
     // $('.tooltipped').tooltip();
     // $('.scrollspy').scrollSpy();
     M.AutoInit();
+
+    $('#play-click').on('click',function(){
+        alert("play-click");
+    });
 });
 
 function formSubmit () {
