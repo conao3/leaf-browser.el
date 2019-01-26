@@ -189,6 +189,10 @@ input[type=range] {
     border: inherit;
 }
 
+textarea.materialize-textarea {
+    background-color: white;
+}
+
 /* ***** pre styles ***** */
 pre {
     font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;

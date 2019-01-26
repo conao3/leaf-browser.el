@@ -2,6 +2,7 @@
 ;; - custom-type
 
 `(,@(pcase custom-type
+      ;; special UI
       ("boolean" `((input ((type . "checkbox")
                            (name . ,(concat "input-" symstr))))
                    (span nil ,symstr)))
@@ -15,4 +16,10 @@
                              (max . "100")))
                      (input ((type . "range")
                              (min . "0")
-                             (max . "100"))))))))
+                             (max . "100"))))))
+      ;; path
+      ;; complement
+      ;; free form
+      ("string" `((div ((class . "input-field"))
+                    (textarea ((class . "materialize-textarea"))))))
+      ))
