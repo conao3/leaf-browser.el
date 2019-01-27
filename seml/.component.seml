@@ -1,45 +1,45 @@
 ;; must let-binding
 ;; - custom-type
 
-`(,@(if (boundp 'custom-type)
-    (let ((custom-type-str (prin1-to-string custom-type)))
-      (pcase custom-type-str
-        ;; special UI
-        ("boolean" `((input ((type . "checkbox")
-                             (name . ,(concat "input-" symstr))))
-                     (span nil ,symstr)))
-        ("integer" `((p ((class . "range-field"))
+`(,@(if (not (boundp 'custom-type))
+        nil
+      (let ((custom-type-str (prin1-to-string custom-type)))
+        (pcase custom-type-str
+          ;; special UI
+          ("boolean" `((input ((type . "checkbox")
+                               (name . ,(concat "input-" symstr))))
+                       (span nil ,symstr)))
+          ("integer" `((p ((class . "range-field"))
+                         (input ((type . "range")
+                                 (min . "0")
+                                 (max . "100"))))))
+          ("flaot" `((p ((class . "range-field"))
+                       (input ((type . "range")
+                               (min . "0")
+                               (max . "100")))
                        (input ((type . "range")
                                (min . "0")
                                (max . "100"))))))
-        ("flaot" `((p ((class . "range-field"))
-                     (input ((type . "range")
-                             (min . "0")
-                             (max . "100")))
-                     (input ((type . "range")
-                             (min . "0")
-                             (max . "100"))))))
-        ;; path
-        ;; complement
-        ;; free form
-        ("sexp"
-         `((div ((class . "input-field"))
-             (textarea ((class . "materialize-textarea"))))))
-        ("key-sequence"
-         `((div ((class . "input-field"))
-             (textarea ((class . "materialize-textarea"))))))
-        ("string"
-         `((div ((class . "input-field"))
-             (textarea ((class . "materialize-textarea"))))))
-        ("character"
-         `((div ((class . "input-field"))
-             (input ((class . "materialize-textarea") (type . "text"))))))
-        ("regexp"
-         `((div ((class . "input-field"))
-             (textarea ((class . "materialize-textarea"))))))
-        (t
-         `((div ((class . "input-field"))
-             (textarea ((class . "materialize-textarea"))))
-           (p ((class . "caption"))
-             "cannot display a special form corresponding to this type")))))
-      nil))
+          ;; path
+          ;; complement
+          ;; free form
+          ("sexp"
+           `((div ((class . "input-field"))
+               (textarea ((class . "materialize-textarea"))))))
+          ("key-sequence"
+           `((div ((class . "input-field"))
+               (textarea ((class . "materialize-textarea"))))))
+          ("string"
+           `((div ((class . "input-field"))
+               (textarea ((class . "materialize-textarea"))))))
+          ("character"
+           `((div ((class . "input-field"))
+               (input ((class . "materialize-textarea") (type . "text"))))))
+          ("regexp"
+           `((div ((class . "input-field"))
+               (textarea ((class . "materialize-textarea"))))))
+          (t
+           `((div ((class . "input-field"))
+               (textarea ((class . "materialize-textarea"))))
+             (p ((class . "caption"))
+               "cannot display a special form corresponding to this type")))))))
