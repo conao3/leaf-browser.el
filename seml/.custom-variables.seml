@@ -10,16 +10,16 @@
                            ,@(funcall oneline-doc-fn sym))))
                       (_
                        `((h5 nil ,(symbol-name sym))
-                           ,@(funcall oneline-doc-fn sym)
-                           ,@(let ((custom-type (get sym 'custom-type)))
-                               (cond
-                                ((atom custom-type)
-                                 (seml-import ".component.seml"))
-                                ((= 1 (length custom-type))
-                                   (let ((custom-type (car custom-type)))
-                                     (seml-import ".component.seml")))
-                                (t
-                                 (seml-import ".component.seml"))))))))))
+                         ,@(funcall oneline-doc-fn sym)
+                         ,@(let ((custom-type (get sym 'custom-type)))
+                             (cond
+                              ((atom custom-type)
+                               (seml-import ".component.seml"))
+                              ((= 1 (length custom-type))
+                               (let ((custom-type (car custom-type)))
+                                 (seml-import ".component.seml")))
+                              (t
+                               (seml-import ".component.seml"))))))))))
        (oneline-doc-fn  (lambda (sym)
                           (let ((symstr (symbol-name sym)))
                             `((p ((class . "caption"))
