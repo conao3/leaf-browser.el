@@ -190,7 +190,8 @@ input[type=range] {
 }
 
 textarea.materialize-textarea {
-    background-color: white;
+    color: rgb(215, 218, 224);
+    background-color: rgb(33, 37, 43);
 }
 
 /* ***** pre styles ***** */
