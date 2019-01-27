@@ -29,6 +29,28 @@
                (textarea ((class . "materialize-textarea"))))))
 
           ;; complement
+          ("function"
+           `((div ((class . "input-field"))
+               (textarea ((class . "materialize-textarea"))))))
+          ("variable"
+           `((div ((class . "input-field"))
+               (textarea ((class . "materialize-textarea"))))))
+          ("hook"
+           `((div ((class . "input-field"))
+               (textarea ((class . "materialize-textarea"))))))
+          ("symbol"
+           `((div ((class . "input-field"))
+               (textarea ((class . "materialize-textarea"))))))
+          ("coding-system"
+           `((div ((class . "input-field"))
+               (textarea ((class . "materialize-textarea"))))))
+          ("face"
+           `((div ((class . "input-field"))
+               (textarea ((class . "materialize-textarea"))))))
+          ("color"
+           `((div ((class . "input-field"))
+               (textarea ((class . "materialize-textarea"))))))
+
           ;; free form
           ("sexp"
            `((div ((class . "input-field"))
