@@ -1,8 +1,9 @@
 ;; must let-binding
 ;; - custom-type
 
-`(,@(if (not (boundp 'custom-type))
-        nil
+`(,@(if (not (boundp 'custom-type)
+             (boundp 'current-value))
+        `((p nil "Must set 'custom-type and 'current-value"))
       (let ((custom-type-str (prin1-to-string custom-type)))
         (pcase custom-type-str
           ;; special UI
