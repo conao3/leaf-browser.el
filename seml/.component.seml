@@ -68,6 +68,7 @@
           ("regexp"
            `((div ((class . "input-field"))
                (textarea ((class . "materialize-textarea"))))))
+
           (t
            `((div ((class . "input-field"))
                (textarea ((class . "materialize-textarea"))))
