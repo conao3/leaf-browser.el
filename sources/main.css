@@ -189,6 +189,10 @@ input[type=range] {
     border: inherit;
 }
 
+.checkbox-caption {
+    margin-left: 40px;
+}
+
 textarea.materialize-textarea {
     color: rgb(215, 218, 224);
     background-color: rgb(33, 37, 43);

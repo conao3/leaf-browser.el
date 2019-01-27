@@ -9,7 +9,8 @@
                                         '(checked . "checked"))
                                      (name . ,(concat "input-" symstr))))
                              (span nil ,symstr))
-                           ,@(funcall oneline-doc-fn sym))))
+                           (div (".checkbox-caption")
+                             ,@(funcall oneline-doc-fn sym)))))
                       (_
                        `((h5 nil ,(symbol-name sym))
                          ,@(funcall oneline-doc-fn sym)
