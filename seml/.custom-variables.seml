@@ -4,8 +4,10 @@
                       ('boolean
                        `((div ((class . "col s12"))
                            (label nil
-                             (input ((name . ,(concat "input-" symstr))
-                                     (type . "checkbox")))
+                             (input ((type . "checkbox")
+                                     ,(when (eval sym)
+                                        '(checked . "checked"))
+                                     (name . ,(concat "input-" symstr))))
                              (span nil ,symstr))
                            ,@(funcall oneline-doc-fn sym))))
                       (_

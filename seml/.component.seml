@@ -8,6 +8,8 @@
         (pcase custom-type-str
           ;; special UI
           ("boolean" `((input ((type . "checkbox")
+                               ,(when current-value
+                                  '(checked . "checked"))
                                (name . ,(concat "input-" symstr))))
                        (span nil ,symstr)))
           ("integer" `((p ((class . "range-field"))
