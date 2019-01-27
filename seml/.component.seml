@@ -21,6 +21,13 @@
                                (min . "0")
                                (max . "100"))))))
           ;; path
+          ("file"
+           `((div ((class . "input-field"))
+               (textarea ((class . "materialize-textarea"))))))
+          ("directory"
+           `((div ((class . "input-field"))
+               (textarea ((class . "materialize-textarea"))))))
+
           ;; complement
           ;; free form
           ("sexp"
