@@ -1,5 +1,13 @@
-`((a ((id . "play-click") (class . "waves-effect waves-light btn")) "jquery-click")
+`((a ("#play-click.btn.waves-effect.waves-light.tooltipped"
+      (data-position . "bottom")
+      (data-tooltip . "tooltip")) "jquery-click")
   (a ((id . "play-ajax") (class . "waves-effect waves-light btn")) "jquery-ajax")
 
-  (pre ((id . "pre-play-ajax")))
-  )
+  (pre ("#pre-play-ajax.tooltipped"
+        (data-position . "left")
+        (data-tooltip . "tooltip")))
+  (label (".tooltipped"
+            (data-position . "left")
+            (data-tooltip . "tooltip"))
+    (input ((type . "checkbox")))
+    (span nil "check")))

@@ -2,8 +2,10 @@
                   (let ((symstr (symbol-name sym)))
                     (pcase (get sym 'custom-type)
                       ('boolean
-                       `((div ((class . "col s12"))
-                           (label nil
+                       `((div nil
+                           (label (".tooltipped"
+                                   (data-position . "left")
+                                   (data-tooltip . "tooltip"))
                              (input ((type . "checkbox")
                                      ,(when (eval sym)
                                         '(checked . "checked"))
