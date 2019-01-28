@@ -12,11 +12,13 @@
                 (a ((class . "top-nav sidenav-trigger full hide-on-large-only")
                     (href . "#") (data-target . "sidenav"))
                   (i ((class . "material-icons")) "menu")))
-              ,@(when lbrowser-breadcrumbs
+              ,@(when split-path
                   `((div ((class . "nav-content"))
-                      ,@(mapcar (lambda (elm)
-                                  `(a ((href . ,(concat root-url "/group/" elm))
+                      ,@(let ((url ""))
+                          (mapcar (lambda (elm)
+                                    (setq url (concat url "/" elm))
+                                  `(a ((href . ,url)
                                        (class . "breadcrumb"))
                                      ,elm))
-                                (reverse lbrowser-breadcrumbs)))))))))
+                                split-path)))))))))
     ,@(seml-import ".sidenav.seml")))
