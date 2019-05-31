@@ -1,10 +1,14 @@
 #+author: conao
 #+date: <2019-01-04 Fri>
 
-[[https://github.com/conao3/leaf-browser.el][https://img.shields.io/github/tag/conao3/leaf-browser.el.svg?style=flat-square]]
+[[https://github.com/conao3/leaf-browser.el][https://raw.githubusercontent.com/conao3/files/master/blob/headers/png/leaf-browser.el.png]]
+[[https://github.com/conao3/leaf-browser.el/blob/master/LICENSE][https://img.shields.io/github/license/conao3/leaf-browser.el.svg?style=flat-square]]
+[[https://github.com/conao3/leaf-browser.el/releases][https://img.shields.io/github/tag/conao3/leaf-browser.el.svg?style=flat-square]]
 [[https://travis-ci.org/conao3/leaf-browser.el][https://img.shields.io/travis/conao3/leaf-browser.el/master.svg?style=flat-square]]
-[[https://github.com/conao3/leaf-browser.el][https://img.shields.io/github/license/conao3/leaf-browser.el.svg?style=flat-square]]
-[[https://github.com/conao3/github-header][https://files.conao3.com/github-header/gif/leaf-browser.el.gif]]
+[[https://app.codacy.com/project/conao3/leaf-browser.el/dashboard][https://img.shields.io/codacy/grade/eeb89f3320c6416dbd08d44886248de9.svg?logo=codacy&style=flat-square]]
+[[https://www.patreon.com/conao3][https://img.shields.io/badge/patreon-@conao3-orange.svg?logo=patreon&style=flat-square]]
+[[https://twitter.com/conao_3][https://img.shields.io/badge/twitter-@conao__3-blue.svg?logo=twitter&style=flat-square]]
+[[https://join.slack.com/t/conao3-support/shared_invite/enQtNTg2MTY0MjkzOTU0LTFjOTdhOTFiNTM2NmY5YTE5MTNlYzNiOTE2MTZlZWZkNDEzZmRhN2E0NjkwMWViZTZiYjA4MDUxYTUzNDZiNjY][https://img.shields.io/badge/chat-on_slack-blue.svg?logo=slack&style=flat-square]]
 
 - [[What is it?]]
 
