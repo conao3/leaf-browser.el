@@ -93,6 +93,7 @@
   "Serve define"
   ;; declare lexical-binding variables
   (defvar type "")
+  (defvar path "")
 
   ;; (mapc (lambda (x)
   ;;         (eval `(defvar ,x nil)))
