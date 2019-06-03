@@ -15,6 +15,12 @@
 * What is it?
 ~leaf-browser.el~ provide Web frontend of Emacs custom-mode.
 
+Now this package is developed, here is debug screanshot.
+
+[[https://raw.githubusercontent.com/conao3/files/master/blob/leaf-browser.el/splash.png]]
+
+[[https://raw.githubusercontent.com/conao3/files/master/blob/leaf-browser.el/debug1.png]]
+
 * License of dependent software
 ** jquery/jquery
 This package depend on [[https://github.com/jquery/jquery][jquery/jquery]].
