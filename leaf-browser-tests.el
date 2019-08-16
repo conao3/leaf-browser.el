@@ -1,4 +1,4 @@
-;;; ctmbrowser-tests.el ---                          -*- lexical-binding: t; -*-
+;;; leaf-browser-tests.el ---                          -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2018  Naoya Yamashita
 
@@ -41,5 +41,5 @@
 ;;  simple test
 ;;
 
-(provide 'ctmbrowser-tests)
-;;; ctmbrowser-tests.el ends here
+;; (provide 'leaf-browser-tests)
+;;; leaf-browser-tests.el ends here
