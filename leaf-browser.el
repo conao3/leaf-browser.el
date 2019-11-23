@@ -4,7 +4,7 @@
 
 ;; Author: Naoya Yamashita <conao@conao-air.local>
 ;; Maintainer: Naoya Yamashita <conao3@gmail.com>
-;; Keywords: settings
+;; Keywords: lisp settings
 ;; Version: 0.0.1
 ;; URL: https://github.com/conao3/leaf-browser.el
 ;; Package-Requires: ((emacs "24.3"))
