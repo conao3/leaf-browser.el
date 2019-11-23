@@ -1,87 +1,70 @@
+## Makefile
+
+# Copyright (C) 2019  Naoya Yamashita
+
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
 all:
 
-include Makefunc.mk
+REPO_USER    := conao3
+PACKAGE_NAME := leaf-browser
+REPO_NAME    := leaf-browser.el
 
-TOP         := $(dir $(lastword $(MAKEFILE_LIST)))
-EMACS_RAW   := $(filter-out emacs-undumped, $(shell compgen -c emacs- | xargs))
-AVAILABLE   := $(strip $(sort $(EMACS_RAW)))
-ALL_EMACS   := $(filter $(AVAILABLE),emacs-24.5 emacs-25.3 emacs-26.1)
+EMACS        ?= emacs
+ELS          := $(shell cask files)
 
-EMACS       ?= emacs
-
-BATCH       := $(EMACS) -Q --batch -L $(TOP)
-
-SIMPLEHTTPD := simple-httpd.el
-LEAF        := leaf.el leaf-backend.el leaf-handler.el leaf-polyfill.el
-SEML_MODE   := seml-mode.el
-HTMLIZE     := htmlize.el
-DEPEND      := $(SIMPLEHTTPD) $(LEAF) $(HTMLIZE) $(SEML_MODE) $(HTMLIZE)
-
-TESTFILE    := leaf-browser-tests.el
-
-ELS         := leaf-browser.el
-
-CORTELS     := $(TESTFILE) $(DEPEND) cort.el
-CORT_ARGS   := -l $(TESTFILE) -f cort-run-tests
-
-LOGFILE     := .make-check.log
+GIT_HOOKS    := pre-commit
 
 ##################################################
-# $(if $(findstring 22,$(shell $* --version)),[emacs-22],[else emacs-22])
 
-all: git-hook $(ELS:.el=.elc)
+.PHONY: all
 
-git-hook:
-	echo $(ALL_EMACS) $(AVAILABLE)
-	cp -a git-hooks/* .git/hooks/
+all: git-hook help
 
-include Makefile-check.mk
+git-hook: $(GIT_HOOKS:%=.git/hooks/%)
 
-##############################
-#  test on all Emacs
+.git/hooks/%: git-hooks/%
+	cp -a $< $@
 
-allcheck: $(ALL_EMACS:%=.make-check-%)
-	@echo ""
-	@cat $(LOGFILE) | grep =====
-	@rm $(LOGFILE)
-
-.make-check-%: $(DEPEND)
-	mkdir -p .make-$*
-	cp -f $(ELS) $(CORTELS) .make-$*/
-	cp -f Makefile-check.mk .make-$*/Makefile
-	$(MAKE) -C .make-$* clean
-	$(call EXPORT,ELS CORT_ARGS DEPEND) \
-	  EMACS=$* $(MAKE) -C .make-$* check 2>&1 | tee -a $(LOGFILE)
-	rm -rf .make-$*
+help:
+	$(info )
+	$(info Commands)
+	$(info ========)
+	$(info   - make          # Install git-hook to your local .git folder)
+	$(info   - make test     # Test $(PACKAGE_NAME))
+	$(info )
+	$(info Cleaning)
+	$(info ========)
+	$(info   - make clean    # Clean compiled files, docker conf files)
+	$(info )
+	$(info This Makefile required `cask`)
+	$(info See https://github.com/$(REPO_USER)/$(REPO_NAME)#contribution)
+	$(info )
 
 ##############################
-#  silent `allcheck' job
 
-test: $(ALL_EMACS:%=.make-test-%)
-	@echo ""
-	@cat $(LOGFILE) | grep =====
-	@rm $(LOGFILE)
+%.elc: %.el .cask
+	cask exec $(EMACS) -Q --batch -f batch-byte-compile $<
 
-.make-test-%: $(DEPEND)
-	mkdir -p .make-$*
-	cp -f $(ELS) $(CORTELS) .make-$*/
-	cp -f Makefile-check.mk .make-$*/Makefile
-	$(MAKE) -C .make-$* clean
-	$(call EXPORT,ELS CORT_ARGS DEPEND) \
-	  EMACS=$* $(MAKE) -C .make-$* check 2>&1 >> $(LOGFILE)
-	rm -rf .make-$*
+.cask: Cask
+	cask install
+	touch $@
 
 ##############################
-#  depend files
 
-$(SIMPLEHTTPD):
-	curl -O https://raw.githubusercontent.com/skeeto/emacs-web-server/master/simple-httpd.el
+test: $(ELS:%.el=%.elc)
+	cask exec buttercup -L .
 
-$(LEAF):
-	curl -O https://raw.githubusercontent.com/conao3/leaf.el/master/$@
-
-$(SEML_MODE):
-	curl -O https://raw.githubusercontent.com/conao3/seml-mode.el/master/$@
-
-$(HTMLIZE):	
-	curl -O https://raw.githubusercontent.com/hniksic/emacs-htmlize/master/$@
+clean:
+	rm -rf $(ELS:%.el=%.elc) .cask
