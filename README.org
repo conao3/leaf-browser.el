@@ -4,7 +4,7 @@
 [[https://github.com/conao3/leaf-browser.el][https://raw.githubusercontent.com/conao3/files/master/blob/headers/png/leaf-browser.el.png]]
 [[https://github.com/conao3/leaf-browser.el/blob/master/LICENSE][https://img.shields.io/github/license/conao3/leaf-browser.el.svg?style=flat-square]]
 [[https://github.com/conao3/leaf-browser.el/releases][https://img.shields.io/github/tag/conao3/leaf-browser.el.svg?style=flat-square]]
-[[https://travis-ci.org/conao3/leaf-browser.el][https://img.shields.io/travis/conao3/leaf-browser.el/master.svg?style=flat-square]]
+[[https://github.com/conao3/leaf-browser.el/actions][https://github.com/conao3/leaf-browser.el/workflows/Main%20workflow/badge.svg]]
 [[https://app.codacy.com/project/conao3/leaf-browser.el/dashboard][https://img.shields.io/codacy/grade/eeb89f3320c6416dbd08d44886248de9.svg?logo=codacy&style=flat-square]]
 [[https://www.patreon.com/conao3][https://img.shields.io/badge/patreon-become%20a%20patron-orange.svg?logo=patreon&style=flat-square]]
 [[https://twitter.com/conao_3][https://img.shields.io/badge/twitter-@conao__3-blue.svg?logo=twitter&style=flat-square]]
