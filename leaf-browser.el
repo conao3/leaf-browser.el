@@ -7,7 +7,7 @@
 ;; Keywords: lisp settings
 ;; Version: 0.0.1
 ;; URL: https://github.com/conao3/leaf-browser.el
-;; Package-Requires: ((emacs "24.3") (leaf "3.5.0") (simple-httpd "1.5.1") (seml-mode "1.5.0"))
+;; Package-Requires: ((emacs "27.1") (leaf "3.5.0") (simple-httpd "1.5.1") (seml-mode "1.5.0"))
 
 ;; This program is free software: you can redistribute it and/or modify
 ;; it under the terms of the GNU Affero General Public License as
