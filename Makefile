@@ -63,7 +63,7 @@ build: .keg
 ##############################
 
 test: build
-	keg exec buttercup -L .
+	keg exec $(EMACS) --batch -L . -l buttercup -f buttercup-run-discover
 
 clean:
 	keg clean
