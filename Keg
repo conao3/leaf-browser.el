@@ -1,0 +1,9 @@
+;; Keg
+
+(source gnu melpa)
+
+(package
+ (leaf-browser
+  (recipe . (leaf-browser :fetcher github :repo "conao3/leaf-browser.el"))))
+
+(dev-dependency buttercup)

@@ -22,13 +22,12 @@ PACKAGE_NAME := leaf-browser
 REPO_NAME    := leaf-browser.el
 
 EMACS        ?= emacs
-ELS          := $(shell cask files)
 
 GIT_HOOKS    := pre-commit
 
 ##################################################
 
-.PHONY: all
+.PHONY: all build test clean
 
 all: git-hook help
 
@@ -48,23 +47,24 @@ help:
 	$(info ========)
 	$(info   - make clean    # Clean compiled files, docker conf files)
 	$(info )
-	$(info This Makefile required `cask`)
+	$(info This Makefile required `keg`)
 	$(info See https://github.com/$(REPO_USER)/$(REPO_NAME)#contribution)
 	$(info )
 
 ##############################
 
-%.elc: %.el .cask
-	cask exec $(EMACS) -Q --batch -f batch-byte-compile $<
-
-.cask: Cask
-	cask install
+.keg: Keg
+	keg install
 	touch $@
+
+build: .keg
+	keg build
 
 ##############################
 
-test: $(ELS:%.el=%.elc)
-	cask exec buttercup -L .
+test: build
+	keg exec buttercup -L .
 
 clean:
-	rm -rf $(ELS:%.el=%.elc) .cask
+	keg clean
+	rm -rf .keg
